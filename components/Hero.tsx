@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import ShaderBackground from "./ShaderBackground";
 
-const words = ["EMPOWERING", "YOUTH", "IN AI."];
+const words = ["STUDENTS", "FOR AI", "LITERACY"];
 
 export default function Hero() {
   return (
