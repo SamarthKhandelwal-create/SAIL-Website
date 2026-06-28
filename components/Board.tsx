@@ -4,43 +4,87 @@ import { motion } from "framer-motion";
 import type { BoardMember } from "@/data/types";
 import Reveal from "./Reveal";
 
+function withLink(member: BoardMember, node: React.ReactNode) {
+  if (!member.link) return node;
+  return (
+    <a
+      href={member.link}
+      target={member.link.startsWith("http") ? "_blank" : undefined}
+      rel="noopener noreferrer"
+      className="block h-full"
+    >
+      {node}
+    </a>
+  );
+}
+
+/**
+ * Feature card: an editorial split so a tall portrait headshot is framed in its
+ * own column (anchored to the top to keep the face) beside a readable text panel.
+ */
+function FeatureCard({ member }: { member: BoardMember }) {
+  return withLink(
+    member,
+    <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-outline/15 bg-surface-container-lowest transition-colors duration-500 hover:border-primary/40 sm:flex-row">
+      <div className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-auto sm:h-auto sm:w-[42%]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={member.photo}
+          alt={member.name}
+          className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        />
+      </div>
+      <div className="flex flex-1 flex-col justify-center gap-4 p-8 md:p-10">
+        <p className="font-body text-label-caps font-bold uppercase tracking-[0.1em] text-secondary">
+          {member.role}
+        </p>
+        <h3 className="font-display text-headline-lg text-primary">
+          {member.name}
+        </h3>
+        {member.bio && (
+          <p className="font-body text-body-md text-on-surface-variant">
+            {member.bio}
+          </p>
+        )}
+        {member.link && (
+          <span className="mt-2 inline-flex items-center gap-2 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary transition-colors group-hover:text-surface-tint">
+            Contact
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function MemberCard({
   member,
   className,
-  large,
 }: {
   member: BoardMember;
   className?: string;
-  large?: boolean;
 }) {
-  const inner = (
+  return withLink(
+    member,
     <div
       className={`group relative h-full overflow-hidden rounded-xl border border-outline/15 bg-surface-container-lowest transition-colors duration-500 hover:border-primary/40 ${className ?? ""}`}
     >
-      <div
-        className={`relative w-full overflow-hidden ${
-          large ? "aspect-[16/10]" : "aspect-square"
-        }`}
-      >
+      <div className="relative aspect-square w-full overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={member.photo}
           alt={member.name}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-        <div className={`absolute inset-x-0 bottom-0 ${large ? "p-8" : "p-6"}`}>
+        <div className="absolute inset-x-0 bottom-0 p-6">
           <p className="mb-1 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary-fixed">
             {member.role}
           </p>
-          <h3
-            className={`font-display text-white ${
-              large ? "text-headline-lg" : "text-2xl"
-            }`}
-          >
-            {member.name}
-          </h3>
+          <h3 className="font-display text-2xl text-white">{member.name}</h3>
           {member.bio && (
             <p className="mt-3 max-h-0 overflow-hidden font-body text-sm text-white/80 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:opacity-100">
               {member.bio}
@@ -50,20 +94,6 @@ function MemberCard({
       </div>
     </div>
   );
-
-  if (member.link) {
-    return (
-      <a
-        href={member.link}
-        target={member.link.startsWith("http") ? "_blank" : undefined}
-        rel="noopener noreferrer"
-        className="block h-full"
-      >
-        {inner}
-      </a>
-    );
-  }
-  return inner;
 }
 
 export default function Board({ board }: { board: BoardMember[] }) {
@@ -99,7 +129,7 @@ export default function Board({ board }: { board: BoardMember[] }) {
             viewport={{ once: true, margin: "0px 0px -10% 0px" }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <MemberCard member={feature} large className="h-full" />
+            <FeatureCard member={feature} />
           </motion.div>
 
           {rest.map((member, i) => (
