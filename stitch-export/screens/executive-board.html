@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAIL Executive Board</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&amp;family=Plus+Jakarta+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#95cfe9",
+                        "surface-container-high": "#e7e8ea",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#606365",
+                        "on-tertiary-fixed": "#2f1500",
+                        "tertiary-container": "#9f683c",
+                        "surface-dim": "#d9dadc",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001f29",
+                        "on-primary-container": "#fbfdff",
+                        "on-primary-fixed-variant": "#004d63",
+                        "primary-fixed": "#bce9ff",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-variant": "#e1e2e4",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#40484c",
+                        "primary": "#25637a",
+                        "secondary-fixed": "#e1e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#5c5f61",
+                        "tertiary-fixed-dim": "#fcb885",
+                        "on-secondary-fixed-variant": "#444749",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "surface": "#f8f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "outline": "#70787d",
+                        "surface-tint": "#28657c",
+                        "tertiary": "#825026",
+                        "primary-container": "#417c93",
+                        "surface-container-low": "#f2f4f5",
+                        "outline-variant": "#c0c8cc",
+                        "tertiary-fixed": "#ffdcc4",
+                        "background": "#f8f9fb",
+                        "surface-container": "#edeef0",
+                        "surface-container-highest": "#e1e2e4",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#693b13",
+                        "surface-bright": "#f8f9fb",
+                        "inverse-primary": "#95cfe9",
+                        "secondary-container": "#dee0e2",
+                        "secondary-fixed-dim": "#c4c7c9",
+                        "on-surface": "#191c1e",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-fixed": "#191c1e",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "stack-sm": "12px",
+                        "margin-mobile": "24px",
+                        "section-gap": "160px",
+                        "content-max-width": "1100px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Oswald"],
+                        "display-xl-mobile": ["Oswald"],
+                        "label-caps": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Oswald"],
+                        "headline-lg": ["Oswald"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-xl-mobile": ["64px", { "lineHeight": "60px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl backdrop-blur-md transition-all duration-500">
+<div class="flex justify-between items-center px-gutter py-6 max-w-content-max-width mx-auto">
+<a class="font-display-xl-mobile text-headline-lg-mobile tracking-tighter text-primary dark:text-primary-fixed-dim hidden md:block" href="#" style="font-family: Oswald; font-size: 32px;">SAIL</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:opacity-70 transition-opacity" href="#">Home</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:opacity-70 transition-opacity" href="#">Chapters</a>
+<a class="font-label-caps text-label-caps text-primary dark:text-primary-fixed-dim border-b border-primary/20 pb-1 hover:opacity-70 transition-opacity" href="#">Board</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded font-label-caps text-label-caps hover:bg-surface-tint transition-colors">Start a Chapter</button>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap">
+<section class="max-w-content-max-width mx-auto px-gutter">
+<div class="mb-24 text-center">
+<h1 class="font-headline-lg text-headline-lg md:font-display-xl md:text-display-xl text-primary mb-6">Executive Board</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">Meet the visionary students leading the charge in AI literacy. We bridge the gap between complex technology and accessible education.</p>
+</div>
+<!-- Board Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Founder Highlight (Spans 8 cols) -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-lowest border border-outline/15 transition-all duration-500 hover:border-outline-variant hover:bg-surface-container-low">
+<div class="aspect-[16/9] md:aspect-[21/9] w-full relative overflow-hidden">
+<img alt="Samarth Khandelwal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic, high-contrast professional portrait of a young male founder (Samarth Khandelwal) in a minimalist, modern office setting. The lighting is crisp and high-key white, reflecting a high-end enterprise aesthetic. The background features subtle blue glass reflections and expansive negative space to emphasize depth and forward-thinking intelligence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcQ4NmYmMhbgP7Dxd-3CLzCmAXnyK6hZAigY_kVhJMh0RevCchGYPtrE9DERIN4k1bAHwA4Jnixx-mzwPhlC003tMNr8M2zElrTYiKu9JRy6r-o8yBljiNoftJxpHztAZmVnwoM21XwSFFtibU3zEliQ_u7WuDsiLlOpkihUABkbiA_ub7T6D0NtELUhAey2Zl5DBsepRAZG0FyQugitQb8XZ04reAqt4NuJgIccnTGc_1sQA2uaiOJsd533s4tptakccVtb6cSf4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full flex flex-col md:flex-row justify-between items-end gap-4">
+<div>
+<p class="font-label-caps text-label-caps text-primary-fixed mb-2 uppercase tracking-widest">Founder &amp; President</p>
+<h2 class="font-headline-lg text-headline-lg text-white">Samarth Khandelwal</h2>
+</div>
+<div class="hidden md:block">
+<a class="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors group/link" href="mailto:sail.national.youth@gmail.com">
+<span class="font-label-caps text-label-caps">Contact</span>
+<span class="material-symbols-outlined transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Board Member 2 (Spans 4 cols) -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-surface-container-lowest border border-outline/15 transition-all duration-500 hover:border-outline-variant hover:bg-surface-container-low">
+<div class="aspect-square w-full relative overflow-hidden">
+<img alt="Board Member" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated headshot of a young female executive board member against a pristine white studio background. The lighting is soft yet directional, highlighting professional demeanor. She wears modern business casual attire in shades of grey or steel blue, aligning with a premium, minimalist technology aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaG_MFD44adH_jWlj53t0XHIU2NlaXu0HXa_utXiKkKpAGopoKJ2iKH0jLKfUcb3SIjffQt_Gd6ZMr4QeG2B4MWJ49-Ar6Kr3TFqdSesqryxM1gEqNuGjOBDmxBRZ-szdiiArccf3f-x2mZM2l3KdkCVxFsGIsckRJR6T9O5-Pe6DEBA540dwszk_SK60MWzAiUyX9ncmBg3dJJLS7Slf-TLyia6q9HGdHOg6R5fiom7diDeQNOA1wm7_iXKTF5LSujMCWGvhn5v0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<p class="font-label-caps text-label-caps text-primary-fixed mb-1 uppercase">Vice President</p>
+<h3 class="font-body-lg text-body-lg font-bold text-white">Jane Doe</h3>
+</div>
+</div>
+</div>
+<!-- Board Member 3 (Spans 4 cols) -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-surface-container-lowest border border-outline/15 transition-all duration-500 hover:border-outline-variant hover:bg-surface-container-low">
+<div class="aspect-square w-full relative overflow-hidden">
+<img alt="Board Member" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A clean, minimalist portrait of a male executive board member. He is positioned slightly off-center in a bright, modern architectural space with subtle blue and grey tonal layers in the background. The mood is calm, authoritative, and focused on educational leadership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMWKlFpzJfxE85-V7PNdphG5dFhin3HEMIafquXu4K-lYNV7odTPghvalfC_e9lQzDGMepLOK3r5zNTdqk6eemAwnoGJXNw9bSv7ouCGh8c7Zh5wUKAZvgW0YY0EMQyYtRweMMBuf8a7yMuD1vVkK-sRXnG7ATo5aHZ_02Rlgr66zGfGJ18R2Z2aFwkPcfU4b7H2XIsr6V2GIbILbcR_y7tsmeiSMBdr8S00Yxumfjb7TGlfcqKxFY6_WGJOu8VFBWb3ONStaID8I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<p class="font-label-caps text-label-caps text-primary-fixed mb-1 uppercase">Director of Curriculum</p>
+<h3 class="font-body-lg text-body-lg font-bold text-white">John Smith</h3>
+</div>
+</div>
+</div>
+<!-- Board Member 4 (Spans 4 cols) -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-surface-container-lowest border border-outline/15 transition-all duration-500 hover:border-outline-variant hover:bg-surface-container-low">
+<div class="aspect-square w-full relative overflow-hidden">
+<img alt="Board Member" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A striking portrait of a female student leader. The image uses expansive negative space and soft, high-key lighting to convey a sense of clarity and intelligence. She is dressed in smart, contemporary attire, fitting a grassroots AI activism organization with a high-end enterprise feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0LQ5I5GeIjn5vbp0u6DEvdQcXJS1ItbKN6BLSnkj5AdmkYxyyuxuv5CB0SaSDXkynmc2uX89xruT7WtVgipj8mUpIHOOeBVmkFrxEVP77_hbTnrYvNXFH32RxUxAGUJB4TWJE4WgO8OeGcaulE6sPEwOZFSBTWOv42VnpZ1m2Y__uYf78GBrj6K3A0UO_8foby8-RZQN8zgInOMGKF_tZVmzs8Uvsj7t6fsuRL0-hMrlLTC0caVCAymmjIFQQfBnFR8l2tXenDMM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<p class="font-label-caps text-label-caps text-primary-fixed mb-1 uppercase">Head of Outreach</p>
+<h3 class="font-body-lg text-body-lg font-bold text-white">Alice Johnson</h3>
+</div>
+</div>
+</div>
+<!-- Board Member 5 (Spans 4 cols) -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-surface-container-lowest border border-outline/15 transition-all duration-500 hover:border-outline-variant hover:bg-surface-container-low">
+<div class="aspect-square w-full relative overflow-hidden">
+<img alt="Board Member" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional headshot of a male board member in a well-lit, minimalist environment. The aesthetic is 'Blue Space', utilizing off-white and soft grey tones in the background to ensure the subject stands out. The image projects trust and technical proficiency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRhc-V6_Qv0Qzv9m6_jxeMrTfIUXGtzM21VeJsU6HgxtV8mMbap-A864spFhEhLuVZG_xEV1MAHtQANa2C82EjgCGcOHC836TN-oxp33M0O4N2_ASbKPI5toxrT4Q6Pkbx45k3vZofGh1jhnbjMUQv-OdbIDyjA5sekMOsyBeK31dvIf-ffAi_zksoN-pym06knrYBR7vFsIemWckDFbR4bbeeJQiax4-IXRlBRbX056DtII5iDA6wXe673s5w-Gk2GWnj-ADpL7o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<p class="font-label-caps text-label-caps text-primary-fixed mb-1 uppercase">Operations Lead</p>
+<h3 class="font-body-lg text-body-lg font-bold text-white">Robert Chen</h3>
+</div>
+</div>
+</div>
+<!-- Board Member 6 (Spans 6 cols) -->
+<div class="md:col-span-6 group relative overflow-hidden rounded-xl bg-surface-container-lowest border border-outline/15 transition-all duration-500 hover:border-outline-variant hover:bg-surface-container-low">
+<div class="aspect-[4/3] w-full relative overflow-hidden">
+<img alt="Board Member" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A dynamic, wide-format portrait of a female executive board member. She is situated in a sleek, glass-walled conference room bathed in bright, natural light. The composition uses depth of field to subtly blur the background, maintaining focus on her professional, approachable demeanor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMQtPYdXhBXqePQG_yJFbTXnoJ4tHy-G5DDyGxcHry-sDcb4HKQ9LbAVsSkwlT6lfKnmkJcxB4ssc4xFNzUIT2Fi01PzLK29S12nMHNJP9f8al4kGX_EAac85KKJsOiQ5VfEV4ApRtKR5MfhNXDjDsVvfgqu-cVoL3n7ATQ9QSkcnZvbDw58KFxqBbVw46ZCYUs1mXx78oKEIELf0wHYFL3RSWIQA5cJAc3edVOp70GBZC74r0CpR3LsQPZl-w4k20acjPtpFRDnA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="font-label-caps text-label-caps text-primary-fixed mb-1 uppercase">Technology Director</p>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white">Sarah Davis</h3>
+</div>
+</div>
+</div>
+<!-- Board Member 7 (Spans 6 cols) -->
+<div class="md:col-span-6 group relative overflow-hidden rounded-xl bg-surface-container-lowest border border-outline/15 transition-all duration-500 hover:border-outline-variant hover:bg-surface-container-low">
+<div class="aspect-[4/3] w-full relative overflow-hidden">
+<img alt="Board Member" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A modern, high-contrast portrait of a male board member. The setting is minimal, perhaps a stark white studio with subtle architectural lines in the background. The lighting is crisp, emphasizing a sharp, premium aesthetic suitable for a forward-thinking AI literacy organization." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFyLNGUZ1vbgenOJer6GgDBQHQTnaglGkZHwWFuDgCsFlhzpIZScREJI2RGEHkIAl5cxBc1z50lhftFWXFRSkIGjIwLIkKSfI816Iaw6m70fLFYDIkhhwAV_FQgKy-ekg4q3c3wPyr6teBB8760ytrGmo_PTWc-wkALwBziF-tmfM_hU6DzYlIMk-_33hs6dcBZlhuCjsUgaSE-fT1ei0U8u_Y0hy0B60szj6NNWRcMw0CztmbkJ9-hBMZdQoF8rUCiucIRubKvHM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="font-label-caps text-label-caps text-primary-fixed mb-1 uppercase">Communications Director</p>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white">Michael Lee</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-low dark:bg-surface-dim bg-surface-container-lowest dark:bg-inverse-surface transition-all duration-300 border-t border-outline/10">
+<div class="flex flex-col md:flex-row justify-between items-start gap-stack-md px-gutter py-stack-lg max-w-content-max-width mx-auto">
+<div class="mb-8 md:mb-0">
+<h2 class="font-display-xl text-headline-lg text-primary dark:text-primary-fixed-dim mb-4" style="font-family: Oswald; font-size: 48px;">SAIL</h2>
+<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed max-w-md">
+                    © 2024 Students For AI Literacy. Lead by Samarth Khandelwal.
+                </p>
+</div>
+<div class="flex flex-col md:flex-row gap-12 md:gap-24">
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-primary uppercase">Contact</span>
+<p class="font-body-md text-body-md text-secondary">Founder: Samarth Khandelwal</p>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors" href="mailto:sail.national.youth@gmail.com">sail.national.youth@gmail.com</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors" href="tel:+15139536153">+1 (513) 953-6153</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-primary uppercase">Social</span>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="https://www.instagram.com/students.for.ai.literacy/" rel="noopener noreferrer" target="_blank">Instagram</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="https://www.linkedin.com/company/students-for-ai-literacy" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

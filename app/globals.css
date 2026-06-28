@@ -1,0 +1,92 @@
+/* Leaflet base styles (scoped import so we don't pull the CDN). Must lead the file. */
+@import "leaflet/dist/leaflet.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #49839b;
+  --primary: #25637a;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: theme("colors.background");
+  color: theme("colors.on-background");
+  overflow-x: hidden;
+}
+
+/* Lenis smooth scroll wiring */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Hide native cursor on devices with a fine pointer (where the custom one shows) */
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor * {
+    cursor: none;
+  }
+}
+
+/* Selection styling */
+::selection {
+  background-color: theme("colors.primary-container");
+  color: #fff;
+}
+
+/* Thin, brand-tinted scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: theme("colors.surface-container");
+}
+::-webkit-scrollbar-thumb {
+  background: theme("colors.outline-variant");
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme("colors.primary");
+}
+
+/* Tone the Leaflet map into the brand palette */
+.leaflet-container {
+  background: #eef3f5 !important;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+}
+.leaflet-tile {
+  filter: grayscale(0.6) brightness(1.05) contrast(0.95);
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(37, 99, 122, 0.18);
+}
+.leaflet-bar a {
+  color: var(--primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

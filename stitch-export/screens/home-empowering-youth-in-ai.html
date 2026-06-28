@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SAIL - Students For AI Literacy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&amp;family=Plus+Jakarta+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#95cfe9",
+                        "surface-container-high": "#e7e8ea",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#606365",
+                        "on-tertiary-fixed": "#2f1500",
+                        "tertiary-container": "#9f683c",
+                        "surface-dim": "#d9dadc",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001f29",
+                        "on-primary-container": "#fbfdff",
+                        "on-primary-fixed-variant": "#004d63",
+                        "primary-fixed": "#bce9ff",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-variant": "#e1e2e4",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#40484c",
+                        "primary": "#25637a",
+                        "secondary-fixed": "#e1e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#5c5f61",
+                        "tertiary-fixed-dim": "#fcb885",
+                        "on-secondary-fixed-variant": "#444749",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "surface": "#f8f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "outline": "#70787d",
+                        "surface-tint": "#28657c",
+                        "tertiary": "#825026",
+                        "primary-container": "#417c93",
+                        "surface-container-low": "#f2f4f5",
+                        "outline-variant": "#c0c8cc",
+                        "tertiary-fixed": "#ffdcc4",
+                        "background": "#f8f9fb",
+                        "surface-container": "#edeef0",
+                        "surface-container-highest": "#e1e2e4",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#693b13",
+                        "surface-bright": "#f8f9fb",
+                        "inverse-primary": "#95cfe9",
+                        "secondary-container": "#dee0e2",
+                        "secondary-fixed-dim": "#c4c7c9",
+                        "on-surface": "#191c1e",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-fixed": "#191c1e",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "stack-sm": "12px",
+                        "margin-mobile": "24px",
+                        "section-gap": "160px",
+                        "content-max-width": "1100px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Oswald"],
+                        "display-xl-mobile": ["Oswald"],
+                        "label-caps": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Oswald"],
+                        "headline-lg": ["Oswald"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-xl-mobile": ["64px", { "lineHeight": "60px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8f9fb; color: #191c1e; }
+        .hero-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .curtain-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .curtain-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden font-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl backdrop-blur-md transition-all duration-500">
+<div class="flex justify-between items-center px-gutter py-6 max-w-content-max-width mx-auto">
+<a class="font-display-xl-mobile text-headline-lg-mobile tracking-tighter text-primary dark:text-primary-fixed-dim md:font-display-xl md:text-headline-lg" href="#">SAIL</a>
+<ul class="hidden md:flex gap-8 items-center">
+<li class=""><a class="font-label-caps text-label-caps text-primary dark:text-primary-fixed-dim border-b border-primary/20 pb-1" href="#">Home</a></li>
+<li class=""><a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:opacity-70" href="#">Chapters</a></li>
+<li class=""><a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:opacity-70" href="#">Board</a></li>
+</ul>
+<a class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:opacity-70 transition-opacity" href="#">Start a Chapter</a>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden pt-24">
+<div class="absolute inset-0 z-0">
+<!-- STITCH_SHADER_START:ANIMATION_1 class="absolute inset-0 w-full h-full" -->
+<div class="absolute inset-0 w-full h-full" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_1" style="display:block;width:100%;height:100%" width="1280" height="1024"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_1');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 mouse = u_mouse / u_resolution;
+    
+    // Create a fluid, liquid motion using sine waves and noise-like patterns
+    float noise = sin(uv.x * 3.0 + u_time * 0.5) * 0.5 + 0.5;
+    noise += sin(uv.y * 4.0 - u_time * 0.3) * 0.5 + 0.5;
+    
+    // Add mouse interaction displacement
+    float dist = distance(uv, mouse);
+    float strength = 0.15 / (dist + 0.5);
+    uv += (uv - mouse) * strength * sin(u_time);
+
+    // Color palette based on #49839b (vec3(0.286, 0.514, 0.608))
+    vec3 color1 = vec3(0.286, 0.514, 0.608); // Primary Steel Blue
+    vec3 color2 = vec3(0.15, 0.35, 0.45);    // Deeper shade
+    vec3 color3 = vec3(0.85, 0.92, 0.95);    // Light highlight
+    
+    float mixFactor = sin(uv.x * 2.0 + uv.y * 1.5 + u_time * 0.2) * 0.5 + 0.5;
+    vec3 finalColor = mix(color1, color2, mixFactor);
+    finalColor = mix(finalColor, color3, noise * 0.2);
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_1 -->
+</div>
+<div class="relative z-10 text-center px-margin-mobile md:px-gutter max-w-content-max-width mx-auto">
+<h1 class="font-display-xl-mobile text-display-xl-mobile md:font-display-xl md:text-display-xl text-primary hero-float">EMPOWERING YOUTH IN AI.</h1>
+<p class="mt-stack-md font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Bridging the gap between artificial intelligence technology and grassroots student activism through AI literacy.</p>
+</div>
+</header>
+<!-- The Mission -->
+<section class="py-section-gap bg-surface-container-lowest px-margin-mobile md:px-gutter curtain-reveal" id="mission">
+<div class="max-w-[800px] mx-auto text-center">
+<p class="font-body-lg text-body-lg md:text-[32px] md:leading-[48px] text-primary font-medium">Students For AI Literacy (SAIL) is a non-profit created and led by students to promote AI literacy skills within youth.</p>
+</div>
+</section>
+<!-- The Origin -->
+<section class="py-section-gap bg-surface px-margin-mobile md:px-gutter curtain-reveal">
+<div class="max-w-content-max-width mx-auto">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary text-center mb-stack-lg">The Origin</h2>
+<div class="flex flex-col md:flex-row gap-stack-lg items-center border border-outline-variant/30 p-8 rounded-xl bg-white/50 backdrop-blur-sm">
+<div class="bg-cover bg-center w-full md:w-1/2 h-64 md:h-96 rounded-lg" data-alt="A bright, high-key architectural photograph of Walnut Hill High School in Cincinnati, Ohio, emphasizing clean lines and modern educational spaces. The lighting is crisp and inviting, highlighting a progressive learning environment in a high-end minimalist style. Subtle blue and slate tones dominate the composition." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuA8NdEl1TObXhKiy_m-XhvECRi12Sbjt3l4q08Xut9Zyyu_jO8JiHpYMgHZiY3wVOGkcW9AAyshV4k42asCorKtuh5Nl0aAAyywiRjcefISqQd9f-b-35KLZsgwJqWX_E2FjpfRsluuMWSfOKlsTxkO7iGWALIHMbODagyHTuJCSPEZrbH-JbKkFvc1HDM2MCeBSuMjv5KIeoQDQoKmxy09zjCoQwvKZjmdmKY3ojxCzEidFEKz-WL3ajjbCYj4T2fYdoafGNbT0ig&quot;);"></div>
+<div class="w-full md:w-1/2">
+<h3 class="font-label-caps text-label-caps text-secondary mb-2">FOUNDED AT</h3>
+<p class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-4">Walnut Hill High School</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Cincinnati, Ohio</p>
+<p class="font-body-lg text-body-lg text-on-surface">What started as a local initiative has grown into a national movement. Our founding chapter set the blueprint for empowering students to understand and shape the future of artificial intelligence.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Ticker -->
+<section class="py-stack-lg bg-primary text-on-primary">
+<div class="max-w-content-max-width mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-around items-center gap-stack-md text-center">
+<div>
+<div class="font-display-xl-mobile text-headline-lg-mobile md:text-[64px] font-bold ticker" data-target="5000">0</div>
+<div class="font-label-caps text-label-caps text-primary-fixed-dim mt-2">STUDENTS TAUGHT</div>
+</div>
+<div class="hidden md:block w-px h-16 bg-primary-container"></div>
+<div>
+<div class="font-display-xl-mobile text-headline-lg-mobile md:text-[64px] font-bold ticker" data-target="150">0</div>
+<div class="font-label-caps text-label-caps text-primary-fixed-dim mt-2">ACTIVE CHAPTERS</div>
+</div>
+<div class="hidden md:block w-px h-16 bg-primary-container"></div>
+<div>
+<div class="font-display-xl-mobile text-headline-lg-mobile md:text-[64px] font-bold ticker" data-target="35">0</div>
+<div class="font-label-caps text-label-caps text-primary-fixed-dim mt-2">STATES REACHED</div>
+</div>
+</div>
+</section>
+<script>
+        // Scroll reveal logic
+        const reveals = document.querySelectorAll('.curtain-reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach(reveal => {
+                const revealTop = reveal.getBoundingClientRect().top;
+                if (revealTop < windowHeight - 100) {
+                    reveal.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Ticker logic
+        const tickers = document.querySelectorAll('.ticker');
+        const animateTickers = () => {
+            tickers.forEach(ticker => {
+                const target = +ticker.getAttribute('data-target');
+                const updateCount = () => {
+                    const current = +ticker.innerText;
+                    const increment = target / 200;
+                    if (current < target) {
+                        ticker.innerText = Math.ceil(current + increment);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        ticker.innerText = target + "+";
+                    }
+                };
+                
+                // Only start animation if visible
+                const rect = ticker.getBoundingClientRect();
+                if(rect.top < window.innerHeight && ticker.innerText === "0") {
+                   updateCount();
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateTickers);
+    </script>
+
+
+</body></html>
