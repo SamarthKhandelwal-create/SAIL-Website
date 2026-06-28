@@ -11,15 +11,21 @@ export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const [enabled, setEnabled] = useState(false);
 
+  // 1) Detect a fine pointer and enable the cursor (renders the ring/dot).
   useEffect(() => {
-    const fine = window.matchMedia("(pointer: fine)").matches;
-    if (!fine) return;
+    if (window.matchMedia("(pointer: fine)").matches) {
+      setEnabled(true);
+      document.body.classList.add("has-custom-cursor");
+    }
+    return () => document.body.classList.remove("has-custom-cursor");
+  }, []);
 
-    setEnabled(true);
-    document.body.classList.add("has-custom-cursor");
-
-    const ring = ringRef.current!;
-    const dot = dotRef.current!;
+  // 2) Once enabled, the ring/dot are in the DOM — wire up the behavior.
+  useEffect(() => {
+    if (!enabled) return;
+    const ring = ringRef.current;
+    const dot = dotRef.current;
+    if (!ring || !dot) return;
 
     // Target (true mouse) vs. eased (ring) position for a trailing effect.
     let mx = window.innerWidth / 2;
@@ -77,9 +83,8 @@ export default function CustomCursor() {
       window.removeEventListener("mouseup", onUp);
       document.removeEventListener("mouseleave", onLeave);
       document.removeEventListener("mouseenter", onEnter);
-      document.body.classList.remove("has-custom-cursor");
     };
-  }, []);
+  }, [enabled]);
 
   if (!enabled) return null;
 
