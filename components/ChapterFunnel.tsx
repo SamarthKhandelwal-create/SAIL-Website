@@ -42,9 +42,8 @@ export default function ChapterFunnel() {
           </Reveal>
           <Reveal delay={1}>
             <p className="font-body text-body-lg text-on-surface-variant">
-              Everything you need to spark AI literacy in your community. We
-              provide the curriculum, the network, and the institutional backing.
-              You provide the leadership.
+              Everything you need to bring AI literacy to your school — curriculum,
+              network, and support. You bring the leadership.
             </p>
           </Reveal>
         </div>

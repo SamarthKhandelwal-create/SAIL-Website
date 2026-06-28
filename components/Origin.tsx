@@ -16,11 +16,8 @@ export default function Origin() {
     <section className="bg-surface px-margin-mobile py-section-gap md:px-gutter">
       <div className="mx-auto max-w-content">
         <Reveal>
-          <p className="mb-3 text-center font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
-            The Origin
-          </p>
           <h2 className="mb-stack-lg text-center font-display text-headline-lg text-primary">
-            Where it started
+            Our Beginnings
           </h2>
         </Reveal>
 
@@ -29,8 +26,8 @@ export default function Origin() {
           <div ref={ref} className="relative h-72 overflow-hidden md:h-auto">
             <motion.img
               style={{ y: imgY, scale: 1.2 }}
-              src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1400&auto=format&fit=crop"
-              alt="Modern high school learning environment"
+              src="/images/walnut-hills.jpg"
+              alt="Walnut Hills High School in Cincinnati, Ohio — the founding chapter of SAIL"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-primary/15 mix-blend-multiply" />
@@ -39,9 +36,6 @@ export default function Origin() {
           {/* Copy */}
           <div className="flex flex-col justify-center bg-surface-container-lowest p-8 md:p-12">
             <Reveal>
-              <h3 className="mb-2 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-secondary">
-                Founded at
-              </h3>
               <p className="mb-2 font-display text-headline-lg text-primary">
                 Walnut Hills High School
               </p>
@@ -49,10 +43,8 @@ export default function Origin() {
                 Cincinnati, Ohio
               </p>
               <p className="font-body text-body-lg text-on-surface">
-                What started as a local initiative has grown into a movement. Our
-                founding chapter set the blueprint for empowering students to
-                understand and shape the future of artificial intelligence — one
-                classroom at a time.
+                An organization that began with a small $400 grant has expanded
+                into a movement focused on empowering the next generation of youth.
               </p>
             </Reveal>
           </div>

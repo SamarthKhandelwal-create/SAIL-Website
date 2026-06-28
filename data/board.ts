@@ -63,7 +63,7 @@ export const board: BoardMember[] = [
   {
     id: "emmy-schulert",
     name: "Emmy Schulert",
-    role: "Outreach",
+    role: "Director of Outreach",
     photo: "/board/emmy.jpeg",
     bio: "A senior who plays flute and tuba in concert and marching band, and aspires to be a museum curator or historian.",
   },

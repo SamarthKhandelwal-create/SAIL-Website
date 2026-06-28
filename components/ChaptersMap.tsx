@@ -30,7 +30,7 @@ export default function ChaptersMap({ chapters }: { chapters: Chapter[] }) {
                 The Network
               </p>
               <h2 className="mb-6 font-display text-headline-lg text-on-surface">
-                Join a growing coalition
+                Join a growing movement
               </h2>
               <p className="mb-8 font-body text-body-lg text-secondary">
                 Our reach is expanding rapidly. Explore the chapters already

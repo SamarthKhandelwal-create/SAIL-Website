@@ -45,7 +45,9 @@ export default function Nav() {
       <div className="mx-auto flex max-w-content items-center justify-between px-margin-mobile py-5 md:px-gutter">
         <a
           href="#home"
-          className="font-display text-2xl font-bold tracking-tight text-primary md:text-3xl"
+          className={`font-display text-2xl font-bold tracking-tight transition-colors md:text-3xl ${
+            scrolled ? "text-primary" : "text-white"
+          }`}
         >
           SAIL
         </a>
@@ -59,16 +61,20 @@ export default function Nav() {
                 <a
                   href={item.href}
                   className={`font-body text-label-caps font-bold uppercase tracking-[0.1em] transition-colors ${
-                    isActive
-                      ? "text-primary"
-                      : "text-secondary hover:text-primary"
+                    scrolled
+                      ? isActive
+                        ? "text-primary"
+                        : "text-secondary hover:text-primary"
+                      : isActive
+                        ? "text-white"
+                        : "text-white/75 hover:text-white"
                   }`}
                 >
                   {item.label}
                   <span
-                    className={`mt-1 block h-px origin-left bg-primary transition-transform duration-300 ${
-                      isActive ? "scale-x-100" : "scale-x-0"
-                    }`}
+                    className={`mt-1 block h-px origin-left transition-transform duration-300 ${
+                      scrolled ? "bg-primary" : "bg-white"
+                    } ${isActive ? "scale-x-100" : "scale-x-0"}`}
                   />
                 </a>
               </li>
@@ -92,7 +98,9 @@ export default function Nav() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center text-primary md:hidden"
+          className={`flex h-10 w-10 items-center justify-center transition-colors md:hidden ${
+            scrolled || open ? "text-primary" : "text-white"
+          }`}
         >
           <span className="relative block h-4 w-6">
             <span
