@@ -26,12 +26,12 @@ function FeatureCard({ member }: { member: BoardMember }) {
   return withLink(
     member,
     <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-outline/15 bg-surface-container-lowest transition-colors duration-500 hover:border-primary/40 sm:flex-row">
-      <div className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-auto sm:h-auto sm:w-[42%]">
+      <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface-container-high sm:aspect-auto sm:h-auto sm:w-[42%]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={member.photo}
           alt={member.name}
-          className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
         />
       </div>
       <div className="flex flex-1 flex-col justify-center gap-4 p-8 md:p-10">
@@ -71,13 +71,13 @@ function MemberCard({
     <div
       className={`group relative h-full overflow-hidden rounded-xl border border-outline/15 bg-surface-container-lowest transition-colors duration-500 hover:border-primary/40 ${className ?? ""}`}
     >
-      <div className="relative aspect-square w-full overflow-hidden">
+      <div className="relative aspect-square w-full overflow-hidden bg-surface-container-high">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={member.photo}
           alt={member.name}
           loading="lazy"
-          className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-6">
@@ -121,21 +121,20 @@ export default function Board({ board }: { board: BoardMember[] }) {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-12">
-          <motion.div
-            className="lg:col-span-8"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <FeatureCard member={feature} />
-          </motion.div>
+        <motion.div
+          className="mx-auto mb-6 max-w-3xl"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <FeatureCard member={feature} />
+        </motion.div>
 
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((member, i) => (
             <motion.div
               key={member.id}
-              className="lg:col-span-4"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px 0px -10% 0px" }}
