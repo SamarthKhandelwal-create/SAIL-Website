@@ -34,14 +34,6 @@ html.lenis body {
   overflow: hidden;
 }
 
-/* Hide native cursor on devices with a fine pointer (where the custom one shows) */
-@media (pointer: fine) {
-  body.has-custom-cursor,
-  body.has-custom-cursor * {
-    cursor: none;
-  }
-}
-
 /* Selection styling */
 ::selection {
   background-color: theme("colors.primary-container");

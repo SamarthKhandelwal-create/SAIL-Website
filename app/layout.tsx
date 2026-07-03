@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -70,10 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${oswald.variable} ${jakarta.variable}`}>
       <body className="font-body antialiased">
-        <SmoothScroll>
-          <CustomCursor />
-          {children}
-        </SmoothScroll>
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
