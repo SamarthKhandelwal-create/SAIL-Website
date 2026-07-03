@@ -15,7 +15,7 @@ export const events: OutreachEvent[] = [
     id: "hands-on-ai-workshop",
     title: "A Hands-On Day of AI Literacy",
     date: "2026-06-22",
-    location: "Youth Center · Cincinnati, OH",
+    location: "Boys & Girls Club Summer Camp · Cincinnati, OH",
     summary:
       "Students explored how AI really works — then put it to the test with a hands-on session and take-home smart notebooks.",
     cover: "/outreach/img-8493.jpg",
@@ -27,7 +27,7 @@ export const events: OutreachEvent[] = [
     photos: [
       {
         src: "/outreach/img-8493.jpg",
-        alt: "Students gathered in front of a screen displaying the SAIL logo at the youth center",
+        alt: "Students gathered in front of a screen displaying the SAIL logo at the Boys & Girls Club",
       },
       {
         src: "/outreach/img-8479.jpg",
@@ -47,7 +47,7 @@ export const events: OutreachEvent[] = [
     id: "summer-ai-literacy-session",
     title: "Summer AI Literacy Session",
     date: "2026-06-08",
-    location: "Youth Center · Cincinnati, OH",
+    location: "Boys & Girls Club Summer Camp · Cincinnati, OH",
     summary:
       "An interactive workshop where students learned to question, understand, and responsibly use the AI tools they meet every day.",
     cover: "/outreach/img-8340.jpg",
@@ -77,25 +77,25 @@ export const events: OutreachEvent[] = [
   },
   {
     id: "teen-center-first-session",
-    title: "Bringing AI Literacy to the Teen Center",
+    title: "Bringing AI Literacy to the Boys & Girls Club",
     date: "2026-03-24",
-    location: "Teen Center · Cincinnati, OH",
+    location: "Boys & Girls Club Summer Camp · Cincinnati, OH",
     summary:
       "Our first community session — small-group conversations that met students where they are and made AI approachable.",
     cover: "/outreach/img-7552.jpg",
     article: [
-      "SAIL's outreach began with a simple idea: meet students where they already gather. At a local teen center, our volunteers set up around the tables and started a conversation about artificial intelligence — no jargon, no pressure, just questions.",
+      "SAIL's outreach began with a simple idea: meet students where they already gather. At the Boys & Girls Club Summer Camp, our volunteers set up around the tables and started a conversation about artificial intelligence — no jargon, no pressure, just questions.",
       "Working in small groups, students talked through where they'd already run into AI and what they wished they understood about it. The relaxed setting made it easy to ask the honest questions that a formal classroom sometimes discourages.",
       "That first afternoon set the tone for everything since — approachable, student-led, and rooted in real conversation. It's where the SAIL outreach program found its footing.",
     ],
     photos: [
       {
         src: "/outreach/img-7552.jpg",
-        alt: "SAIL volunteers leading a discussion around tables at the teen center",
+        alt: "SAIL volunteers leading a discussion around tables at the Boys & Girls Club",
       },
       {
         src: "/outreach/img-7553.jpg",
-        alt: "Students working through an activity in small groups at the teen center",
+        alt: "Students working through an activity in small groups at the Boys & Girls Club",
       },
     ],
   },
