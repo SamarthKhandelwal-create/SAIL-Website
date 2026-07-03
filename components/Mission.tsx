@@ -22,6 +22,15 @@ export default function Mission() {
         className="mx-auto max-w-[820px] text-center"
       >
         <motion.p
+          className="mb-stack-md font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "0px 0px -20% 0px" }}
+          transition={{ duration: 1 }}
+        >
+          Our Mission
+        </motion.p>
+        <motion.p
           className="font-body text-2xl font-medium leading-snug text-primary md:text-[34px] md:leading-[1.35]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -30,7 +39,9 @@ export default function Mission() {
         >
           Students For AI Literacy{" "}
           <span className="text-on-surface-variant">(SAIL)</span> is a non-profit
-          created and led by students to promote AI literacy skills within youth.
+          created and led by students to promote AI literacy skills within youth
+          — making the tools shaping their future something they understand,
+          question, and use responsibly.
         </motion.p>
       </motion.div>
     </section>

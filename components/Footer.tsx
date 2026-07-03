@@ -85,7 +85,7 @@ export default function Footer() {
             </p>
             <ul className="space-y-3 font-body text-body-md text-secondary">
               <li>
-                <a href="#chapters" className="transition-colors hover:text-primary">
+                <a href="/#chapters" className="transition-colors hover:text-primary">
                   Start a Chapter
                 </a>
               </li>
@@ -100,8 +100,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#board" className="transition-colors hover:text-primary">
-                  Our Board
+                <a href="/#board" className="transition-colors hover:text-primary">
+                  Leadership
+                </a>
+              </li>
+              <li>
+                <a href="/#outreach" className="transition-colors hover:text-primary">
+                  Outreach
                 </a>
               </li>
             </ul>
@@ -110,8 +115,7 @@ export default function Footer() {
 
         <div className="mt-stack-lg border-t border-outline/10 pt-6">
           <p className="font-body text-body-md text-secondary">
-            © {new Date().getFullYear()} Students For AI Literacy. Led by{" "}
-            {site.contact.founder}.
+            © {new Date().getFullYear()} Students For AI Literacy.
           </p>
         </div>
       </div>

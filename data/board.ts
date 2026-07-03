@@ -7,7 +7,12 @@ import type { BoardMember } from "./types";
  * add one, copy a block and drop their headshot in /public/board.
  *
  * `feature: true` makes a member span the wide hero card at the top of the grid.
+ *
+ * `link` is each member's contact email as a `mailto:` — the whole card links
+ * to it. Swap the org address below for a member's own email as they're added.
  */
+const ORG_EMAIL = "sail.national.youth@gmail.com";
+
 export const board: BoardMember[] = [
   {
     id: "samarth-khandelwal",
@@ -15,7 +20,7 @@ export const board: BoardMember[] = [
     role: "President & Founder",
     photo: "/board/samarth.png",
     bio: "Founded SAIL after noticing how many students used AI irresponsibly. Plans to major in computer science and finance; enjoys piano, cello, and running.",
-    link: "mailto:sail.national.youth@gmail.com",
+    link: "mailto:skhandelwal1324@gmail.com",
     feature: true,
   },
   {
@@ -24,6 +29,7 @@ export const board: BoardMember[] = [
     role: "Vice President",
     photo: "/board/armaan.png",
     bio: "A finance enthusiast who finds enjoyment in building people up — and that's also his goal in SAIL.",
+    link: `mailto:${ORG_EMAIL}`,
   },
   {
     id: "kayla-ofosu",
@@ -31,6 +37,7 @@ export const board: BoardMember[] = [
     role: "Director of Curriculum",
     photo: "/board/kayla.jpeg",
     bio: "Women's and mental-health advocate, InHerVision founder, epidemiology champion, and aspiring AI-health innovator driving impact.",
+    link: `mailto:${ORG_EMAIL}`,
   },
   {
     id: "dharshenee-kasiviswanathan",
@@ -38,6 +45,7 @@ export const board: BoardMember[] = [
     role: "Director of Outreach",
     photo: "/board/dharshenee.jpg",
     bio: "An active person who loves to read, roller skate, and listen to music.",
+    link: `mailto:${ORG_EMAIL}`,
   },
   {
     id: "ariv-sharma",
@@ -45,6 +53,7 @@ export const board: BoardMember[] = [
     role: "Director of Marketing & Communications",
     photo: "/board/ariv.jpeg",
     bio: "Aspires to run his own tech business. Into coding, photography, casual gaming, music production, and tennis.",
+    link: `mailto:${ORG_EMAIL}`,
   },
   {
     id: "kushagra-khandelwal",
@@ -52,6 +61,7 @@ export const board: BoardMember[] = [
     role: "Director of Chapter Expansion",
     photo: "/board/kushagra.jpg",
     bio: "Enjoys playing video games and aspires to become an engineer.",
+    link: `mailto:${ORG_EMAIL}`,
   },
   {
     id: "jason-bronson",
@@ -59,6 +69,7 @@ export const board: BoardMember[] = [
     role: "Director of Treasury",
     photo: "/board/jason.jpeg",
     bio: "Cincinnati entrepreneur and professional photographer who also serves with the Cincinnati Fire Department as a Fire Cadet.",
+    link: `mailto:${ORG_EMAIL}`,
   },
   {
     id: "emmy-schulert",
@@ -66,5 +77,6 @@ export const board: BoardMember[] = [
     role: "Director of Outreach",
     photo: "/board/emmy.jpeg",
     bio: "A senior who plays flute and tuba in concert and marching band, and aspires to be a museum curator or historian.",
+    link: `mailto:${ORG_EMAIL}`,
   },
 ];

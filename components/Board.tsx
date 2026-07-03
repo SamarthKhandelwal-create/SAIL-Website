@@ -109,10 +109,10 @@ export default function Board({ board }: { board: BoardMember[] }) {
         <Reveal>
           <div className="mb-20 text-center">
             <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
-              Leadership
+              Our Team
             </p>
             <h2 className="mb-6 font-display text-display-xl leading-[0.95] text-primary">
-              Executive Board
+              Leadership
             </h2>
             <p className="mx-auto max-w-2xl font-body text-body-lg text-secondary">
               Meet the students leading the charge in AI literacy — bridging the

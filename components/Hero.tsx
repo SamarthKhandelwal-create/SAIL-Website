@@ -44,24 +44,6 @@ export default function Hero() {
           activism through AI literacy.
         </motion.p>
       </div>
-
-      {/* Scroll cue */}
-      <motion.a
-        href="#mission"
-        aria-label="Scroll to mission"
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/80"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
-      >
-        <span className="flex h-10 w-6 items-start justify-center rounded-full border border-white/50 p-1.5">
-          <motion.span
-            className="block h-2 w-1 rounded-full bg-white"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </span>
-      </motion.a>
     </header>
   );
 }

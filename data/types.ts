@@ -41,3 +41,29 @@ export type Stats = {
   activeChapters: number;
   statesReached: number;
 };
+
+export type OutreachPhoto = {
+  /** Path under /public (e.g. "/outreach/img-8340.jpg"). */
+  src: string;
+  /** Descriptive alt text / caption. */
+  alt: string;
+};
+
+export type OutreachEvent = {
+  /** Stable slug, used as the article URL (/outreach/[slug]) and React key. */
+  id: string;
+  /** Headline for the event. */
+  title: string;
+  /** ISO date the event took place, "YYYY-MM-DD". Drives the calendar. */
+  date: string;
+  /** Where it happened. */
+  location: string;
+  /** One-sentence teaser shown on the home-page card. */
+  summary: string;
+  /** Card / hero image path under /public. */
+  cover: string;
+  /** Full write-up: each string is a paragraph. */
+  article: string[];
+  /** Photo gallery for the article + home page. */
+  photos: OutreachPhoto[];
+};
