@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 function InstagramIcon() {
@@ -85,9 +86,9 @@ export default function Footer() {
             </p>
             <ul className="space-y-3 font-body text-body-md text-secondary">
               <li>
-                <a href="/#chapters" className="transition-colors hover:text-primary">
+                <Link href="/chapters" className="transition-colors hover:text-primary">
                   Start a Chapter
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -100,14 +101,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/#board" className="transition-colors hover:text-primary">
+                <Link href="/leadership" className="transition-colors hover:text-primary">
                   Leadership
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#outreach" className="transition-colors hover:text-primary">
+                <Link href="/outreach" className="transition-colors hover:text-primary">
                   Outreach
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

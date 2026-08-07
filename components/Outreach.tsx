@@ -13,35 +13,47 @@ function shortDate(d: string) {
   return `${MONTHS[m - 1]} ${day}, ${y}`;
 }
 
-export default function Outreach({ events }: { events: OutreachEvent[] }) {
+const INTRO =
+  "AI literacy only matters if it reaches people. Here’s where we’ve been — hands-on sessions meeting students where they already are and making AI something they can question and use well.";
+
+export default function Outreach({
+  events,
+  showHeading = true,
+}: {
+  events: OutreachEvent[];
+  showHeading?: boolean;
+}) {
   const sorted = [...events].sort((a, b) => b.date.localeCompare(a.date));
-  // A photo strip for the home page, drawn from across the recent sessions.
+  // A photo strip drawn from across the recent sessions.
   const gallery = sorted.flatMap((e) => e.photos).slice(0, 8);
 
   return (
-    <section
-      id="outreach"
-      className="scroll-mt-24 bg-surface px-margin-mobile py-section-gap md:px-gutter"
-    >
+    <section className="bg-surface px-margin-mobile py-section-gap md:px-gutter">
       <div className="mx-auto max-w-content">
         {/* Heading */}
-        <div className="mb-16 grid items-end gap-stack-lg md:grid-cols-2">
-          <Reveal>
-            <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
-              In the community
+        {showHeading ? (
+          <div className="mb-16 grid items-end gap-stack-lg md:grid-cols-2">
+            <Reveal>
+              <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
+                In the community
+              </p>
+              <h2 className="font-display text-display-xl leading-[0.95] text-primary">
+                Recent Outreach
+              </h2>
+            </Reveal>
+            <Reveal delay={1}>
+              <p className="font-body text-body-lg text-on-surface-variant">
+                {INTRO}
+              </p>
+            </Reveal>
+          </div>
+        ) : (
+          <Reveal className="mb-16">
+            <p className="max-w-3xl font-body text-body-lg text-on-surface-variant">
+              {INTRO}
             </p>
-            <h2 className="font-display text-display-xl leading-[0.95] text-primary">
-              Recent Outreach
-            </h2>
           </Reveal>
-          <Reveal delay={1}>
-            <p className="font-body text-body-lg text-on-surface-variant">
-              AI literacy only matters if it reaches people. Here&rsquo;s where
-              we&rsquo;ve been — hands-on sessions meeting students where they
-              already are and making AI something they can question and use well.
-            </p>
-          </Reveal>
-        </div>
+        )}
 
         {/* Calendar */}
         <Reveal className="mb-20">

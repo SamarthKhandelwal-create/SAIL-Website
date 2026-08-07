@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { events } from "@/data/events";
+import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 const MONTHS = [
@@ -51,25 +52,8 @@ export default async function EventArticle({
 
   return (
     <>
+      <Nav />
       <main>
-        {/* Top bar */}
-        <div className="border-b border-outline/10 bg-surface-container-lowest">
-          <div className="mx-auto flex max-w-content items-center justify-between px-margin-mobile py-5 md:px-gutter">
-            <Link
-              href="/"
-              className="font-display text-2xl font-bold tracking-tight text-primary md:text-3xl"
-            >
-              SAIL
-            </Link>
-            <Link
-              href="/#outreach"
-              className="font-body text-label-caps font-bold uppercase tracking-[0.1em] text-secondary transition-colors hover:text-primary"
-            >
-              ← All outreach
-            </Link>
-          </div>
-        </div>
-
         {/* Hero */}
         <header className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -93,6 +77,13 @@ export default async function EventArticle({
 
         {/* Article body */}
         <article className="mx-auto max-w-[720px] px-margin-mobile py-16 md:px-gutter md:py-24">
+          <Link
+            href="/outreach"
+            className="mb-10 inline-flex font-body text-label-caps font-bold uppercase tracking-[0.1em] text-secondary transition-colors hover:text-primary"
+          >
+            ← All outreach
+          </Link>
+
           {event.article.map((para, i) => (
             <p
               key={i}

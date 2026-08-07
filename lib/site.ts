@@ -17,9 +17,9 @@ export const site = {
     linkedin: "https://www.linkedin.com/company/students-for-ai-literacy",
   },
   nav: [
-    { label: "Home", href: "#home" },
-    { label: "Outreach", href: "#outreach" },
-    { label: "Start a Chapter", href: "#chapters" },
-    { label: "Leadership", href: "#board" },
+    { label: "Home", href: "/" },
+    { label: "Outreach", href: "/outreach" },
+    { label: "Start a Chapter", href: "/chapters" },
+    { label: "Leadership", href: "/leadership" },
   ],
 } as const;

@@ -3,13 +3,33 @@
 import { motion } from "framer-motion";
 import ShaderBackground from "./ShaderBackground";
 
-const words = ["STUDENTS", "FOR AI", "LITERACY"];
+const DEFAULT_WORDS = ["STUDENTS", "FOR AI", "LITERACY"];
+const DEFAULT_SUBTITLE =
+  "Bridging the gap between artificial intelligence and grassroots student activism through AI literacy.";
 
-export default function Hero() {
+/**
+ * Shader hero. Defaults render the landing splash on the home page; interior
+ * pages pass their own words and `size="page"` for a shorter page header.
+ */
+export default function Hero({
+  words = DEFAULT_WORDS,
+  subtitle = DEFAULT_SUBTITLE,
+  size = "full",
+  id = "home",
+}: {
+  words?: string[];
+  subtitle?: string;
+  size?: "full" | "page";
+  id?: string;
+}) {
   return (
     <header
-      id="home"
-      className="relative flex h-[100svh] min-h-[600px] w-full flex-col items-center justify-center overflow-hidden"
+      id={id}
+      className={`relative flex w-full flex-col items-center justify-center overflow-hidden ${
+        size === "full"
+          ? "h-[100svh] min-h-[600px]"
+          : "h-[62svh] min-h-[420px]"
+      }`}
     >
       <ShaderBackground className="absolute inset-0 z-0 h-full w-full" />
       {/* Legibility veil over the shader */}
@@ -40,8 +60,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          Bridging the gap between artificial intelligence and grassroots student
-          activism through AI literacy.
+          {subtitle}
         </motion.p>
       </div>
     </header>

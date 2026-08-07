@@ -23,30 +23,44 @@ const steps = [
   },
 ];
 
-export default function ChapterFunnel() {
+const INTRO =
+  "Everything you need to bring AI literacy to your school — curriculum, network, and support. You bring the leadership.";
+
+export default function ChapterFunnel({
+  showHeading = true,
+}: {
+  showHeading?: boolean;
+}) {
   return (
-    <section
-      id="chapters"
-      className="relative scroll-mt-24 bg-surface px-margin-mobile py-section-gap md:px-gutter"
-    >
+    <section className="relative bg-surface px-margin-mobile py-section-gap md:px-gutter">
       <div className="mx-auto max-w-content">
         {/* Pitch */}
-        <div className="mb-24 grid items-end gap-stack-lg md:grid-cols-2">
-          <Reveal>
+        {showHeading ? (
+          <div className="mb-24 grid items-end gap-stack-lg md:grid-cols-2">
+            <Reveal>
+              <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
+                Start a Chapter
+              </p>
+              <h2 className="font-display text-display-xl leading-[0.95] text-primary">
+                Chapter-in-a-Box
+              </h2>
+            </Reveal>
+            <Reveal delay={1}>
+              <p className="font-body text-body-lg text-on-surface-variant">
+                {INTRO}
+              </p>
+            </Reveal>
+          </div>
+        ) : (
+          <Reveal className="mb-24">
             <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
-              Start a Chapter
-            </p>
-            <h2 className="font-display text-display-xl leading-[0.95] text-primary">
               Chapter-in-a-Box
-            </h2>
-          </Reveal>
-          <Reveal delay={1}>
-            <p className="font-body text-body-lg text-on-surface-variant">
-              Everything you need to bring AI literacy to your school — curriculum,
-              network, and support. You bring the leadership.
+            </p>
+            <p className="max-w-3xl font-body text-body-lg text-on-surface-variant">
+              {INTRO}
             </p>
           </Reveal>
-        </div>
+        )}
 
         {/* Steps */}
         <div className="relative grid grid-cols-1 gap-stack-lg md:grid-cols-3">

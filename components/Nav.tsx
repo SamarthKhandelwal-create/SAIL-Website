@@ -1,15 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
 import Magnetic from "./Magnetic";
 
-const sectionIds = ["home", "chapters", "board"];
+/** A nav item owns its route and, for /outreach, the article pages beneath it. */
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("home");
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -18,21 +24,8 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px" }
-    );
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+  // Close the mobile menu on any route change, including back/forward.
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
     <nav
@@ -43,29 +36,29 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-content items-center justify-between px-margin-mobile py-5 md:px-gutter">
-        <a
-          href="#home"
+        <Link
+          href="/"
           className={`font-display text-2xl font-bold tracking-tight transition-colors md:text-3xl ${
             scrolled ? "text-primary" : "text-white"
           }`}
         >
           SAIL
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
           {site.nav.map((item) => {
-            const id = item.href.replace("#", "");
-            const isActive = active === id;
+            const active = isActive(pathname, item.href);
             return (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
+                  aria-current={active ? "page" : undefined}
                   className={`font-body text-label-caps font-bold uppercase tracking-[0.1em] transition-colors ${
                     scrolled
-                      ? isActive
+                      ? active
                         ? "text-primary"
                         : "text-secondary hover:text-primary"
-                      : isActive
+                      : active
                         ? "text-white"
                         : "text-white/75 hover:text-white"
                   }`}
@@ -74,9 +67,9 @@ export default function Nav() {
                   <span
                     className={`mt-1 block h-px origin-left transition-transform duration-300 ${
                       scrolled ? "bg-primary" : "bg-white"
-                    } ${isActive ? "scale-x-100" : "scale-x-0"}`}
+                    } ${active ? "scale-x-100" : "scale-x-0"}`}
                   />
-                </a>
+                </Link>
               </li>
             );
           })}
@@ -129,17 +122,23 @@ export default function Nav() {
         }`}
       >
         <ul className="flex flex-col gap-2 px-margin-mobile py-4">
-          {site.nav.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="block py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-secondary"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+          {site.nav.map((item) => {
+            const active = isActive(pathname, item.href);
+            return (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={`block py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] ${
+                    active ? "text-primary" : "text-secondary"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
           <li>
             <a
               href={site.applyUrl}

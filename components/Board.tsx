@@ -96,27 +96,36 @@ function MemberCard({
   );
 }
 
-export default function Board({ board }: { board: BoardMember[] }) {
+const INTRO =
+  "Meet the students leading the charge in AI literacy — bridging the gap between complex technology and accessible education.";
+
+export default function Board({
+  board,
+  showHeading = true,
+}: {
+  board: BoardMember[];
+  showHeading?: boolean;
+}) {
   const feature = board.find((m) => m.feature) ?? board[0];
   const rest = board.filter((m) => m.id !== feature.id);
 
   return (
-    <section
-      id="board"
-      className="scroll-mt-24 bg-background px-margin-mobile py-section-gap md:px-gutter"
-    >
+    <section className="bg-background px-margin-mobile py-section-gap md:px-gutter">
       <div className="mx-auto max-w-content">
         <Reveal>
           <div className="mb-20 text-center">
-            <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
-              Our Team
-            </p>
-            <h2 className="mb-6 font-display text-display-xl leading-[0.95] text-primary">
-              Leadership
-            </h2>
+            {showHeading && (
+              <>
+                <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
+                  Our Team
+                </p>
+                <h2 className="mb-6 font-display text-display-xl leading-[0.95] text-primary">
+                  Leadership
+                </h2>
+              </>
+            )}
             <p className="mx-auto max-w-2xl font-body text-body-lg text-secondary">
-              Meet the students leading the charge in AI literacy — bridging the
-              gap between complex technology and accessible education.
+              {INTRO}
             </p>
           </div>
         </Reveal>

@@ -11,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    ...["/outreach", "/chapters", "/leadership"].map((path) => ({
+      url: `${BASE}${path}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     ...events.map((e) => ({
       url: `${BASE}/outreach/${e.id}`,
       lastModified: new Date(e.date),
