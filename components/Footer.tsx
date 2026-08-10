@@ -31,6 +31,9 @@ export default function Footer() {
               A non-profit created and led by students to promote AI literacy
               skills within youth.
             </p>
+            <p className="mt-4 font-body text-body-md text-on-surface-variant">
+              Registered nonprofit organization · EIN {site.ein}
+            </p>
             <div className="mt-6 flex gap-3">
               <a
                 href={site.socials.instagram}
@@ -59,6 +62,11 @@ export default function Footer() {
               Contact
             </p>
             <ul className="space-y-3 font-body text-body-md text-secondary">
+              <li>
+                <Link href="/about" className="transition-colors hover:text-primary">
+                  About SAIL
+                </Link>
+              </li>
               <li>Founder: {site.contact.founder}</li>
               <li>
                 <a
@@ -114,10 +122,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-stack-lg border-t border-outline/10 pt-6">
+        <div className="mt-stack-lg flex flex-col gap-3 border-t border-outline/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-body text-body-md text-secondary">
             © {new Date().getFullYear()} Students For AI Literacy.
           </p>
+          <Link
+            href="/privacy"
+            className="font-body text-body-md text-secondary transition-colors hover:text-primary"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

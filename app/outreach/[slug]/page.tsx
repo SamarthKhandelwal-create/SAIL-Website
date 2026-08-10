@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { events } from "@/data/events";
 import Nav from "@/components/Nav";
@@ -30,6 +31,7 @@ export async function generateMetadata({
   return {
     title: event.title,
     description: event.summary,
+    alternates: { canonical: `/outreach/${event.id}` },
     openGraph: {
       title: event.title,
       description: event.summary,
@@ -56,11 +58,13 @@ export default async function EventArticle({
       <main>
         {/* Hero */}
         <header className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={event.cover}
             alt=""
-            className="h-full w-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
           <div className="absolute inset-x-0 bottom-0">
@@ -105,12 +109,12 @@ export default async function EventArticle({
                   key={`${p.src}-${i}`}
                   className="relative aspect-[4/3] overflow-hidden rounded-xl"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={p.src}
                     alt={p.alt}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    className="object-cover"
                   />
                 </figure>
               ))}
@@ -133,12 +137,12 @@ export default async function EventArticle({
                     className="group flex flex-col overflow-hidden rounded-xl border border-outline/15 bg-surface-container-lowest transition-colors duration-500 hover:border-primary/40"
                   >
                     <div className="relative aspect-[4/3] w-full overflow-hidden">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={e.cover}
                         alt={e.title}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
                     <div className="flex flex-1 flex-col gap-2 p-5">

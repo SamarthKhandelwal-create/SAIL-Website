@@ -14,6 +14,7 @@ const description =
 export const metadata: Metadata = {
   title: "Outreach",
   description,
+  alternates: { canonical: "/outreach" },
   openGraph: {
     title: "Outreach · SAIL",
     description,

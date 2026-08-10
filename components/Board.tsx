@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import type { BoardMember } from "@/data/types";
 import Reveal from "./Reveal";
 
@@ -27,11 +28,13 @@ function FeatureCard({ member }: { member: BoardMember }) {
     member,
     <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-outline/15 bg-surface-container-lowest transition-colors duration-500 hover:border-primary/40 sm:flex-row">
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface-container-high sm:aspect-auto sm:h-auto sm:w-[42%]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={member.photo}
           alt={member.name}
-          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          fill
+          priority
+          sizes="(max-width: 640px) 100vw, 42vw"
+          className="absolute inset-0 object-cover object-center transition-transform duration-700 group-hover:scale-105"
         />
       </div>
       <div className="flex flex-1 flex-col justify-center gap-4 p-8 md:p-10">
@@ -72,12 +75,12 @@ function MemberCard({
       className={`group relative h-full overflow-hidden rounded-xl border border-outline/15 bg-surface-container-lowest transition-colors duration-500 hover:border-primary/40 ${className ?? ""}`}
     >
       <div className="relative aspect-square w-full overflow-hidden bg-surface-container-high">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={member.photo}
           alt={member.name}
-          loading="lazy"
-          className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-6">

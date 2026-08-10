@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import Reveal from "./Reveal";
 
 export default function Origin() {
@@ -24,12 +25,18 @@ export default function Origin() {
         <div className="grid items-stretch gap-px overflow-hidden rounded-xl border border-outline-variant/40 bg-outline-variant/30 md:grid-cols-2">
           {/* Image with parallax */}
           <div ref={ref} className="relative h-72 overflow-hidden md:h-auto">
-            <motion.img
+            <motion.div
               style={{ y: imgY, scale: 1.2 }}
-              src="/images/walnut-hills.jpg"
-              alt="Walnut Hills High School in Cincinnati, Ohio — the founding chapter of SAIL"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+              className="absolute inset-0"
+            >
+              <Image
+                src="/images/walnut-hills.jpg"
+                alt="Walnut Hills High School in Cincinnati, Ohio — the founding chapter of SAIL"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </motion.div>
             <div className="absolute inset-0 bg-primary/15 mix-blend-multiply" />
           </div>
 

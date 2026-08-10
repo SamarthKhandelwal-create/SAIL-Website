@@ -12,13 +12,19 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
+/**
+ * `solid` forces the opaque treatment for pages that open on a light
+ * background instead of a dark hero — the transparent state renders white
+ * text and would be invisible there.
+ */
+export default function Nav({ solid = false }: { solid?: boolean }) {
+  const [atTop, setAtTop] = useState(true);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const scrolled = solid || !atTop;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setAtTop(window.scrollY <= 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -45,7 +51,7 @@ export default function Nav() {
           SAIL
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-5 md:flex lg:gap-8">
           {site.nav.map((item) => {
             const active = isActive(pathname, item.href);
             return (
@@ -80,9 +86,9 @@ export default function Nav() {
             href={site.applyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded bg-primary px-6 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-surface-tint"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded bg-primary px-5 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-surface-tint lg:px-6"
           >
-            Start a Chapter
+            Apply
           </a>
         </Magnetic>
 

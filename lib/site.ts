@@ -5,6 +5,12 @@
 export const site = {
   name: "Students For AI Literacy",
   short: "SAIL",
+  /** Canonical origin. The apex domain 308-redirects here, so links and
+   *  metadata must use the www host to avoid pointing at a redirect. */
+  url: "https://www.studentsforailiteracy.org",
+  /** Google Analytics 4 measurement ID (Ad Grants conversion tracking). */
+  gaMeasurementId: "G-LY323NYB3Y",
+  ein: "42-3520807",
   applyUrl: "https://form.jotform.com/261485414985064",
   contact: {
     founder: "Samarth Khandelwal",
@@ -16,10 +22,13 @@ export const site = {
     instagram: "https://www.instagram.com/students.for.ai.literacy/",
     linkedin: "https://www.linkedin.com/company/students-for-ai-literacy",
   },
+  /** Nav labels stay short — the bar also carries a wordmark and an Apply
+   *  button, and long labels overflow at the md breakpoint. */
   nav: [
     { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
     { label: "Outreach", href: "/outreach" },
-    { label: "Start a Chapter", href: "/chapters" },
+    { label: "Chapters", href: "/chapters" },
     { label: "Leadership", href: "/leadership" },
   ],
 } as const;

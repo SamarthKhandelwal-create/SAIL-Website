@@ -15,6 +15,7 @@ const description =
 export const metadata: Metadata = {
   title: "Start a Chapter",
   description,
+  alternates: { canonical: "/chapters" },
   openGraph: {
     title: "Start a Chapter · SAIL",
     description,

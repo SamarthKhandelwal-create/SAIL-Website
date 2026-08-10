@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import { site } from "@/lib/site";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -17,7 +19,7 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const siteUrl = "https://studentsforailiteracy.org";
+const siteUrl = site.url;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -36,6 +38,9 @@ export const metadata: Metadata = {
     "artificial intelligence",
     "student chapters",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "SAIL — Students For AI Literacy",
     description:
@@ -70,6 +75,18 @@ export default function RootLayout({
     <html lang="en" className={`${oswald.variable} ${jakarta.variable}`}>
       <body className="font-body antialiased">
         <SmoothScroll>{children}</SmoothScroll>
+
+        {/* Google tag (gtag.js) — Ad Grants conversion tracking. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${site.gaMeasurementId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${site.gaMeasurementId}');`}
+        </Script>
       </body>
     </html>
   );

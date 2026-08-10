@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { OutreachEvent } from "@/data/types";
 
@@ -142,8 +143,13 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
                 className="group flex items-center gap-4 rounded-lg border border-outline-variant/40 p-4 transition-colors hover:border-primary/50 hover:bg-surface-container-low"
               >
                 <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={e.cover} alt="" className="h-full w-full object-cover" />
+                  <Image
+                    src={e.cover}
+                    alt=""
+                    fill
+                    sizes="56px"
+                    className="object-cover"
+                  />
                 </span>
                 <span className="min-w-0">
                   <span className="block font-body text-label-caps font-bold uppercase tracking-[0.1em] text-secondary">
