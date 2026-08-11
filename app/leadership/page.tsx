@@ -33,16 +33,16 @@ export default function LeadershipPage() {
           words={["OUR", "LEADERSHIP"]}
           subtitle="The high school students building SAIL — and teaching every workshop we run."
           ctas={[
-            { label: "Join the team", href: "/chapters" },
+            { label: "Join the team", href: "/join" },
             { label: "See our workshops", href: "/outreach" },
           ]}
         />
         <Board board={board} showHeading={false} />
         <SectionCTA
-          eyebrow="In the community"
-          title="See the work these students are doing."
-          href="/outreach"
-          label="See our outreach"
+          eyebrow="Open roles"
+          title="We're looking for students to join this team."
+          href="/join"
+          label="See open roles"
         />
       </main>
       <Footer />

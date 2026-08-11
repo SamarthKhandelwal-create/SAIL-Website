@@ -31,10 +31,14 @@ export default function Hero({
   return (
     <header
       id={id}
-      className={`relative flex w-full flex-col items-center justify-center overflow-hidden ${
+      /* The nav is fixed, so it floats over this header. Padding the top by
+         the nav's height keeps vertically-centred content from sliding under
+         it — which it did on short heroes and on mobile. */
+      style={{ paddingTop: "calc(var(--nav-h) + 2rem)" }}
+      className={`relative flex w-full flex-col items-center justify-center overflow-hidden pb-16 ${
         size === "full"
-          ? "min-h-[620px] py-32 md:h-[88svh]"
-          : "min-h-[380px] py-24 md:h-[52svh]"
+          ? "min-h-[640px] md:h-[88svh]"
+          : "min-h-[420px] md:h-[56svh]"
       }`}
     >
       <ShaderBackground className="absolute inset-0 z-0 h-full w-full" />

@@ -8,6 +8,15 @@
 :root {
   --brand: #49839b;
   --primary: #25637a;
+  /* Height of the fixed nav. Anything that sits at the top of a page must
+     clear this — heroes pad by it, pages without a hero offset by it. */
+  --nav-h: 76px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --nav-h: 84px;
+  }
 }
 
 html {

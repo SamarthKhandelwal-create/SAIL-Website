@@ -99,14 +99,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href={site.applyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-primary"
-                >
-                  Apply Now
-                </a>
+                <Link href="/join" className="transition-colors hover:text-primary">
+                  Join the Team
+                </Link>
+              </li>
+              <li>
+                <Link href="/donate" className="transition-colors hover:text-primary">
+                  Donate
+                </Link>
               </li>
               <li>
                 <Link href="/leadership" className="transition-colors hover:text-primary">

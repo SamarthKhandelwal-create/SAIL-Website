@@ -13,9 +13,9 @@ const ways = [
   },
   {
     title: "High school students",
-    body: "Become a workshop volunteer, join an existing chapter, or launch a new SAIL chapter at your school through our Chapter-in-a-Box program. You bring the leadership; we provide everything else.",
-    label: "Start a chapter",
-    href: "/chapters",
+    body: "Launch a chapter at your school, or join our marketing or finance team. Every role is student-run, and none of them require prior experience — just follow-through.",
+    label: "See open roles",
+    href: "/join",
   },
   {
     title: "Sponsors & community partners",

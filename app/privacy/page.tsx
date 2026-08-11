@@ -20,7 +20,10 @@ export default function PrivacyPage() {
   return (
     <>
       <Nav solid />
-      <main className="bg-surface-container-lowest pt-32 md:pt-40">
+      <main
+        className="bg-surface-container-lowest"
+        style={{ paddingTop: "calc(var(--nav-h) + 3rem)" }}
+      >
         <article className="mx-auto max-w-[720px] px-margin-mobile pb-24 md:px-gutter">
           <h1 className="mb-4 font-display text-display-xl leading-[0.95] text-primary">
             Privacy Policy
