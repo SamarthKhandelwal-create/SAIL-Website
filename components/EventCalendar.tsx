@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import type { OutreachEvent } from "@/data/types";
 
 const WEEKDAYS = ["S", "M", "T", "W", "T", "F", "S"];
@@ -88,12 +87,9 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
           </button>
         </div>
 
-        <motion.div
+        <div
           key={`${view.year}-${view.month}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="grid grid-cols-7 gap-1 text-center"
+          className="animate-fade grid grid-cols-7 gap-1 text-center"
         >
           {WEEKDAYS.map((w, i) => (
             <div
@@ -127,7 +123,7 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
               </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
 
       {/* Events for the shown month (or all events if none this month) */}

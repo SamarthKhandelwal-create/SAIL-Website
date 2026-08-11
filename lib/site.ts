@@ -12,6 +12,13 @@ export const site = {
   gaMeasurementId: "G-LY323NYB3Y",
   ein: "42-3520807",
   applyUrl: "https://form.jotform.com/261485414985064",
+  /**
+   * Hosted donation page. Leave empty until the giving partner is live —
+   * /donate falls back to an email path rather than showing a dead button.
+   * Every.org and PayPal Giving Fund are both free for 501(c)(3)s and keep
+   * card data off this site entirely.
+   */
+  donateUrl: "" as string,
   contact: {
     founder: "Samarth Khandelwal",
     email: "sail.national.youth@gmail.com",
@@ -25,10 +32,10 @@ export const site = {
   /** Nav labels stay short — the bar also carries a wordmark and an Apply
    *  button, and long labels overflow at the md breakpoint. */
   nav: [
-    { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Outreach", href: "/outreach" },
     { label: "Chapters", href: "/chapters" },
     { label: "Leadership", href: "/leadership" },
+    { label: "Donate", href: "/donate" },
   ],
 } as const;

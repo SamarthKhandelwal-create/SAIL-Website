@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import FloatingApply from "@/components/FloatingApply";
 
 import { events } from "@/data/events";
+import { site } from "@/lib/site";
 
 const description =
   "Hands-on AI literacy sessions from Students For AI Literacy — where we've been and what we taught.";
@@ -31,7 +32,15 @@ export default function OutreachPage() {
           id="outreach"
           size="page"
           words={["RECENT", "OUTREACH"]}
-          subtitle="Meeting students where they already are."
+          subtitle="Free, hands-on AI literacy sessions in schools, libraries, and community organizations — meeting students where they already are."
+          ctas={[
+            {
+              label: "Request a workshop",
+              href: `mailto:${site.contact.email}?subject=Request%20a%20SAIL%20workshop`,
+              external: true,
+            },
+            { label: "Start a chapter", href: "/chapters" },
+          ]}
         />
         <Outreach events={events} showHeading={false} />
         <SectionCTA

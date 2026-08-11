@@ -1,9 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { site } from "@/lib/site";
 import Reveal from "./Reveal";
-import Magnetic from "./Magnetic";
 
 const steps = [
   {
@@ -81,27 +77,19 @@ export default function ChapterFunnel({
         </div>
 
         {/* CTA */}
-        <motion.div
-          className="mt-stack-lg flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <Magnetic strength={0.5}>
-            <a
-              href={site.applyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded bg-primary px-8 py-4 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary shadow-sm transition-colors hover:bg-surface-tint"
-            >
-              Apply Now
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </a>
-          </Magnetic>
-        </motion.div>
+        <Reveal className="mt-stack-lg flex justify-center">
+          <a
+            href={site.applyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 rounded bg-primary px-8 py-4 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary shadow-sm transition-colors hover:bg-surface-tint"
+          >
+            Apply to lead a chapter
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </a>
+        </Reveal>
       </div>
     </section>
   );

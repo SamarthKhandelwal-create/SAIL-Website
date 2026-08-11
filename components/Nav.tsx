@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
-import Magnetic from "./Magnetic";
 
 /** A nav item owns its route and, for /outreach, the article pages beneath it. */
 function isActive(pathname: string, href: string) {
@@ -81,16 +80,14 @@ export default function Nav({ solid = false }: { solid?: boolean }) {
           })}
         </ul>
 
-        <Magnetic className="hidden md:block" strength={0.5}>
-          <a
-            href={site.applyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center whitespace-nowrap rounded bg-primary px-5 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-surface-tint lg:px-6"
-          >
-            Apply
-          </a>
-        </Magnetic>
+        <a
+          href={site.applyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden items-center justify-center whitespace-nowrap rounded bg-primary px-5 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-surface-tint md:inline-flex lg:px-6"
+        >
+          Apply
+        </a>
 
         {/* Mobile toggle */}
         <button

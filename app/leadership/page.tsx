@@ -31,7 +31,11 @@ export default function LeadershipPage() {
           id="board"
           size="page"
           words={["OUR", "LEADERSHIP"]}
-          subtitle="The students leading the charge in AI literacy."
+          subtitle="The high school students building SAIL — and teaching every workshop we run."
+          ctas={[
+            { label: "Join the team", href: "/chapters" },
+            { label: "See our workshops", href: "/outreach" },
+          ]}
         />
         <Board board={board} showHeading={false} />
         <SectionCTA

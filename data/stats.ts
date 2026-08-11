@@ -1,5 +1,6 @@
 import type { Stats } from "./types";
 import { chapters } from "./chapters";
+import { events } from "./events";
 
 /**
  * Impact numbers shown in the rolling ticker.
@@ -22,4 +23,5 @@ export const stats: Stats = {
   studentsTaught: manual.studentsTaught,
   activeChapters: chapters.length,
   statesReached: Math.max(manual.statesReached, uniqueStates.size),
+  workshopsHosted: events.length,
 };

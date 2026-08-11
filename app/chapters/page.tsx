@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import FloatingApply from "@/components/FloatingApply";
 
 import { chapters } from "@/data/chapters";
+import { site } from "@/lib/site";
 
 const description =
   "Start a SAIL chapter at your school. Chapter-in-a-Box gives you the curriculum, network, and support — you bring the leadership.";
@@ -32,7 +33,11 @@ export default function ChaptersPage() {
           id="chapters"
           size="page"
           words={["START A", "CHAPTER"]}
-          subtitle="Everything you need to bring AI literacy to your school."
+          subtitle="Everything you need to bring AI literacy to your school — curriculum, network, and support. You bring the leadership."
+          ctas={[
+            { label: "Apply now", href: site.applyUrl, external: true },
+            { label: "Meet the team", href: "/leadership" },
+          ]}
         />
         <ChapterFunnel showHeading={false} />
         <ChaptersMap chapters={chapters} />

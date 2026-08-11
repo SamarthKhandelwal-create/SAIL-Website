@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
 import { site } from "@/lib/site";
 
 const oswald = Oswald({
@@ -74,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${oswald.variable} ${jakarta.variable}`}>
       <body className="font-body antialiased">
-        <SmoothScroll>{children}</SmoothScroll>
+        {children}
 
         {/* Google tag (gtag.js) — Ad Grants conversion tracking. */}
         <Script

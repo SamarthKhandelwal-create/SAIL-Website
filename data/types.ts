@@ -40,6 +40,8 @@ export type Stats = {
   studentsTaught: number;
   activeChapters: number;
   statesReached: number;
+  /** Community workshops delivered — derived from data/events.ts. */
+  workshopsHosted: number;
 };
 
 export type OutreachPhoto = {

@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 import type { BoardMember } from "@/data/types";
 import Reveal from "./Reveal";
@@ -133,31 +130,15 @@ export default function Board({
           </div>
         </Reveal>
 
-        <motion.div
-          className="mx-auto mb-6 max-w-3xl"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <Reveal className="mx-auto mb-6 max-w-3xl">
           <FeatureCard member={feature} />
-        </motion.div>
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((member, i) => (
-            <motion.div
-              key={member.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-              transition={{
-                duration: 0.8,
-                delay: (i % 3) * 0.08,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-            >
+            <Reveal key={member.id} delay={i % 3}>
               <MemberCard member={member} />
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -48,7 +48,11 @@ export default function AboutPage() {
           id="about"
           size="page"
           words={["ABOUT", "SAIL"]}
-          subtitle="A nonprofit created and led by students."
+          subtitle="A student-led 501(c)(3) making AI understandable, accessible, and responsible for every young person."
+          ctas={[
+            { label: "Start a chapter", href: "/chapters" },
+            { label: "Support our work", href: "/donate" },
+          ]}
         />
 
         {/* Mission */}
