@@ -124,10 +124,11 @@ export default function AboutPage() {
               </p>
               <p className="font-body text-body-md text-on-surface-variant">
                 Since then we have taught more than {stats.studentsTaught}{" "}
-                students and grown to {stats.activeChapters}{" "}
-                {stats.activeChapters === 1 ? "chapter" : "chapters"}. Every
-                chapter is run by students, and every session we teach is free
-                to the school or community hosting it.
+                students, grown to {stats.activeChapters}{" "}
+                {stats.activeChapters === 1 ? "chapter" : "chapters"}, and
+                operated on $2,100+ in grants and contributions in our last
+                fiscal year. Every chapter is run by students, and every session
+                we teach is free to the school or community hosting it.
               </p>
             </Reveal>
 

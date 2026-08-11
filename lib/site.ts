@@ -23,7 +23,7 @@ export const site = {
       title: "Chapter Lead",
       blurb:
         "Start and run a SAIL chapter at your school. You recruit a small team, run workshops for younger students, and get the Chapter-in-a-Box curriculum, slide decks, and operational support to do it.",
-      commitment: "2–4 hours/month · High school students",
+      commitment: "4–8 hours/week · High school students",
       responsibilities: [
         "Run AI literacy workshops at your school or in your community",
         "Recruit and coordinate a small team of student volunteers",

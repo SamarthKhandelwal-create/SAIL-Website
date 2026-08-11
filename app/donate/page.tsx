@@ -73,11 +73,12 @@ export default function DonatePage() {
                 fees required to operate as a nonprofit.
               </p>
               <p className="mb-4 font-body text-body-md text-on-surface-variant">
-                In our first fiscal year we operated on $900 in grants. That
-                money covered our Ohio incorporation, our federal 501(c)(3)
-                application, a domain name, and the supplies for every workshop
-                we ran. Our sessions are free to every school and community
-                organization that hosts one, and they will stay that way.
+                In our last fiscal year we operated on $2,100+ in grants and
+                contributions — money that covered our Ohio incorporation, our
+                federal 501(c)(3) application, a domain name, and the supplies
+                for every workshop we ran. Our sessions are free to every school
+                and community organization that hosts one, and they will stay
+                that way.
               </p>
               <p className="font-body text-body-md text-on-surface-variant">
                 {site.name} is a federally recognized 501(c)(3) nonprofit
