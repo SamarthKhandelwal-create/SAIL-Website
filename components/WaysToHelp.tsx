@@ -19,8 +19,8 @@ const ways = [
   },
   {
     title: "Sponsors & community partners",
-    body: "Support workshop materials, student resources, technology access, and free programming for the communities that need it most. Every dollar goes directly into running sessions.",
-    label: "Support our work",
+    body: "Sponsor a chapter, donate workshop materials, or partner with us on programming. Roughly $400 covers a new chapter's first year — every session it runs, for every student it reaches.",
+    label: "See how to help",
     href: "/donate",
   },
 ];

@@ -61,10 +61,16 @@ export const site = {
   /** Chapter Lead application — the site's default "Apply" destination. */
   applyUrl: "https://form.jotform.com/261485414985064",
   /**
-   * Hosted donation page. Leave empty until the giving partner is live —
-   * /donate falls back to an email path rather than showing a dead button.
-   * Every.org and PayPal Giving Fund are both free for 501(c)(3)s and keep
-   * card data off this site entirely.
+   * Hosted donation page. Every.org and PayPal Giving Fund are both free for
+   * 501(c)(3)s and keep card data off this site entirely.
+   *
+   * While this is empty, /donate is a "Support Our Work" page describing
+   * non-cash ways to help, and there is no "Donate" nav item or giving button
+   * anywhere. Ad Grants policy treats a donate link that cannot take a
+   * donation as a broken donation link, so we show one only once it works.
+   *
+   * TO TURN GIVING ON: set this URL, then re-add
+   * `{ label: "Donate", href: "/donate" }` to `nav` below.
    */
   donateUrl: "" as string,
   contact: {
@@ -84,6 +90,6 @@ export const site = {
     { label: "Outreach", href: "/outreach" },
     { label: "Chapters", href: "/chapters" },
     { label: "Join", href: "/join" },
-    { label: "Donate", href: "/donate" },
+    { label: "Leadership", href: "/leadership" },
   ],
 } as const;

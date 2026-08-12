@@ -49,10 +49,24 @@ export default function JoinPage() {
                 keep a real nonprofit&rsquo;s ledger. If you join marketing, the
                 things you make are what schools and funders actually see.
               </p>
-              <p className="font-body text-body-md text-on-surface-variant">
+              <p className="mb-4 font-body text-body-md text-on-surface-variant">
                 Every role is open to high school students, and no prior
                 experience is required for any of them — we care much more that
                 you follow through on what you take on.
+              </p>
+              <p className="mb-4 font-body text-body-md text-on-surface-variant">
+                We try to be honest about the commitment. These are real hours
+                on top of coursework, and the work is sometimes unglamorous:
+                reconciling receipts, rewriting a slide for the fourth time,
+                emailing a school that has not replied. What you get back is
+                that the results are visibly yours — a chapter that exists
+                because you started it, a budget that balances because you kept
+                it.
+              </p>
+              <p className="font-body text-body-md text-on-surface-variant">
+                Everyone here is doing this around school, so we build roles
+                around commitments people can actually keep. If your workload
+                changes, tell us and we will adjust rather than lose you.
               </p>
             </Reveal>
           </div>

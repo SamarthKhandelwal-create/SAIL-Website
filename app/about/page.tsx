@@ -51,7 +51,7 @@ export default function AboutPage() {
           subtitle="A student-led 501(c)(3) making AI understandable, accessible, and responsible for every young person."
           ctas={[
             { label: "Start a chapter", href: "/chapters" },
-            { label: "Support our work", href: "/donate" },
+            { label: "Ways to help", href: "/donate" },
           ]}
         />
 
@@ -74,9 +74,25 @@ export default function AboutPage() {
                 write rules about AI, but far more slowly to teach the literacy
                 those rules assume.
               </p>
-              <p className="font-body text-body-lg text-on-surface">
+              <p className="mb-4 font-body text-body-lg text-on-surface">
                 We close that gap the most direct way we know: students teaching
                 students, in their own schools and communities, for free.
+              </p>
+              <p className="mb-4 font-body text-body-md text-on-surface-variant">
+                The near-peer model is the part that makes this work. An adult
+                explaining AI to a sixteen-year-old is a lecture. A
+                seventeen-year-old explaining it is a conversation, and students
+                will admit things in that conversation — that they have used AI
+                on an assignment, that they cannot tell when it is making things
+                up — that they would never raise with someone who grades them.
+                Those admissions are where real learning starts.
+              </p>
+              <p className="font-body text-body-md text-on-surface-variant">
+                It also means our instructors are learning to teach, present,
+                and lead while they are still in high school. The students who
+                run SAIL chapters get as much out of this as the students they
+                teach, which is what makes the model sustainable without any
+                paid staff.
               </p>
             </Reveal>
           </div>

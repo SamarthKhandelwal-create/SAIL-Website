@@ -6,62 +6,78 @@ import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 
 const description =
-  "Support Students For AI Literacy. Donations fund workshop materials, chapter startup kits, and free AI literacy programming for students across Ohio.";
+  "Support Students For AI Literacy — host a free workshop, donate materials, partner with us, or sponsor a chapter. A student-run 501(c)(3) bringing AI literacy to Ohio schools.";
 
 export const metadata: Metadata = {
-  title: "Donate",
+  title: "Support Our Work",
   description,
   alternates: { canonical: "/donate" },
-  openGraph: { title: "Donate · SAIL", description, type: "website" },
+  openGraph: { title: "Support Our Work · SAIL", description, type: "website" },
 };
 
-/** What a gift actually pays for — figures from SAIL's FY2026 ledger. */
-const uses = [
+/**
+ * Concrete, non-cash ways to help. These are real asks a school, library, or
+ * local business can act on today — deliberately not a giving form, because
+ * SAIL has no payment processor yet and Ad Grants treats a donate link that
+ * cannot take a donation as a broken one.
+ */
+const ways = [
   {
-    amount: "$25",
-    body: "Hands-on workshop supplies for a full classroom session — the notebooks, UV pens, and activity materials students use during our demonstrations.",
+    title: "Host a workshop",
+    body: "If you teach, run a library program, or lead a youth organization anywhere in the Cincinnati area, we will bring a session to your students at no cost. You provide the room and the students; we bring the curriculum, the activities, and the student instructors.",
+    label: "Request a session",
+    subject: "Hosting a SAIL workshop",
   },
   {
-    amount: "$100",
-    body: "Materials for a new chapter's first three workshops, so a student leader can start teaching without paying out of pocket.",
+    title: "Donate materials",
+    body: "Our workshops run on physical supplies — notebooks, UV pens for the invisible-ink activity, printed handouts, and name tags. Donated materials go directly into a classroom, and in-kind gifts are tax-deductible the same as cash.",
+    label: "Offer materials",
+    subject: "Donating materials to SAIL",
   },
   {
-    amount: "$400",
-    body: "The seed amount that started SAIL. It funds an entire new chapter's first year of programming.",
+    title: "Sponsor a chapter",
+    body: "Roughly $400 covers a new chapter's first year of programming — every workshop it runs, for every student it reaches. Local businesses and community foundations can sponsor a specific school and receive a short report on what that chapter did.",
+    label: "Talk about sponsorship",
+    subject: "Sponsoring a SAIL chapter",
+  },
+  {
+    title: "Partner with us",
+    body: "Schools, districts, and nonprofits working on digital literacy, workforce readiness, or youth programming often overlap with what we do. We are glad to co-design programming rather than drop in a one-off session.",
+    label: "Explore a partnership",
+    subject: "Partnering with SAIL",
   },
 ];
 
-export default function DonatePage() {
+export default function SupportPage() {
   const canDonate = Boolean(site.donateUrl);
+  const mailto = (subject: string) =>
+    `mailto:${site.contact.email}?subject=${encodeURIComponent(subject)}`;
 
   return (
     <>
       <Nav />
       <main>
         <Hero
-          id="donate"
+          id="support"
           size="page"
           words={["SUPPORT", "OUR WORK"]}
-          subtitle="Every dollar goes directly into free AI literacy programming, run by students."
-          ctas={
-            canDonate
-              ? [{ label: "Donate now", href: site.donateUrl!, external: true }]
-              : [
-                  {
-                    label: "Email us to give",
-                    href: `mailto:${site.contact.email}?subject=Supporting%20SAIL`,
-                    external: true,
-                  },
-                ]
-          }
+          subtitle="SAIL runs on volunteered time and donated materials. Here is what actually helps."
+          ctas={[
+            {
+              label: "Host a workshop",
+              href: mailto("Hosting a SAIL workshop"),
+              external: true,
+            },
+            { label: "Start a chapter", href: "/chapters" },
+          ]}
         />
 
-        {/* Why give */}
+        {/* Transparency */}
         <section className="bg-surface-container-lowest px-margin-mobile py-section-gap md:px-gutter">
           <div className="mx-auto max-w-[820px]">
             <Reveal>
               <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
-                Why give
+                Where the money goes
               </p>
               <h2 className="mb-6 font-display text-headline-lg text-primary">
                 A student-run budget, spent on students
@@ -80,33 +96,60 @@ export default function DonatePage() {
                 and community organization that hosts one, and they will stay
                 that way.
               </p>
+              <p className="mb-4 font-body text-body-md text-on-surface-variant">
+                Because there is no staff to pay, the marginal cost of reaching
+                another classroom is close to the cost of its supplies. That is
+                unusual, and it is the main argument for supporting us: a small
+                contribution moves directly into a room full of students rather
+                than into keeping an organization running.
+              </p>
               <p className="font-body text-body-md text-on-surface-variant">
                 {site.name} is a federally recognized 501(c)(3) nonprofit
                 organization, EIN {site.ein}. Contributions are tax-deductible
-                to the extent allowed by law.
+                to the extent allowed by law. We are glad to share our ledger
+                and a summary of what a specific contribution funded with any
+                donor or grantmaker who asks.
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* What it funds */}
+        {/* Ways to help */}
         <section className="bg-surface px-margin-mobile py-section-gap md:px-gutter">
           <div className="mx-auto max-w-content">
             <Reveal>
-              <h2 className="mb-16 font-display text-display-xl leading-[0.95] text-primary">
-                What your gift funds
+              <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
+                How to help
+              </p>
+              <h2 className="mb-6 font-display text-display-xl leading-[0.95] text-primary">
+                Four Things That Help Most
               </h2>
+              <p className="mb-16 max-w-3xl font-body text-body-lg text-on-surface-variant">
+                We are a small organization, so specific offers are far more
+                useful to us than general ones. Any of these can be arranged by
+                email, usually within a week.
+              </p>
             </Reveal>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {uses.map((u, i) => (
-                <Reveal key={u.amount} delay={i}>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {ways.map((w, i) => (
+                <Reveal key={w.title} delay={i % 2}>
                   <div className="flex h-full flex-col rounded-xl border border-outline-variant/40 bg-surface-container-lowest p-8">
-                    <p className="mb-4 font-display text-display-xl leading-none text-primary">
-                      {u.amount}
+                    <h3 className="mb-4 font-display text-2xl text-on-surface">
+                      {w.title}
+                    </h3>
+                    <p className="mb-6 font-body text-body-md text-secondary">
+                      {w.body}
                     </p>
-                    <p className="font-body text-body-md text-secondary">
-                      {u.body}
-                    </p>
+                    <a
+                      href={mailto(w.subject)}
+                      className="group mt-auto inline-flex items-center gap-2 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary transition-colors hover:text-surface-tint"
+                    >
+                      {w.label}
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </a>
                   </div>
                 </Reveal>
               ))}
@@ -114,52 +157,31 @@ export default function DonatePage() {
           </div>
         </section>
 
-        {/* Give */}
+        {/* Contact band */}
         <section className="bg-primary px-margin-mobile py-section-gap md:px-gutter">
           <div className="mx-auto max-w-[720px] text-center">
             <h2 className="mb-6 font-display text-display-xl leading-[0.95] text-on-primary">
-              Make a donation
+              Get in touch
             </h2>
-            {canDonate ? (
-              <>
-                <p className="mb-10 font-body text-body-lg text-on-primary/80">
-                  Donations are processed securely by our giving partner. SAIL
-                  never sees or stores your card details.
-                </p>
-                <a
-                  href={site.donateUrl!}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 rounded bg-on-primary px-8 py-4 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary shadow-sm transition-colors hover:bg-white"
-                >
-                  Donate securely
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </a>
-              </>
-            ) : (
-              <>
-                <p className="mb-10 font-body text-body-lg text-on-primary/80">
-                  We are finishing setup with our giving partner. In the
-                  meantime, email us and we will arrange a contribution
-                  directly — including employer matching and in-kind gifts of
-                  workshop materials.
-                </p>
-                <a
-                  href={`mailto:${site.contact.email}?subject=Supporting%20SAIL`}
-                  className="group inline-flex items-center gap-3 rounded bg-on-primary px-8 py-4 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary shadow-sm transition-colors hover:bg-white"
-                >
-                  Email us to give
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </a>
-              </>
-            )}
+            <p className="mb-10 font-body text-body-lg text-on-primary/80">
+              {canDonate
+                ? "Prefer to give directly? Donations are processed securely by our giving partner — SAIL never sees or stores your card details."
+                : "Email us about any of the above and a student on our team will reply. Tell us what you have in mind and we will work out the details with you."}
+            </p>
+            <a
+              href={canDonate ? site.donateUrl : mailto("Supporting SAIL")}
+              {...(canDonate
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className="group inline-flex items-center gap-3 rounded bg-on-primary px-8 py-4 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary shadow-sm transition-colors hover:bg-white"
+            >
+              {canDonate ? "Donate securely" : "Email our team"}
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
             <p className="mt-8 font-body text-body-md text-on-primary/70">
-              Prefer to help another way? Host a workshop or start a chapter —
-              both are free and both reach more students than a cheque.
+              {site.contact.email} · {site.contact.phone}
             </p>
           </div>
         </section>

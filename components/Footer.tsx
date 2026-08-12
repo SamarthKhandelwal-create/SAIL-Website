@@ -105,7 +105,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/donate" className="transition-colors hover:text-primary">
-                  Donate
+                  Support Our Work
                 </Link>
               </li>
               <li>

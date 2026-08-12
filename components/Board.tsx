@@ -124,8 +124,40 @@ export default function Board({
                 </h2>
               </>
             )}
-            <p className="mx-auto max-w-2xl font-body text-body-lg text-secondary">
+            <p className="mx-auto mb-6 max-w-2xl font-body text-body-lg text-secondary">
               {INTRO}
+            </p>
+            <p className="mx-auto mb-4 max-w-3xl font-body text-body-md text-on-surface-variant">
+              SAIL has no paid staff and no adult executive director. The board
+              below sets direction, maintains the curriculum, keeps the books,
+              and teaches workshops alongside every other volunteer. Chapter
+              leads at each school run their own programming and bring what
+              works back to the wider network.
+            </p>
+            <p className="mx-auto mb-4 max-w-3xl font-body text-body-md text-on-surface-variant">
+              We organize into small teams rather than a hierarchy. Curriculum
+              keeps the workshop material current, which matters more in this
+              subject than most — an example that landed a year ago may be
+              obsolete now. Outreach books sessions and coordinates with schools
+              and community organizations. Finance keeps the ledger and prepares
+              reporting for the grants we depend on. Marketing handles how we
+              present ourselves to students, schools, and funders.
+            </p>
+            <p className="mx-auto max-w-3xl font-body text-body-md text-on-surface-variant">
+              Everyone here is a high school student doing this around
+              coursework and everything else, which shapes how we work: small
+              commitments that people can actually keep, and no single point of
+              failure on any one person. If you want to be part of it, we have
+              open roles on the marketing and finance teams, and we are always
+              looking for new chapter leads.
+            </p>
+            <p className="mx-auto max-w-3xl font-body text-body-md text-on-surface-variant">
+              The board also carries the parts of a nonprofit that are easy to
+              overlook: filing with the state, maintaining our 501(c)(3)
+              standing, keeping receipts against every expense, and answering
+              to the funders whose grants pay for our materials. Learning to do
+              that properly, at this age, is a large part of why the people
+              below took these roles.
             </p>
           </div>
         </Reveal>

@@ -143,6 +143,7 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
                     src={e.cover}
                     alt=""
                     fill
+                    quality={60}
                     sizes="56px"
                     className="object-cover"
                   />

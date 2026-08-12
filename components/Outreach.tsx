@@ -25,8 +25,9 @@ export default function Outreach({
   showHeading?: boolean;
 }) {
   const sorted = [...events].sort((a, b) => b.date.localeCompare(a.date));
-  // A photo strip drawn from across the recent sessions.
-  const gallery = sorted.flatMap((e) => e.photos).slice(0, 8);
+  // A photo strip drawn from across the recent sessions. Kept short — this
+  // page is the heaviest on the site and every extra photo is a real download.
+  const gallery = sorted.flatMap((e) => e.photos).slice(0, 6);
 
   return (
     <section className="bg-surface px-margin-mobile py-section-gap md:px-gutter">
@@ -50,9 +51,41 @@ export default function Outreach({
           </div>
         ) : (
           <Reveal className="mb-16">
-            <p className="max-w-3xl font-body text-body-lg text-on-surface-variant">
+            <p className="mb-6 max-w-3xl font-body text-body-lg text-on-surface-variant">
               {INTRO}
             </p>
+            <div className="grid max-w-4xl gap-6 md:grid-cols-2">
+              <p className="font-body text-body-md text-on-surface-variant">
+                Every session is free to the school or organization hosting it,
+                and every one is taught by high school students rather than
+                adults. We have found that matters more than any part of the
+                curriculum: a fifteen-year-old will admit to a seventeen-year-old
+                that they have been using AI to write essays, and that admission
+                is where the useful conversation starts.
+              </p>
+              <p className="font-body text-body-md text-on-surface-variant">
+                Sessions run thirty to sixty minutes and adapt to the room. We
+                have taught classrooms, after-school clubs, and drop-in
+                community programs where students arrived halfway through. What
+                stays constant is the structure — open with a demonstration,
+                let students test the tool themselves, then talk about what it
+                got wrong and why that matters.
+              </p>
+              <p className="font-body text-body-md text-on-surface-variant">
+                We deliberately do not teach AI as a list of tools to use or
+                avoid. Tools change every few months; the underlying questions
+                do not. How does this system produce an answer? What would it
+                look like if it were wrong? Who is accountable when it is? A
+                student who can ask those questions can handle whatever
+                replaces today&rsquo;s applications.
+              </p>
+              <p className="font-body text-body-md text-on-surface-variant">
+                If you run a school, library, or youth program in the Cincinnati
+                area and want a session, email us. There is no cost, no minimum
+                group size, and no requirement that anyone involved knows
+                anything about AI beforehand — that is rather the point.
+              </p>
+            </div>
           </Reveal>
         )}
 
@@ -74,7 +107,8 @@ export default function Outreach({
                     src={e.cover}
                     alt={e.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    quality={68}
+                    sizes="(max-width: 768px) 92vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
@@ -113,7 +147,8 @@ export default function Outreach({
                   src={p.src}
                   alt={p.alt}
                   fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  quality={62}
+                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 31vw, 24vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
