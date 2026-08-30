@@ -28,13 +28,16 @@ export async function generateMetadata({
   const { slug } = await params;
   const event = events.find((e) => e.id === slug);
   if (!event) return {};
+  // Event summaries run short on their own; the date and venue carry the recap
+  // up to a full-length description without padding it.
+  const description = `${event.summary} A free AI literacy workshop taught by Students For AI Literacy at ${event.location}, ${longDate(event.date)}.`;
   return {
     title: event.title,
-    description: event.summary,
+    description,
     alternates: { canonical: `/outreach/${event.id}` },
     openGraph: {
       title: event.title,
-      description: event.summary,
+      description,
       images: [event.cover],
       type: "article",
     },

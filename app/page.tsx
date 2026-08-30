@@ -23,12 +23,15 @@ export default function Home() {
             { label: "See our workshops", href: "/outreach" },
           ]}
         />
+        {/* Order is deliberate: what SAIL is, proof it is running, what it
+            actually teaches, then the ask. The founding story and the
+            supporting research are context and sit below all of that. */}
         <Mission />
-        <Challenge />
-        <Pillars />
-        <Origin />
         <ImpactTicker stats={stats} />
+        <Pillars />
+        <Challenge />
         <WaysToHelp />
+        <Origin />
         <SectionCTA
           eyebrow="Ready to start?"
           title="Bring AI literacy to your school."

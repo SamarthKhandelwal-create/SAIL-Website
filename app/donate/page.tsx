@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
+import Sponsors from "@/components/Sponsors";
 import Footer from "@/components/Footer";
+import { sponsors } from "@/data/sponsors";
 import { site } from "@/lib/site";
 
 const description =
@@ -156,6 +158,10 @@ export default function SupportPage() {
             </div>
           </div>
         </section>
+
+        {/* Sponsors — sits after the asks so a reader arrives at it already
+            knowing what a contribution funds. */}
+        <Sponsors sponsors={sponsors} background="lowest" />
 
         {/* Contact band */}
         <section className="bg-primary px-margin-mobile py-section-gap md:px-gutter">

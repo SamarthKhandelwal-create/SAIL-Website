@@ -6,9 +6,11 @@ import SectionCTA from "@/components/SectionCTA";
 import Footer from "@/components/Footer";
 import FloatingApply from "@/components/FloatingApply";
 import Reveal from "@/components/Reveal";
+import Sponsors from "@/components/Sponsors";
 
 import { site } from "@/lib/site";
 import { stats } from "@/data/stats";
+import { sponsors } from "@/data/sponsors";
 
 const description =
   "Students For AI Literacy (SAIL) is a student-led nonprofit teaching young people to understand, question, and responsibly use artificial intelligence. Learn about our mission, programs, and organization.";
@@ -202,6 +204,10 @@ export default function AboutPage() {
             </Reveal>
           </div>
         </section>
+
+        {/* Sponsors — directly after the grant and EIN figures above, which is
+            where a funder or reviewer is already looking. */}
+        <Sponsors sponsors={sponsors} />
 
         <SectionCTA
           eyebrow="Get involved"

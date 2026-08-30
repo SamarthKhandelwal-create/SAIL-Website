@@ -1,18 +1,24 @@
 import type { Stats } from "./types";
 import { chapters } from "./chapters";
-import { events } from "./events";
 
 /**
  * Impact numbers shown in the rolling ticker.
  *
  * - `activeChapters` is derived automatically from data/chapters.ts.
- * - `studentsTaught` and `statesReached` are edited by hand — update them after
- *   each outreach event. Keep them honest; grant reviewers check.
+ * - `studentsTaught`, `statesReached`, and `engagementHours` are edited by hand
+ *   — update them after each outreach event. Keep them honest; grant reviewers
+ *   check, and they compare these against what your grant applications claim.
  */
 
 const manual = {
-  studentsTaught: 300,
+  studentsTaught: 600,
   statesReached: 1,
+  /**
+   * Volunteer and participant hours across every session we have run, chapter
+   * workshops included. Reported instead of a session count because the count
+   * understates the work: sessions vary from a single period to a full day.
+   */
+  engagementHours: 1100,
 };
 
 const uniqueStates = new Set(
@@ -23,5 +29,5 @@ export const stats: Stats = {
   studentsTaught: manual.studentsTaught,
   activeChapters: chapters.length,
   statesReached: Math.max(manual.statesReached, uniqueStates.size),
-  workshopsHosted: events.length,
+  engagementHours: manual.engagementHours,
 };

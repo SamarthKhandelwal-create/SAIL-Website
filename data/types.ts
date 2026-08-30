@@ -30,18 +30,38 @@ export type BoardMember = {
   photo: string;
   /** Optional short bio shown on hover / expand. */
   bio?: string;
-  /** Optional contact link (mailto: or https://). */
-  link?: string;
+  /**
+   * Board address on the org domain, firstname.lastname@studentsforailiteracy.org.
+   * Shown on the member's card and used as the card's mailto: link.
+   */
+  email?: string;
   /** Layout weight on the board grid: feature spans wider. */
   feature?: boolean;
+};
+
+export type Sponsor = {
+  /** Stable slug, used as a React key and as the logo filename. */
+  id: string;
+  /** Full name, as the sponsor writes it. */
+  name: string;
+  /** One sentence on what they funded. Keep it specific and true. */
+  note: string;
+  /**
+   * Logo path under /public/sponsors. Omit until we have the sponsor's own
+   * artwork — the card then falls back to a typographic wordmark, which reads
+   * as deliberate rather than as a broken image.
+   */
+  logo?: string;
+  /** Sponsor's website, if they have one. */
+  url?: string;
 };
 
 export type Stats = {
   studentsTaught: number;
   activeChapters: number;
   statesReached: number;
-  /** Community workshops delivered — derived from data/events.ts. */
-  workshopsHosted: number;
+  /** Volunteer and participant hours across every session we have run. */
+  engagementHours: number;
 };
 
 export type OutreachPhoto = {

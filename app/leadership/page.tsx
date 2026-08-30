@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Board from "@/components/Board";
 import SectionCTA from "@/components/SectionCTA";
 import Footer from "@/components/Footer";
 import FloatingApply from "@/components/FloatingApply";
+import Reveal from "@/components/Reveal";
 
 import { board } from "@/data/board";
+import { site } from "@/lib/site";
 
 const description =
-  "Meet the students leading Students For AI Literacy — the board bridging complex technology and accessible education.";
+  "Meet the high school students who run Students For AI Literacy — the volunteer board that writes our curriculum, books our workshops, keeps our books, and teaches every session. No paid staff, no adult executive director.";
 
 export const metadata: Metadata = {
   title: "Leadership",
@@ -21,6 +24,46 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+/** How the work is actually divided. Mirrors the open roles in lib/site.ts. */
+const teams = [
+  {
+    title: "Curriculum",
+    body: "Keeps the workshop material current, which matters more in this subject than in most — an example that landed a year ago may be obsolete now. This team rewrites activities after sessions that did not work, tests replacements on real rooms of students, and pushes every update out to the chapter network.",
+  },
+  {
+    title: "Outreach",
+    body: "Books sessions and coordinates with schools, libraries, and community organizations. This is the team that answers when a teacher emails asking for a workshop, finds a date that works around the school calendar, and makes sure volunteers and materials arrive together.",
+  },
+  {
+    title: "Finance",
+    body: "Maintains the expense ledger, reconciles receipts, and prepares budgets and reporting for the grants we depend on. Every dollar SAIL has raised is tracked against the programming it paid for, because the funders who gave it to us are entitled to see exactly that.",
+  },
+  {
+    title: "Marketing",
+    body: "Handles how SAIL presents itself to students, schools, and funders — our social presence, the outreach materials chapters hand to administrators, and the way we describe what student-led AI literacy actually looks like in practice.",
+  },
+];
+
+/** The unglamorous nonprofit obligations the board carries. */
+const governance = [
+  {
+    title: "501(c)(3) standing",
+    body: `SAIL is a registered 501(c)(3) nonprofit, EIN ${site.ein}. The board maintains that standing — annual filings, state registration, and the recordkeeping the IRS expects of an exempt organization.`,
+  },
+  {
+    title: "Financial accountability",
+    body: "We operated on $2,100+ in grants and contributions in our last fiscal year. Every expense is receipted and reconciled against a line in the budget, and grant reporting goes out on the schedule each funder sets.",
+  },
+  {
+    title: "Student safety",
+    body: "Volunteers teach in school and community settings under the supervision of the host organization's own staff. We do not collect or retain student records — any student information involved in a session stays with the school.",
+  },
+  {
+    title: "Succession",
+    body: "Every board member graduates. Roles are documented and handed over deliberately rather than improvised each spring, so a chapter does not close because the student who started it left for college.",
+  },
+];
 
 export default function LeadershipPage() {
   return (
@@ -38,6 +81,114 @@ export default function LeadershipPage() {
           ]}
         />
         <Board board={board} showHeading={false} />
+
+        {/* How the work is divided */}
+        <section className="bg-surface px-margin-mobile py-section-gap md:px-gutter">
+          <div className="mx-auto max-w-content">
+            <Reveal>
+              <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
+                How we work
+              </p>
+              <h2 className="mb-6 font-display text-headline-lg text-primary">
+                Four teams, no hierarchy
+              </h2>
+              <p className="mb-12 max-w-3xl font-body text-body-lg text-on-surface-variant">
+                SAIL is organized into small working teams rather than a chain
+                of command. Each team owns a piece of the organization outright
+                and reports to the board as a whole, which keeps decisions close
+                to the people doing the work and means no one is waiting on a
+                single person for approval.
+              </p>
+            </Reveal>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {teams.map((t, i) => (
+                <Reveal key={t.title} delay={i % 2}>
+                  <div className="flex h-full flex-col rounded-xl border border-outline-variant/40 bg-surface-container-lowest p-8">
+                    <h3 className="mb-3 font-display text-2xl text-on-surface">
+                      {t.title}
+                    </h3>
+                    <p className="font-body text-body-md text-secondary">
+                      {t.body}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal>
+              <p className="mt-12 max-w-3xl font-body text-body-md text-on-surface-variant">
+                Beneath the national board, each chapter lead runs their own
+                school&rsquo;s programming — recruiting volunteers, scheduling
+                sessions, and adapting the curriculum to the students in front
+                of them. What works at one school gets brought back to the
+                network and folded into the material everyone else receives.
+                Most of our best activities started as a chapter lead&rsquo;s
+                improvisation in a room that was not going well.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Governance */}
+        <section className="bg-surface-container-lowest px-margin-mobile py-section-gap md:px-gutter">
+          <div className="mx-auto max-w-content">
+            <Reveal>
+              <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
+                Governance
+              </p>
+              <h2 className="mb-6 font-display text-headline-lg text-primary">
+                What the board is responsible for
+              </h2>
+              <p className="mb-12 max-w-3xl font-body text-body-lg text-on-surface-variant">
+                Alongside teaching, the board carries the parts of running a
+                nonprofit that are easy to overlook. Learning to do this
+                properly, at this age, is a large part of why the students above
+                took these roles.
+              </p>
+            </Reveal>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {governance.map((g, i) => (
+                <Reveal key={g.title} delay={i}>
+                  <div className="flex h-full flex-col rounded-xl border border-outline-variant/40 bg-surface p-6">
+                    <h3 className="mb-3 font-display text-xl text-on-surface">
+                      {g.title}
+                    </h3>
+                    <p className="font-body text-body-md text-secondary">
+                      {g.body}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal>
+              <p className="mt-12 max-w-3xl font-body text-body-md text-on-surface-variant">
+                Questions about how SAIL is run, or about partnering with us?
+                Email {site.contact.founder} at{" "}
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
+                >
+                  {site.contact.email}
+                </a>
+                . You can also read more{" "}
+                <Link
+                  href="/about"
+                  className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
+                >
+                  about the organization
+                </Link>{" "}
+                or see{" "}
+                <Link
+                  href="/outreach"
+                  className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
+                >
+                  the workshops this team teaches
+                </Link>
+                .
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         <SectionCTA
           eyebrow="Open roles"
           title="We're looking for students to join this team."

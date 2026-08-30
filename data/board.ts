@@ -8,10 +8,13 @@ import type { BoardMember } from "./types";
  *
  * `feature: true` makes a member span the wide hero card at the top of the grid.
  *
- * `link` is each member's contact email as a `mailto:` — the whole card links
- * to it. Swap the org address below for a member's own email as they're added.
+ * Every board member has an @studentsforailiteracy.org address on the pattern
+ * firstname.lastname@ — `mail()` builds it so a name and an address can never
+ * drift apart. Suffixes like "Jr." are not part of the address, so pass the
+ * bare first and last name.
  */
-const ORG_EMAIL = "sail.national.youth@gmail.com";
+const mail = (first: string, last: string) =>
+  `${first}.${last}`.toLowerCase() + "@studentsforailiteracy.org";
 
 export const board: BoardMember[] = [
   {
@@ -20,7 +23,7 @@ export const board: BoardMember[] = [
     role: "President & Founder",
     photo: "/board/samarth.png",
     bio: "Founded SAIL after noticing how many students used AI irresponsibly. Plans to major in computer science and finance; enjoys piano, cello, and running.",
-    link: "mailto:skhandelwal1324@gmail.com",
+    email: mail("samarth", "khandelwal"),
     feature: true,
   },
   {
@@ -29,7 +32,7 @@ export const board: BoardMember[] = [
     role: "Vice President",
     photo: "/board/armaan.png",
     bio: "A finance enthusiast who finds enjoyment in building people up — and that's also his goal in SAIL.",
-    link: `mailto:${ORG_EMAIL}`,
+    email: mail("armaan", "tindni"),
   },
   {
     id: "kayla-ofosu",
@@ -37,7 +40,7 @@ export const board: BoardMember[] = [
     role: "Director of Curriculum",
     photo: "/board/kayla.jpeg",
     bio: "Women's and mental-health advocate, InHerVision founder, epidemiology champion, and aspiring AI-health innovator driving impact.",
-    link: `mailto:${ORG_EMAIL}`,
+    email: mail("kayla", "ofosu"),
   },
   {
     id: "dharshenee-kasiviswanathan",
@@ -45,15 +48,23 @@ export const board: BoardMember[] = [
     role: "Director of Outreach",
     photo: "/board/dharshenee.jpg",
     bio: "An active person who loves to read, roller skate, and listen to music.",
-    link: `mailto:${ORG_EMAIL}`,
+    email: mail("dharshenee", "kasiviswanathan"),
+  },
+  {
+    id: "sasha-sindwani",
+    name: "Sasha Sindwani",
+    role: "Director of Marketing",
+    photo: "/board/sasha.jpg",
+    bio: "Incoming University of Michigan student studying Communications and Media on the pre-law track, with a passion for business, marketing, leadership, tennis, and music.",
+    email: mail("sasha", "sindwani"),
   },
   {
     id: "ariv-sharma",
     name: "Ariv Sharma",
-    role: "Director of Marketing & Communications",
+    role: "Director of Communications",
     photo: "/board/ariv.jpeg",
     bio: "Aspires to run his own tech business. Into coding, photography, casual gaming, music production, and tennis.",
-    link: `mailto:${ORG_EMAIL}`,
+    email: mail("ariv", "sharma"),
   },
   {
     id: "kushagra-khandelwal",
@@ -61,7 +72,7 @@ export const board: BoardMember[] = [
     role: "Director of Chapter Expansion",
     photo: "/board/kushagra.jpg",
     bio: "Enjoys playing video games and aspires to become an engineer.",
-    link: `mailto:${ORG_EMAIL}`,
+    email: mail("kushagra", "khandelwal"),
   },
   {
     id: "jason-bronson",
@@ -69,7 +80,7 @@ export const board: BoardMember[] = [
     role: "Director of Treasury",
     photo: "/board/jason.jpeg",
     bio: "Cincinnati entrepreneur and professional photographer who also serves with the Cincinnati Fire Department as a Fire Cadet.",
-    link: `mailto:${ORG_EMAIL}`,
+    email: mail("jason", "bronson"),
   },
   {
     id: "emmy-schulert",
@@ -77,6 +88,6 @@ export const board: BoardMember[] = [
     role: "Director of Outreach",
     photo: "/board/emmy.jpeg",
     bio: "A senior who plays flute and tuba in concert and marching band, and aspires to be a museum curator or historian.",
-    link: `mailto:${ORG_EMAIL}`,
+    email: mail("emmy", "schulert"),
   },
 ];

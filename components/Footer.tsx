@@ -32,7 +32,9 @@ export default function Footer() {
               skills within youth.
             </p>
             <p className="mt-4 font-body text-body-md text-on-surface-variant">
-              Registered nonprofit organization · EIN {site.ein}
+              Founded in Cincinnati, Ohio and run entirely by high school
+              students. Every workshop we teach is free to the school or
+              community organization hosting it.
             </p>
             <div className="mt-6 flex gap-3">
               <a
@@ -122,16 +124,33 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-stack-lg flex flex-col gap-3 border-t border-outline/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-body text-body-md text-secondary">
-            © {new Date().getFullYear()} Students For AI Literacy.
+        {/* Legal strip. The 501(c)(3) sentence and the Privacy Policy link are
+            required on every page by Google Ad Grants review — keep both here,
+            in the shared footer, rather than only on /about. */}
+        <div className="mt-stack-lg border-t border-outline/10 pt-6">
+          <p className="font-body text-body-md text-on-surface-variant">
+            {site.taxStatusLine} Donations and contributions are tax-deductible
+            to the extent permitted by law.
           </p>
-          <Link
-            href="/privacy"
-            className="font-body text-body-md text-secondary transition-colors hover:text-primary"
-          >
-            Privacy Policy
-          </Link>
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="font-body text-body-md text-secondary">
+              © {new Date().getFullYear()} {site.name}. All rights reserved.
+            </p>
+            <nav aria-label="Legal" className="flex items-center gap-6">
+              <Link
+                href="/privacy"
+                className="font-body text-body-md text-secondary transition-colors hover:text-primary"
+              >
+                Privacy Policy
+              </Link>
+              <a
+                href={`mailto:${site.contact.email}`}
+                className="font-body text-body-md text-secondary transition-colors hover:text-primary"
+              >
+                Contact Us
+              </a>
+            </nav>
+          </div>
         </div>
       </div>
     </footer>

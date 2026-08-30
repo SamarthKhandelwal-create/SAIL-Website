@@ -3,12 +3,11 @@ import type { BoardMember } from "@/data/types";
 import Reveal from "./Reveal";
 
 function withLink(member: BoardMember, node: React.ReactNode) {
-  if (!member.link) return node;
+  if (!member.email) return node;
   return (
     <a
-      href={member.link}
-      target={member.link.startsWith("http") ? "_blank" : undefined}
-      rel="noopener noreferrer"
+      href={`mailto:${member.email}`}
+      aria-label={`Email ${member.name}`}
       className="block h-full"
     >
       {node}
@@ -46,9 +45,9 @@ function FeatureCard({ member }: { member: BoardMember }) {
             {member.bio}
           </p>
         )}
-        {member.link && (
-          <span className="mt-2 inline-flex items-center gap-2 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary transition-colors group-hover:text-surface-tint">
-            Contact
+        {member.email && (
+          <span className="mt-2 inline-flex items-center gap-2 font-body text-body-md text-primary transition-colors group-hover:text-surface-tint">
+            {member.email}
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
@@ -85,6 +84,14 @@ function MemberCard({
             {member.role}
           </p>
           <h3 className="font-display text-2xl text-white">{member.name}</h3>
+          {member.email && (
+            // Addresses run to ~48 characters, which is wider than this card at
+            // every breakpoint — break-all keeps them inside the overlay rather
+            // than pushing past the rounded edge.
+            <p className="mt-1 break-all font-body text-xs text-white/70">
+              {member.email}
+            </p>
+          )}
           {member.bio && (
             <p className="mt-3 max-h-0 overflow-hidden font-body text-sm text-white/80 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:opacity-100">
               {member.bio}
@@ -134,15 +141,6 @@ export default function Board({
               leads at each school run their own programming and bring what
               works back to the wider network.
             </p>
-            <p className="mx-auto mb-4 max-w-3xl font-body text-body-md text-on-surface-variant">
-              We organize into small teams rather than a hierarchy. Curriculum
-              keeps the workshop material current, which matters more in this
-              subject than most — an example that landed a year ago may be
-              obsolete now. Outreach books sessions and coordinates with schools
-              and community organizations. Finance keeps the ledger and prepares
-              reporting for the grants we depend on. Marketing handles how we
-              present ourselves to students, schools, and funders.
-            </p>
             <p className="mx-auto max-w-3xl font-body text-body-md text-on-surface-variant">
               Everyone here is a high school student doing this around
               coursework and everything else, which shapes how we work: small
@@ -150,14 +148,6 @@ export default function Board({
               failure on any one person. If you want to be part of it, we have
               open roles on the marketing and finance teams, and we are always
               looking for new chapter leads.
-            </p>
-            <p className="mx-auto max-w-3xl font-body text-body-md text-on-surface-variant">
-              The board also carries the parts of a nonprofit that are easy to
-              overlook: filing with the state, maintaining our 501(c)(3)
-              standing, keeping receipts against every expense, and answering
-              to the funders whose grants pay for our materials. Learning to do
-              that properly, at this age, is a large part of why the people
-              below took these roles.
             </p>
           </div>
         </Reveal>

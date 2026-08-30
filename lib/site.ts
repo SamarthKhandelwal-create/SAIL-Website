@@ -12,6 +12,14 @@ export const site = {
   gaMeasurementId: "G-LY323NYB3Y",
   ein: "42-3520807",
   /**
+   * Exact tax-status sentence Google Ad Grants review expects to find in the
+   * site footer on every page. Keep the wording and punctuation as-is —
+   * reviewers look for the literal "registered 501(c)(3) organization" phrase
+   * next to the EIN.
+   */
+  taxStatusLine:
+    "Students For AI Literacy is a registered 501(c)(3) organization (EIN: 42-3520807).",
+  /**
    * Open roles. Each is a JotForm application.
    *
    * TO ADD A ROLE: append an entry here — /join renders the list, so the new

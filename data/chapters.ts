@@ -45,4 +45,13 @@ export const chapters: Chapter[] = [
     lng: -84.4419,
     founded: 2025,
   },
+  {
+    id: "alliance",
+    name: "Alliance High School",
+    location: "Alliance, OH",
+    // 400 Glamorgan St, Alliance, OH 44601 — the school building itself.
+    lat: 40.9113,
+    lng: -81.1114,
+    founded: 2026,
+  },
 ];
