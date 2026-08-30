@@ -17,7 +17,7 @@ export const chapters: Chapter[] = [
     location: "Cincinnati, OH",
     lat: 39.1402,
     lng: -84.4733,
-    email: "sail.national.youth@gmail.com",
+    email: "samarth.khandelwal@studentsforailiteracy.org",
     founded: 2024,
     flagship: true,
   },

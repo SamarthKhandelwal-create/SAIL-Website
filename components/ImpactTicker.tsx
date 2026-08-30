@@ -81,22 +81,19 @@ export default function ImpactTicker({ stats }: { stats: Stats }) {
       label: "Students Taught",
       value: stats.studentsTaught,
       suffix: "+",
-      detail:
-        "Young people who have been through a free SAIL workshop since we started in 2024.",
+      detail: "Through a free SAIL workshop since 2024.",
     },
     {
       label: "Active Chapters",
       value: stats.activeChapters,
       suffix: "+",
-      detail:
-        "Ohio high schools where students run their own AI literacy programming.",
+      detail: "Ohio high schools running their own programming.",
     },
     {
       label: "Engagement Hours",
       value: stats.engagementHours,
       suffix: "+",
-      detail:
-        "Hours students have spent in our classroom and community sessions — every one of them free to host.",
+      detail: "In classroom and community sessions, all free to host.",
     },
   ];
 
@@ -104,14 +101,8 @@ export default function ImpactTicker({ stats }: { stats: Stats }) {
     <section className="bg-primary py-section-gap text-on-primary">
       <div className="mx-auto max-w-content px-margin-mobile md:px-gutter">
         <div className="mx-auto mb-stack-lg max-w-2xl text-center">
-          <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-primary-fixed-dim">
+          <p className="font-body text-label-caps font-bold uppercase tracking-[0.2em] text-primary-fixed-dim">
             Our impact so far
-          </p>
-          <p className="font-body text-body-lg text-primary-fixed">
-            SAIL is a young organization and these are the numbers behind it —
-            students we have actually taught, schools that have actually
-            launched a chapter, and hours we have actually spent in the room
-            with young people.
           </p>
         </div>
 

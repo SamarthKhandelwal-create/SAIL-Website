@@ -16,22 +16,22 @@ const destinations = [
   {
     href: "/about",
     title: "About SAIL",
-    body: "Who we are, why student-led AI literacy works, and how the organization is run.",
+    body: "Who we are and how the organization is run.",
   },
   {
     href: "/outreach",
     title: "Our workshops",
-    body: "Recaps of every session we have taught, and how to request one for your students.",
+    body: "Session recaps, and how to request one for your students.",
   },
   {
     href: "/chapters",
     title: "Start a chapter",
-    body: "Bring AI literacy to your own school with the free Chapter-in-a-Box curriculum.",
+    body: "Bring AI literacy to your school with the free curriculum.",
   },
   {
     href: "/join",
     title: "Open roles",
-    body: "Chapter lead, marketing, and finance positions for high school students.",
+    body: "Chapter lead, marketing, and finance roles for students.",
   },
 ];
 
@@ -51,16 +51,15 @@ export default function NotFound() {
             Page not found
           </h1>
           <p className="mb-12 max-w-2xl font-body text-body-lg text-on-surface-variant">
-            The page you were looking for does not exist — it may have moved, or
-            the link that brought you here may be out of date. Everything SAIL
-            publishes is still one click away below, or you can{" "}
+            The page you were looking for does not exist. Everything SAIL
+            publishes is one click away below, or you can{" "}
             <a
               href={`mailto:${site.contact.email}`}
               className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
             >
               email us
-            </a>{" "}
-            and a student on our team will point you to the right place.
+            </a>
+            .
           </p>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">

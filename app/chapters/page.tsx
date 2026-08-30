@@ -29,32 +29,32 @@ export const metadata: Metadata = {
 /** Questions we get from every prospective chapter lead, answered plainly. */
 const faqs = [
   {
-    q: "Do I need to know anything about AI to lead a chapter?",
-    a: "No. The curriculum is written for students with no technical background, and it teaches you as you prepare it. We have accepted chapter leads with no computer science coursework and no teaching experience. What matters far more is that you are willing to stand in front of a room and keep a conversation going.",
+    q: "Do I need to know anything about AI?",
+    a: "No. The curriculum is written for students with no technical background and teaches you as you prepare it. We have accepted leads with no computer science coursework and no teaching experience.",
   },
   {
     q: "How much time does it take?",
-    a: "Plan on four to eight hours a week during an active term, and considerably less between sessions. Most of that is preparation and coordination rather than teaching — a workshop itself runs thirty to sixty minutes. Chapter leads are high school students with coursework and other commitments, and the program is built around that reality rather than in spite of it.",
+    a: "Four to eight hours a week during an active term, less between sessions. Most of that is preparation, not teaching — a workshop itself runs thirty to sixty minutes.",
   },
   {
     q: "What does it cost my school?",
-    a: "Nothing. Chapter-in-a-Box, the curriculum, the slide decks, and the ongoing support are all free, and every workshop a chapter runs is free to the students and the school. SAIL is funded by grants and contributions specifically so that cost is never the reason a school says no.",
+    a: "Nothing. The curriculum, slide decks, and support are free, and so is every workshop a chapter runs. Grants cover it so cost is never the reason a school says no.",
   },
   {
     q: "How do I get my school to approve it?",
-    a: "The operational guides in Chapter-in-a-Box cover exactly this: what to say to an administrator, what a club charter needs to contain, how to find a faculty sponsor, and how to book a space. Most schools already know they have an AI problem and have no material to address it — you are arriving with the solution, not the request.",
+    a: "Chapter-in-a-Box includes the operational guides: what to say to an administrator, what a club charter needs, how to find a faculty sponsor, and how to book a space.",
   },
   {
     q: "Do I have to teach alone?",
-    a: "No. Chapters recruit a small team of student volunteers, and a member of the national team will walk through the material with you before your first session. You also get access to every other chapter lead, so when something works at one school you hear about it, and when a session goes badly you have people to ask who have already had that happen.",
+    a: "No. Chapters recruit a small team of volunteers, and someone from the national team walks through the material with you before your first session. You also get access to every other chapter lead.",
   },
   {
     q: "What if my school is outside Ohio?",
-    a: "Apply anyway. Our current chapters are all in Ohio because that is where SAIL started, and expanding beyond it is exactly what we want. Nothing in the curriculum or the operational guides is state-specific, and support is delivered remotely.",
+    a: "Apply anyway. Nothing in the curriculum is state-specific and support is remote. Our chapters are all in Ohio because that is where SAIL started, not because of any limit.",
   },
   {
     q: "How long does the application take?",
-    a: "About ten minutes. It asks what you want to build at your school and why AI literacy matters there — not what you have already accomplished. We read every application and reply within a week.",
+    a: "About ten minutes. It asks what you want to build, not what you have already done. We read every application and reply within a week.",
   },
 ];
 
@@ -87,10 +87,8 @@ export default function ChaptersPage() {
                 Questions we get from every chapter lead
               </h2>
               <p className="mb-12 max-w-3xl font-body text-body-lg text-on-surface-variant">
-                Starting something at a school is mostly a logistics problem,
-                and the questions below are the ones that actually decide
-                whether a chapter happens. If yours is not here, email us and a
-                student on our team will answer it.
+                The questions that actually decide whether a chapter happens.
+                If yours is not here, email us.
               </p>
             </Reveal>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -109,21 +107,21 @@ export default function ChaptersPage() {
             </div>
             <Reveal>
               <p className="mt-12 max-w-3xl font-body text-body-md text-on-surface-variant">
-                Still deciding? Read{" "}
+                Still deciding? Read our{" "}
                 <Link
                   href="/outreach"
                   className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
                 >
-                  recaps of the sessions we have already taught
+                  session recaps
                 </Link>{" "}
-                to see what a chapter actually does on a given afternoon, or{" "}
+                or{" "}
                 <Link
                   href="/leadership"
                   className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
                 >
-                  meet the students
-                </Link>{" "}
-                you would be working with. Questions go to{" "}
+                  meet the team
+                </Link>
+                . Questions go to{" "}
                 <a
                   href={`mailto:${site.contact.email}`}
                   className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"

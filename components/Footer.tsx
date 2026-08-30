@@ -32,9 +32,7 @@ export default function Footer() {
               skills within youth.
             </p>
             <p className="mt-4 font-body text-body-md text-on-surface-variant">
-              Founded in Cincinnati, Ohio and run entirely by high school
-              students. Every workshop we teach is free to the school or
-              community organization hosting it.
+              Founded in Cincinnati, Ohio. Every workshop we teach is free.
             </p>
             <div className="mt-6 flex gap-3">
               <a

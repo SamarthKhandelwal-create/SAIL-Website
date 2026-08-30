@@ -83,7 +83,7 @@ export const site = {
   donateUrl: "" as string,
   contact: {
     founder: "Samarth Khandelwal",
-    email: "sail.national.youth@gmail.com",
+    email: "samarth.khandelwal@studentsforailiteracy.org",
     phone: "+1 (513) 953-6153",
     phoneHref: "tel:+15139536153",
   },

@@ -134,20 +134,11 @@ export default function Board({
             <p className="mx-auto mb-6 max-w-2xl font-body text-body-lg text-secondary">
               {INTRO}
             </p>
-            <p className="mx-auto mb-4 max-w-3xl font-body text-body-md text-on-surface-variant">
+            <p className="mx-auto max-w-3xl font-body text-body-md text-on-surface-variant">
               SAIL has no paid staff and no adult executive director. The board
               below sets direction, maintains the curriculum, keeps the books,
-              and teaches workshops alongside every other volunteer. Chapter
-              leads at each school run their own programming and bring what
-              works back to the wider network.
-            </p>
-            <p className="mx-auto max-w-3xl font-body text-body-md text-on-surface-variant">
-              Everyone here is a high school student doing this around
-              coursework and everything else, which shapes how we work: small
-              commitments that people can actually keep, and no single point of
-              failure on any one person. If you want to be part of it, we have
-              open roles on the marketing and finance teams, and we are always
-              looking for new chapter leads.
+              and teaches workshops alongside every other volunteer — all of
+              them high school students doing this around coursework.
             </p>
           </div>
         </Reveal>

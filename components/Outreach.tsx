@@ -56,34 +56,17 @@ export default function Outreach({
             </p>
             <div className="grid max-w-4xl gap-6 md:grid-cols-2">
               <p className="font-body text-body-md text-on-surface-variant">
-                Every session is free to the school or organization hosting it,
-                and every one is taught by high school students rather than
-                adults. We have found that matters more than any part of the
-                curriculum: a fifteen-year-old will admit to a seventeen-year-old
-                that they have been using AI to write essays, and that admission
-                is where the useful conversation starts.
+                Every session is free and taught by high school students rather
+                than adults. That matters more than any part of the curriculum:
+                a fifteen-year-old will admit to a seventeen-year-old that they
+                have been using AI to write essays, and that admission is where
+                the useful conversation starts.
               </p>
               <p className="font-body text-body-md text-on-surface-variant">
-                Sessions run thirty to sixty minutes and adapt to the room. We
-                have taught classrooms, after-school clubs, and drop-in
-                community programs where students arrived halfway through. What
-                stays constant is the structure — open with a demonstration,
-                let students test the tool themselves, then talk about what it
-                got wrong and why that matters.
-              </p>
-              <p className="font-body text-body-md text-on-surface-variant">
-                We deliberately do not teach AI as a list of tools to use or
-                avoid. Tools change every few months; the underlying questions
-                do not. How does this system produce an answer? What would it
-                look like if it were wrong? Who is accountable when it is? A
-                student who can ask those questions can handle whatever
-                replaces today&rsquo;s applications.
-              </p>
-              <p className="font-body text-body-md text-on-surface-variant">
-                If you run a school, library, or youth program in the Cincinnati
-                area and want a session, email us. There is no cost, no minimum
-                group size, and no requirement that anyone involved knows
-                anything about AI beforehand — that is rather the point.
+                We do not teach AI as a list of tools to use or avoid. Tools
+                change every few months; the questions do not. How does this
+                system produce an answer? What would it look like if it were
+                wrong? Who is accountable when it is?
               </p>
             </div>
           </Reveal>

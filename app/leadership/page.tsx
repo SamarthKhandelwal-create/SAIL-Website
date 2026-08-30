@@ -29,19 +29,19 @@ export const metadata: Metadata = {
 const teams = [
   {
     title: "Curriculum",
-    body: "Keeps the workshop material current, which matters more in this subject than in most — an example that landed a year ago may be obsolete now. This team rewrites activities after sessions that did not work, tests replacements on real rooms of students, and pushes every update out to the chapter network.",
+    body: "Keeps the material current — an example that landed a year ago may be obsolete now. Rewrites activities that did not work and pushes updates out to the chapter network.",
   },
   {
     title: "Outreach",
-    body: "Books sessions and coordinates with schools, libraries, and community organizations. This is the team that answers when a teacher emails asking for a workshop, finds a date that works around the school calendar, and makes sure volunteers and materials arrive together.",
+    body: "Books sessions with schools, libraries, and community organizations, and makes sure volunteers and materials arrive together.",
   },
   {
     title: "Finance",
-    body: "Maintains the expense ledger, reconciles receipts, and prepares budgets and reporting for the grants we depend on. Every dollar SAIL has raised is tracked against the programming it paid for, because the funders who gave it to us are entitled to see exactly that.",
+    body: "Maintains the ledger, reconciles receipts, and prepares grant reporting. Every dollar is tracked against the programming it paid for.",
   },
   {
     title: "Marketing",
-    body: "Handles how SAIL presents itself to students, schools, and funders — our social presence, the outreach materials chapters hand to administrators, and the way we describe what student-led AI literacy actually looks like in practice.",
+    body: "Our social presence, the outreach materials chapters hand to administrators, and how we describe the work to students and funders.",
   },
 ];
 
@@ -49,19 +49,19 @@ const teams = [
 const governance = [
   {
     title: "501(c)(3) standing",
-    body: `SAIL is a registered 501(c)(3) nonprofit, EIN ${site.ein}. The board maintains that standing — annual filings, state registration, and the recordkeeping the IRS expects of an exempt organization.`,
+    body: `SAIL is a registered 501(c)(3) nonprofit, EIN ${site.ein}. The board handles annual filings, state registration, and IRS recordkeeping.`,
   },
   {
     title: "Financial accountability",
-    body: "We operated on $2,100+ in grants and contributions in our last fiscal year. Every expense is receipted and reconciled against a line in the budget, and grant reporting goes out on the schedule each funder sets.",
+    body: "We operated on $2,100+ in grants and contributions last fiscal year. Every expense is receipted against a budget line.",
   },
   {
     title: "Student safety",
-    body: "Volunteers teach in school and community settings under the supervision of the host organization's own staff. We do not collect or retain student records — any student information involved in a session stays with the school.",
+    body: "Volunteers teach under the host organization's own supervision. We do not collect or retain student records.",
   },
   {
     title: "Succession",
-    body: "Every board member graduates. Roles are documented and handed over deliberately rather than improvised each spring, so a chapter does not close because the student who started it left for college.",
+    body: "Every board member graduates. Roles are documented and handed over deliberately, so a chapter does not close when its founder leaves for college.",
   },
 ];
 
@@ -93,11 +93,9 @@ export default function LeadershipPage() {
                 Four teams, no hierarchy
               </h2>
               <p className="mb-12 max-w-3xl font-body text-body-lg text-on-surface-variant">
-                SAIL is organized into small working teams rather than a chain
-                of command. Each team owns a piece of the organization outright
-                and reports to the board as a whole, which keeps decisions close
-                to the people doing the work and means no one is waiting on a
-                single person for approval.
+                SAIL is organized into small working teams rather than a chain of
+                command. Each team owns its piece outright and reports to the
+                board as a whole.
               </p>
             </Reveal>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -116,13 +114,10 @@ export default function LeadershipPage() {
             </div>
             <Reveal>
               <p className="mt-12 max-w-3xl font-body text-body-md text-on-surface-variant">
-                Beneath the national board, each chapter lead runs their own
-                school&rsquo;s programming — recruiting volunteers, scheduling
-                sessions, and adapting the curriculum to the students in front
-                of them. What works at one school gets brought back to the
-                network and folded into the material everyone else receives.
-                Most of our best activities started as a chapter lead&rsquo;s
-                improvisation in a room that was not going well.
+                Each chapter lead runs their own school&rsquo;s programming and brings
+                what works back to the network. Most of our best activities
+                started as a chapter lead&rsquo;s improvisation in a room that was
+                not going well.
               </p>
             </Reveal>
           </div>
@@ -139,10 +134,8 @@ export default function LeadershipPage() {
                 What the board is responsible for
               </h2>
               <p className="mb-12 max-w-3xl font-body text-body-lg text-on-surface-variant">
-                Alongside teaching, the board carries the parts of running a
-                nonprofit that are easy to overlook. Learning to do this
-                properly, at this age, is a large part of why the students above
-                took these roles.
+                Alongside teaching, the board carries the parts of running a nonprofit
+                that are easy to overlook.
               </p>
             </Reveal>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -161,8 +154,7 @@ export default function LeadershipPage() {
             </div>
             <Reveal>
               <p className="mt-12 max-w-3xl font-body text-body-md text-on-surface-variant">
-                Questions about how SAIL is run, or about partnering with us?
-                Email {site.contact.founder} at{" "}
+                Questions about how SAIL is run, or about partnering with us? Email{" "}
                 <a
                   href={`mailto:${site.contact.email}`}
                   className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
