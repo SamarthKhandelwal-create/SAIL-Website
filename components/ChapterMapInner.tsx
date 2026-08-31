@@ -47,14 +47,32 @@ export default function ChapterMapInner({
     <MapContainer
       center={[40, -83]}
       zoom={7}
+      // Matches the tile layers' maxZoom, so manual zoom cannot run past the
+      // last zoom level Esri actually serves and leave the map blank.
+      maxZoom={16}
       scrollWheelZoom={false}
       zoomControl
       className="h-full w-full"
       style={{ background: "#eef3f5" }}
     >
+      {/* Esri's light gray canvas, in two layers: the basemap, then the place
+          labels on top of it. Keyless.
+
+          This replaced CARTO's light_all, which now watermarks "API KEY
+          REQUIRED" diagonally across every tile it serves. That came back as a
+          normal 200 with the text baked into the image, so nothing errored —
+          the map just rendered the notice. Note the {z}/{y}/{x} order, which is
+          Esri's and not Leaflet's usual {z}/{x}/{y}. */}
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        attribution='Tiles &copy; <a href="https://www.esri.com">Esri</a> — Esri, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+        maxZoom={16}
+        zIndex={1}
+      />
+      <TileLayer
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}"
+        maxZoom={16}
+        zIndex={2}
       />
       <FitBounds chapters={chapters} />
       <Recenter chapters={chapters} activeId={activeId} />
