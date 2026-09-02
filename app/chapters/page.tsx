@@ -58,11 +58,27 @@ const faqs = [
   },
 ];
 
+/** Mirrors the visible FAQ above — both render from the same `faqs` array. */
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function ChaptersPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger -- static, server-built object
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Nav />
-      <main>
+      <main id="main">
         <Hero
           id="chapters"
           size="page"

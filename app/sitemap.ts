@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/join",
       "/leadership",
       "/donate",
+      "/contact",
     ].map((path) => ({
       url: `${BASE}${path}`,
       lastModified: new Date(),

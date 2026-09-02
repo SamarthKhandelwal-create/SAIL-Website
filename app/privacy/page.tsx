@@ -21,6 +21,7 @@ export default function PrivacyPage() {
     <>
       <Nav solid />
       <main
+        id="main"
         className="bg-surface-container-lowest"
         style={{ paddingTop: "calc(var(--nav-h) + 3rem)" }}
       >

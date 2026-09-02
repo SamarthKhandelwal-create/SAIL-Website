@@ -85,8 +85,11 @@ export default function ImpactTicker({ stats }: { stats: Stats }) {
     },
     {
       label: "Active Chapters",
+      // No "+": this one is an exact count derived from data/chapters.ts, and
+      // a reviewer who counts the pins on the /chapters map gets the same
+      // number. Padding an exact figure is the kind of small overclaim that
+      // undermines the honest ones next to it.
       value: stats.activeChapters,
-      suffix: "+",
       detail: "Ohio high schools running their own programming.",
     },
     {

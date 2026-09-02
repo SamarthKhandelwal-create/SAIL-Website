@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { OutreachEvent } from "@/data/types";
@@ -21,10 +21,23 @@ function longDate(d: string) {
   return `${MONTHS[m]} ${day}, ${y}`;
 }
 
+/** Local-midnight "YYYY-MM-DD" — compared as a string against event dates. */
+function todayISO() {
+  const n = new Date();
+  return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, "0")}-${String(
+    n.getDate()
+  ).padStart(2, "0")}`;
+}
+
 /**
  * Self-contained month calendar of SAIL outreach events. Event days are marked
- * and link straight to that event's article. Opens on the most recent event's
- * month; arrows browse other months.
+ * and link straight to that event's article.
+ *
+ * The calendar used to open on the most recent event's month and had no notion
+ * of a future session, so once a term ended the page silently presented itself
+ * as months out of date — which is what Ad Grants review reads as abandoned
+ * content. It now distinguishes upcoming from past sessions, opens on the next
+ * upcoming one when there is one, and says so explicitly when there is not.
  */
 export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
   const byDate = useMemo(() => {
@@ -37,8 +50,31 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
     () => events.reduce((a, b) => (a.date > b.date ? a : b)),
     [events]
   );
+
+  /* `today` stays null through SSR and the first client render so both produce
+     the same HTML — the page is statically prerendered, so a build-time date
+     would be baked in and go stale. It is filled on mount, and the view jumps
+     to the next upcoming session if one exists. */
+  const [today, setToday] = useState<string | null>(null);
   const start = parseISO(latest.date);
   const [view, setView] = useState({ year: start.y, month: start.m });
+
+  const nextUp = useMemo(() => {
+    if (!today) return null;
+    return (
+      events
+        .filter((e) => e.date >= today)
+        .sort((a, b) => a.date.localeCompare(b.date))[0] ?? null
+    );
+  }, [events, today]);
+
+  useEffect(() => setToday(todayISO()), []);
+
+  useEffect(() => {
+    if (!nextUp) return;
+    const p = parseISO(nextUp.date);
+    setView({ year: p.y, month: p.m });
+  }, [nextUp]);
 
   const firstWeekday = new Date(view.year, view.month, 1).getDay();
   const daysInMonth = new Date(view.year, view.month + 1, 0).getDate();
@@ -70,6 +106,7 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
     "flex h-9 w-9 items-center justify-center rounded-full border border-outline-variant/60 text-primary transition-colors hover:border-primary hover:bg-surface-container-low";
 
   const listed = monthEvents.length ? monthEvents : events;
+  const isUpcoming = (d: string) => Boolean(today) && d >= today!;
 
   return (
     <div className="grid gap-8 rounded-xl border border-outline-variant/40 bg-surface-container-lowest p-6 md:grid-cols-2 md:p-8">
@@ -103,12 +140,17 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
             if (d === null) return <div key={i} aria-hidden />;
             const ev = byDate.get(iso(d));
             if (ev) {
+              const upcoming = isUpcoming(ev.date);
               return (
                 <Link
                   key={i}
                   href={`/outreach/${ev.id}`}
-                  title={ev.title}
-                  className="flex aspect-square items-center justify-center rounded-full bg-primary font-body text-body-md font-bold text-on-primary shadow-sm transition-transform hover:scale-105"
+                  title={`${ev.title}${upcoming ? " (upcoming)" : ""}`}
+                  className={`flex aspect-square items-center justify-center rounded-full font-body text-body-md font-bold shadow-sm transition-transform hover:scale-105 ${
+                    upcoming
+                      ? "border-2 border-primary bg-primary-container/20 text-primary"
+                      : "bg-primary text-on-primary"
+                  }`}
                 >
                   {d}
                 </Link>
@@ -151,6 +193,9 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
                 <span className="min-w-0">
                   <span className="block font-body text-label-caps font-bold uppercase tracking-[0.1em] text-secondary">
                     {longDate(e.date)}
+                    {isUpcoming(e.date) && (
+                      <span className="ml-2 text-primary">· Upcoming</span>
+                    )}
                   </span>
                   <span className="block truncate font-display text-lg text-primary transition-colors group-hover:text-surface-tint">
                     {e.title}

@@ -72,12 +72,19 @@ export default function Outreach({
           </Reveal>
         )}
 
-        {/* Calendar */}
+        {/* Calendar.
+            The h2s below are visually hidden only when the page supplies its
+            own <h1> and suppresses this section's heading — without them the
+            document jumped straight from h1 to the h3 on each event card,
+            which fails heading-order and flattens the page's outline for
+            crawlers and screen readers alike. */}
         <Reveal className="mb-20">
+          <h2 className="sr-only">Workshop calendar</h2>
           <EventCalendar events={events} />
         </Reveal>
 
         {/* Event cards → article pages */}
+        <h2 className="sr-only">Session recaps</h2>
         <div className="mb-20 grid grid-cols-1 gap-6 md:grid-cols-3">
           {sorted.map((e, i) => (
             <Reveal key={e.id} delay={i}>
@@ -117,9 +124,12 @@ export default function Outreach({
 
         {/* Photo gallery */}
         <Reveal>
-          <p className="mb-6 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
+          {/* A real h2 rather than a <p>: it already reads as this block's
+              heading, so the styling is unchanged and the outline gains a
+              level it was missing. */}
+          <h2 className="mb-6 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
             From the sessions
-          </p>
+          </h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {gallery.map((p, i) => (
               <div

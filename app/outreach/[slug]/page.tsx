@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { events } from "@/data/events";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { site } from "@/lib/site";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -55,10 +56,33 @@ export default async function EventArticle({
 
   const others = events.filter((e) => e.id !== event.id);
 
+  /* Reported as a Report rather than an Event: these are write-ups of sessions
+     that already happened, and Event markup on a past date earns a stale-event
+     warning in Search Console rather than a rich result. */
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Report",
+    headline: event.title,
+    description: event.summary,
+    datePublished: event.date,
+    image: `${site.url}${event.cover}`,
+    articleBody: event.article.join("\n\n"),
+    contentLocation: { "@type": "Place", name: event.location },
+    author: { "@type": "NGO", name: site.name, url: site.url },
+    publisher: { "@type": "NGO", name: site.name, url: site.url },
+    mainEntityOfPage: `${site.url}/outreach/${event.id}`,
+    isAccessibleForFree: true,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger -- static, server-built object
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Nav />
-      <main>
+      <main id="main">
         {/* Hero */}
         <header className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
           <Image
@@ -129,9 +153,12 @@ export default async function EventArticle({
         {others.length > 0 && (
           <section className="border-t border-outline/10 bg-surface px-margin-mobile py-16 md:px-gutter">
             <div className="mx-auto max-w-content">
-              <p className="mb-8 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
+              {/* h2, not <p>: it is this block's heading, and as a paragraph
+                  the page went straight from the article h1 to the h3 on each
+                  card below. Styling is unchanged. */}
+              <h2 className="mb-8 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
                 More sessions
-              </p>
+              </h2>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {others.map((e) => (
                   <Link

@@ -33,7 +33,9 @@ export default function SectionCTA({
     <section className="bg-primary px-margin-mobile py-stack-lg md:px-gutter">
       <div className="mx-auto flex max-w-content flex-col items-start gap-stack-md md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-on-primary/70">
+          {/* /85, not /70: at 12px bold on the primary band /70 measures
+              4.19:1, under the 4.5:1 AA floor for small text. */}
+          <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-on-primary/85">
             {eyebrow}
           </p>
           <p className="max-w-xl font-display text-headline-lg text-on-primary">

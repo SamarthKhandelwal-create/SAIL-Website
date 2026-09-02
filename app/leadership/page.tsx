@@ -69,7 +69,7 @@ export default function LeadershipPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <Hero
           id="board"
           size="page"

@@ -20,7 +20,7 @@ export default function JoinPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <Hero
           id="join"
           size="page"

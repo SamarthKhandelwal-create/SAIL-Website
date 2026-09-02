@@ -1,8 +1,43 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
+import { chapters } from "@/data/chapters";
+
+const COUNT_WORDS = [
+  "zero", "one", "two", "three", "four", "five",
+  "six", "seven", "eight", "nine", "ten",
+];
+
+/** Spelled out in prose, numeric past ten. */
+function spell(n: number) {
+  return COUNT_WORDS[n] ?? String(n);
+}
+
+/** Chapter locations are stored "City, ST"; prose wants the state's name. */
+const STATE_NAMES: Record<string, string> = {
+  OH: "Ohio",
+  KY: "Kentucky",
+  IN: "Indiana",
+};
 
 /** Founding story. Server component — no JS. */
 export default function Origin() {
+  /* Derived, never hard-coded: this sentence said "four Ohio high schools"
+     while the impact ticker on the same page counted five, and a contradiction
+     between two numbers on one page is exactly what Ad Grants review reads as
+     an unmaintained site. */
+  const chapterCount = chapters.length;
+  const states = [
+    ...new Set(
+      chapters.map((c) => c.location.split(",").pop()?.trim()).filter(Boolean)
+    ),
+  ] as string[];
+  /* Only name the state while every chapter is in it. Once SAIL crosses a
+     state line the sentence widens on its own rather than going stale, and an
+     unmapped abbreviation drops the state rather than printing "OH". */
+  const scope =
+    states.length === 1 && STATE_NAMES[states[0]]
+      ? `${STATE_NAMES[states[0]]} high schools`
+      : "high schools";
   return (
     <section className="bg-surface px-margin-mobile py-section-gap md:px-gutter">
       <div className="mx-auto max-w-content">
@@ -39,8 +74,8 @@ export default function Origin() {
               </p>
               <p className="font-body text-body-md text-on-surface-variant">
                 What began as one chapter is now a network of student leaders
-                across four Ohio high schools, running free workshops for the
-                students in their own communities.
+                across {spell(chapterCount)} {scope}, running free workshops for
+                the students in their own communities.
               </p>
             </Reveal>
           </div>

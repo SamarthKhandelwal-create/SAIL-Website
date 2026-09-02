@@ -58,7 +58,7 @@ export default function SupportPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <Hero
           id="support"
           size="page"
@@ -186,7 +186,8 @@ export default function SupportPage() {
                 →
               </span>
             </a>
-            <p className="mt-8 font-body text-body-md text-on-primary/70">
+            {/* /85: at 16px on the primary band /70 measures 4.19:1, under AA. */}
+            <p className="mt-8 font-body text-body-md text-on-primary/85">
               {site.contact.email} · {site.contact.phone}
             </p>
           </div>

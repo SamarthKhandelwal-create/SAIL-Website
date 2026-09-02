@@ -81,6 +81,20 @@ export const site = {
    * `{ label: "Donate", href: "/donate" }` to `nav` below.
    */
   donateUrl: "" as string,
+  /**
+   * Hosted contact / workshop-request form, embedded on /contact.
+   *
+   * Ad Grants review treats a `mailto:` as a weak call to action: it depends on
+   * the visitor having a mail client configured, it cannot confirm receipt, and
+   * it produces no measurable conversion. While this is empty, /contact renders
+   * the direct contact routes instead — which is honest, but a real form
+   * converts far better and is what review expects to find.
+   *
+   * TO TURN THE FORM ON: create a JotForm (the same account already hosts the
+   * three role applications), set its URL here, and /contact embeds it. Set a
+   * thank-you page on the form itself so submissions get a confirmation.
+   */
+  contactFormUrl: "" as string,
   contact: {
     founder: "Samarth Khandelwal",
     email: "samarth.khandelwal@studentsforailiteracy.org",

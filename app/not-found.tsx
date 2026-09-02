@@ -33,6 +33,16 @@ const destinations = [
     title: "Open roles",
     body: "Chapter lead, marketing, and finance roles for students.",
   },
+  {
+    href: "/contact",
+    title: "Contact us",
+    body: "Request a workshop, ask about sponsorship, or reach our team.",
+  },
+  {
+    href: "/donate",
+    title: "Support our work",
+    body: "Host a session, donate materials, or sponsor a chapter.",
+  },
 ];
 
 export default function NotFound() {
@@ -40,6 +50,7 @@ export default function NotFound() {
     <>
       <Nav solid />
       <main
+        id="main"
         className="bg-surface-container-lowest"
         style={{ paddingTop: "calc(var(--nav-h) + 3rem)" }}
       >

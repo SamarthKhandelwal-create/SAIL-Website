@@ -45,7 +45,7 @@ export default function AboutPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <Hero
           id="about"
           size="page"

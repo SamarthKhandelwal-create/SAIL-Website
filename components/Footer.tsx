@@ -63,7 +63,12 @@ export default function Footer() {
             </p>
             <ul className="space-y-3 font-body text-body-md text-secondary">
               <li>
-                <Link href="/about" className="transition-colors hover:text-primary">
+                <Link href="/contact" className="inline-block py-1 transition-colors hover:text-primary">
+                  Contact page
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="inline-block py-1 transition-colors hover:text-primary">
                   About SAIL
                 </Link>
               </li>
@@ -71,7 +76,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${site.contact.email}`}
-                  className="transition-colors hover:text-primary"
+                  className="inline-block py-1 transition-colors hover:text-primary"
                 >
                   {site.contact.email}
                 </a>
@@ -79,7 +84,7 @@ export default function Footer() {
               <li>
                 <a
                   href={site.contact.phoneHref}
-                  className="transition-colors hover:text-primary"
+                  className="inline-block py-1 transition-colors hover:text-primary"
                 >
                   {site.contact.phone}
                 </a>
@@ -94,27 +99,27 @@ export default function Footer() {
             </p>
             <ul className="space-y-3 font-body text-body-md text-secondary">
               <li>
-                <Link href="/chapters" className="transition-colors hover:text-primary">
+                <Link href="/chapters" className="inline-block py-1 transition-colors hover:text-primary">
                   Start a Chapter
                 </Link>
               </li>
               <li>
-                <Link href="/join" className="transition-colors hover:text-primary">
+                <Link href="/join" className="inline-block py-1 transition-colors hover:text-primary">
                   Join the Team
                 </Link>
               </li>
               <li>
-                <Link href="/donate" className="transition-colors hover:text-primary">
+                <Link href="/donate" className="inline-block py-1 transition-colors hover:text-primary">
                   Support Our Work
                 </Link>
               </li>
               <li>
-                <Link href="/leadership" className="transition-colors hover:text-primary">
+                <Link href="/leadership" className="inline-block py-1 transition-colors hover:text-primary">
                   Leadership
                 </Link>
               </li>
               <li>
-                <Link href="/outreach" className="transition-colors hover:text-primary">
+                <Link href="/outreach" className="inline-block py-1 transition-colors hover:text-primary">
                   Outreach
                 </Link>
               </li>
@@ -137,16 +142,18 @@ export default function Footer() {
             <nav aria-label="Legal" className="flex items-center gap-6">
               <Link
                 href="/privacy"
-                className="font-body text-body-md text-secondary transition-colors hover:text-primary"
+                className="inline-block py-1 font-body text-body-md text-secondary transition-colors hover:text-primary"
               >
                 Privacy Policy
               </Link>
-              <a
-                href={`mailto:${site.contact.email}`}
-                className="font-body text-body-md text-secondary transition-colors hover:text-primary"
+              {/* Was a bare mailto:, which dead-ends for anyone without a
+                  configured mail client. Points at the contact page now. */}
+              <Link
+                href="/contact"
+                className="inline-block py-1 font-body text-body-md text-secondary transition-colors hover:text-primary"
               >
                 Contact Us
-              </a>
+              </Link>
             </nav>
           </div>
         </div>

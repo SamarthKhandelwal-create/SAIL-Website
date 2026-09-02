@@ -25,6 +25,30 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Regenerate daily. This page is the one whose accuracy decays on its own:
+ * "upcoming" and "most recent" are both relative to today, and a fully static
+ * build would freeze them at deploy time and quietly drift.
+ */
+export const revalidate = 86400;
+
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+function longDate(d: string) {
+  const [y, m, day] = d.split("-").map(Number);
+  return `${MONTHS[m - 1]} ${day}, ${y}`;
+}
+
+/** Months between an ISO date and now, rounded down. */
+function monthsSince(iso: string) {
+  const [y, m] = iso.split("-").map(Number);
+  const now = new Date();
+  return (now.getFullYear() - y) * 12 + (now.getMonth() + 1 - m);
+}
+
 /** What a host organization is actually agreeing to. */
 const logistics = [
   {
@@ -46,10 +70,16 @@ const logistics = [
 ];
 
 export default function OutreachPage() {
+  const today = new Date().toISOString().slice(0, 10);
+  const sorted = [...events].sort((a, b) => a.date.localeCompare(b.date));
+  const next = sorted.find((e) => e.date >= today);
+  const mostRecent = [...sorted].reverse().find((e) => e.date < today);
+  const requestHref = `mailto:${site.contact.email}?subject=Request%20a%20SAIL%20workshop`;
+
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <Hero
           id="outreach"
           size="page"
@@ -64,6 +94,48 @@ export default function OutreachPage() {
             { label: "Start a chapter", href: "/chapters" },
           ]}
         />
+        {/* Scheduling status. Without this the page was a list of past dates
+            with nothing saying whether the program is still running — the
+            reading Ad Grants review takes as outdated content. It states the
+            position either way, and always offers the booking path. */}
+        <section className="border-b border-outline/10 bg-surface-container-lowest px-margin-mobile py-8 md:px-gutter">
+          <div className="mx-auto flex max-w-content flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            {next ? (
+              <p className="font-body text-body-lg text-on-surface">
+                <span className="font-bold text-primary">Next session:</span>{" "}
+                <Link
+                  href={`/outreach/${next.id}`}
+                  className="underline underline-offset-4 transition-colors hover:text-primary"
+                >
+                  {next.title}
+                </Link>{" "}
+                — {longDate(next.date)}, {next.location}.
+              </p>
+            ) : (
+              <p className="max-w-2xl font-body text-body-lg text-on-surface">
+                <span className="font-bold text-primary">
+                  No public sessions are on the calendar right now.
+                </span>{" "}
+                We book them term by term as schools and community partners
+                reach out
+                {mostRecent
+                  ? `, most recently ${monthsSince(mostRecent.date) < 1 ? "this month" : `${longDate(mostRecent.date)}`}`
+                  : ""}
+                . Tell us a date range and we will bring one to your students.
+              </p>
+            )}
+            <a
+              href={requestHref}
+              className="group inline-flex shrink-0 items-center gap-2 rounded bg-primary px-6 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-surface-tint"
+            >
+              Request a workshop
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+          </div>
+        </section>
+
         <Outreach events={events} showHeading={false} />
 
         {/* Hosting a session */}

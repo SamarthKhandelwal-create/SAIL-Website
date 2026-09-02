@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <Hero
           ctas={[
             { label: "Start a chapter", href: "/chapters" },

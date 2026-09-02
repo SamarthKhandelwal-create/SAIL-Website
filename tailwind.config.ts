@@ -14,7 +14,10 @@ const config: Config = {
     extend: {
       colors: {
         "on-secondary": "#ffffff",
-        "primary-fixed-dim": "#95cfe9",
+        /* Lightened from #95cfe9. It is only ever set on the #25637a primary
+           band, where it is 12px bold caps — 3.93:1, under the 4.5:1 WCAG AA
+           floor for small text. This value measures 4.69:1 there. */
+        "primary-fixed-dim": "#b5dff2",
         "surface-container-high": "#e7e8ea",
         "on-error": "#ffffff",
         "on-secondary-container": "#606365",

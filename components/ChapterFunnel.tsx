@@ -98,7 +98,10 @@ export default function ChapterFunnel({
           </Reveal>
         )}
 
-        {/* Steps */}
+        {/* Steps. The sr-only h2 keeps the outline intact on /chapters, where
+            the page owns the <h1> and this section's heading is suppressed —
+            without it the document jumps h1 → h3. */}
+        {!showHeading && <h2 className="sr-only">How to start a chapter</h2>}
         <div className="relative grid grid-cols-1 gap-stack-lg md:grid-cols-3">
           <div className="absolute left-0 top-[44px] hidden h-px w-full bg-outline-variant/60 md:block" />
           {steps.map((step, i) => (

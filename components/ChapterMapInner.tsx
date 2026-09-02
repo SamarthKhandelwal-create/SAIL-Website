@@ -81,6 +81,12 @@ export default function ChapterMapInner({
           key={c.id}
           position={[c.lat, c.lng]}
           icon={makeIcon(c.flagship)}
+          /* Leaflet gives each marker role="button" and tabindex="0", so every
+             pin is a focus stop. Without `alt` it is a button with no
+             accessible name — a screen reader announces five identical
+             unlabelled buttons. */
+          alt={`${c.name}, ${c.location}`}
+          title={`${c.name}, ${c.location}`}
         >
           <Popup>
             <div className="font-body">

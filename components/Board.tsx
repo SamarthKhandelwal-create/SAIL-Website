@@ -7,10 +7,15 @@ function withLink(member: BoardMember, node: React.ReactNode) {
   return (
     <a
       href={`mailto:${member.email}`}
-      aria-label={`Email ${member.name}`}
+      /* No aria-label here. An `aria-label="Email {name}"` overrode the card's
+         own visible text — the role, name, and address — and WCAG 2.5.3 wants
+         the accessible name to contain the visible label, so the override read
+         as a mismatch. The card content already names the person and shows the
+         address; this only has to say what activating it does. */
       className="block h-full"
     >
       {node}
+      <span className="sr-only">— email {member.name}</span>
     </a>
   );
 }
@@ -142,6 +147,11 @@ export default function Board({
             </p>
           </div>
         </Reveal>
+
+        {/* When the page supplies its own <h1> and suppresses the section
+            heading above, this keeps the outline from jumping h1 → h3 across
+            all nine board cards. */}
+        {!showHeading && <h2 className="sr-only">Executive board</h2>}
 
         <Reveal className="mx-auto mb-6 max-w-3xl">
           <FeatureCard member={feature} />
