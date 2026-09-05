@@ -29,17 +29,10 @@ export default function Challenge() {
           </Reveal>
 
           <Reveal delay={1}>
-            <p className="mb-4 font-body text-body-lg text-on-surface">
-              Artificial intelligence already influences how students learn,
-              communicate, and prepare for future careers. Education systems
-              have struggled to keep up, and many have responded by strictly
-              banning AI use in the classroom.
-            </p>
-            <p className="font-body text-body-md text-on-surface-variant">
-              But using these tools well will be necessary in the future job
-              market, and a ban teaches nothing about how to use them ethically
-              or safely. Students end up using AI anyway — just without any
-              guidance on verifying what it tells them.
+            <p className="font-body text-body-lg text-on-surface">
+              A ban teaches nothing about using these tools ethically or safely,
+              and students use AI anyway — just without any guidance on
+              verifying what it tells them.
             </p>
           </Reveal>
         </div>

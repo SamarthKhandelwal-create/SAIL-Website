@@ -6,11 +6,9 @@ import SectionCTA from "@/components/SectionCTA";
 import Footer from "@/components/Footer";
 import FloatingApply from "@/components/FloatingApply";
 import Reveal from "@/components/Reveal";
-import Sponsors from "@/components/Sponsors";
 
 import { site } from "@/lib/site";
 import { stats } from "@/data/stats";
-import { sponsors } from "@/data/sponsors";
 
 const description =
   "Students For AI Literacy (SAIL) is a student-led nonprofit teaching young people to understand, question, and responsibly use artificial intelligence. Learn about our mission, programs, and organization.";
@@ -70,21 +68,17 @@ export default function AboutPage() {
                 responsibly — rather than something that simply happens to them.
               </p>
               <p className="mb-6 font-body text-body-lg text-on-surface">
-                AI is already deciding what students read, how their work is
-                graded, and which opportunities they see. Most have never been
-                taught how any of it works. Schools are moving quickly to write
-                rules about AI, and far more slowly to teach the literacy those
+                AI already decides what students read, how their work is graded,
+                and which opportunities they see. Schools are writing rules
+                about it far faster than they are teaching the literacy those
                 rules assume. We close that gap the most direct way we know:
                 students teaching students, for free.
               </p>
               <p className="font-body text-body-md text-on-surface-variant">
-                The near-peer model is what makes it work. An adult explaining
-                AI to a sixteen-year-old is a lecture; a seventeen-year-old
-                explaining it is a conversation — and students admit things in
-                that conversation they would never raise with someone who grades
-                them. It also means our instructors learn to teach and lead
-                while still in high school, which is what makes this sustainable
-                with no paid staff.
+                An adult explaining AI to a sixteen-year-old is a lecture; a
+                seventeen-year-old explaining it is a conversation — and
+                students admit things in that conversation they would never
+                raise with someone who grades them.
               </p>
             </Reveal>
           </div>
@@ -130,14 +124,22 @@ export default function AboutPage() {
                 SAIL began at Walnut Hills High School in Cincinnati, Ohio, with
                 a $400 grant and a single classroom session.
               </p>
-              <p className="font-body text-body-md text-on-surface-variant">
+              <p className="mb-4 font-body text-body-md text-on-surface-variant">
                 Since then we have taught more than {stats.studentsTaught}{" "}
                 students, grown to {stats.activeChapters}{" "}
                 {stats.activeChapters === 1 ? "chapter" : "chapters"}, and
-                operated on $2,100+ in grants and contributions in our last
-                fiscal year. Every chapter is run by students, and every session
-                we teach is free to the school or community hosting it.
+                operated on $2,100+ in grants last fiscal year. Every session is
+                free to the school or community hosting it.
               </p>
+              <Link
+                href="/sponsors"
+                className="group inline-flex items-center gap-2 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary transition-colors hover:text-surface-tint"
+              >
+                Who funds this
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
             </Reveal>
 
             <Reveal delay={1}>
@@ -195,9 +197,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Sponsors — directly after the grant and EIN figures above, which is
-            where a funder or reviewer is already looking. */}
-        <Sponsors sponsors={sponsors} />
 
         <SectionCTA
           eyebrow="Get involved"

@@ -80,14 +80,32 @@ export default function Nav({ solid = false }: { solid?: boolean }) {
           })}
         </ul>
 
-        <a
-          href={site.applyUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden items-center justify-center whitespace-nowrap rounded bg-primary px-5 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-surface-tint md:inline-flex lg:px-6"
-        >
-          Apply
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          {/* Renders only once site.donateUrl is set — see DonateButton. */}
+          {site.donateUrl && (
+            <a
+              href={site.donateUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-donate
+              className={`inline-flex items-center justify-center whitespace-nowrap rounded border px-5 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] transition-colors lg:px-6 ${
+                scrolled
+                  ? "border-primary/40 text-primary hover:border-primary hover:bg-primary/5"
+                  : "border-white/60 text-white hover:border-white hover:bg-white/10"
+              }`}
+            >
+              Donate
+            </a>
+          )}
+          <a
+            href={site.applyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded bg-primary px-5 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-surface-tint lg:px-6"
+          >
+            Apply
+          </a>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -121,7 +139,7 @@ export default function Nav({ solid = false }: { solid?: boolean }) {
       {/* Mobile menu */}
       <div
         className={`overflow-hidden border-t border-primary/10 bg-white/95 backdrop-blur-xl transition-[max-height] duration-500 md:hidden ${
-          open ? "max-h-96" : "max-h-0"
+          open ? "max-h-[32rem]" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col gap-2 px-margin-mobile py-4">
@@ -142,6 +160,20 @@ export default function Nav({ solid = false }: { solid?: boolean }) {
               </li>
             );
           })}
+          {site.donateUrl && (
+            <li>
+              <a
+                href={site.donateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                data-donate
+                className="mt-2 inline-flex w-full items-center justify-center rounded border border-primary/40 px-6 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary"
+              >
+                Donate
+              </a>
+            </li>
+          )}
           <li>
             <a
               href={site.applyUrl}

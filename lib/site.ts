@@ -73,12 +73,15 @@ export const site = {
    * 501(c)(3)s and keep card data off this site entirely.
    *
    * While this is empty, /donate is a "Support Our Work" page describing
-   * non-cash ways to help, and there is no "Donate" nav item or giving button
-   * anywhere. Ad Grants policy treats a donate link that cannot take a
-   * donation as a broken donation link, so we show one only once it works.
+   * non-cash ways to help, and every <DonateButton /> renders nothing. Ad
+   * Grants policy treats a donate link that cannot take a donation as a broken
+   * donation link, so we show one only once it works.
    *
-   * TO TURN GIVING ON: set this URL, then re-add
-   * `{ label: "Donate", href: "/donate" }` to `nav` below.
+   * TO TURN GIVING ON: set this URL. Nothing else to change — the nav button,
+   * the /donate band, and the /sponsors ask all read from here.
+   *
+   * every.org is the usual pick: free for 501(c)(3)s, verifies off the EIN,
+   * and keeps card data off this site entirely.
    */
   donateUrl: "" as string,
   /**
@@ -106,12 +109,16 @@ export const site = {
     linkedin: "https://www.linkedin.com/company/students-for-ai-literacy",
   },
   /** Nav labels stay short — the bar also carries a wordmark and an Apply
-   *  button, and long labels overflow at the md breakpoint. */
+   *  button, and long labels overflow at the md breakpoint.
+   *
+   *  Deliberately five items. /leadership and /sponsors are reachable from
+   *  /about and /donate respectively, and from the footer; promoting them here
+   *  makes the bar overflow and buries the two routes that actually convert. */
   nav: [
     { label: "About", href: "/about" },
     { label: "Outreach", href: "/outreach" },
     { label: "Chapters", href: "/chapters" },
     { label: "Join", href: "/join" },
-    { label: "Leadership", href: "/leadership" },
+    { label: "Support", href: "/donate" },
   ],
 } as const;

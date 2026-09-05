@@ -15,20 +15,37 @@ function Wordmark({ name }: { name: string }) {
   );
 }
 
+const isSvg = (path: string) => path.toLowerCase().endsWith(".svg");
+
 function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
   const plate = (
     <div className="flex h-28 w-full items-center justify-center rounded-lg bg-white p-5">
       {sponsor.logo ? (
-        <Image
-          src={sponsor.logo}
-          alt={`${sponsor.name} logo`}
-          width={320}
-          height={160}
-          // Logos arrive at every aspect ratio, so the plate is a fixed box and
-          // the artwork is contained inside it. That keeps the row of logos
-          // optically even without cropping anyone's mark.
-          className="max-h-full w-auto max-w-full object-contain"
-        />
+        // Logos arrive at every aspect ratio, so the plate is a fixed box and
+        // the artwork is contained inside it. That keeps the row of logos
+        // optically even without cropping anyone's mark.
+        //
+        // SVG bypasses next/image: the optimizer cannot raster it without
+        // `dangerouslyAllowSVG`, and a vector logo is already smaller than any
+        // PNG it would produce.
+        isSvg(sponsor.logo) ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={sponsor.logo}
+            alt={`${sponsor.name} logo`}
+            loading="lazy"
+            decoding="async"
+            className="max-h-full w-auto max-w-full object-contain"
+          />
+        ) : (
+          <Image
+            src={sponsor.logo}
+            alt={`${sponsor.name} logo`}
+            width={320}
+            height={160}
+            className="max-h-full w-auto max-w-full object-contain"
+          />
+        )
       ) : (
         <Wordmark name={sponsor.name} />
       )}
@@ -90,15 +107,9 @@ export default function Sponsors({
           <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
             Our supporters
           </p>
-          <h2 className="mb-6 font-display text-display-xl leading-[0.95] text-primary">
+          <h2 className="mb-16 font-display text-display-xl leading-[0.95] text-primary">
             Who Funds This Work
           </h2>
-          <p className="mb-16 max-w-3xl font-body text-body-lg text-on-surface-variant">
-            SAIL has no paid staff, so grants and sponsorships go almost
-            entirely into programming — the supplies our student instructors
-            hand out, and the filing fees that keep us operating as a nonprofit.
-            These are the funders and businesses who made that possible.
-          </p>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

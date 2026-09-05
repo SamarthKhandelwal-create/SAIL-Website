@@ -5,21 +5,21 @@ import { site } from "@/lib/site";
 /** The three audiences SAIL asks something of, per the organizational one-pager. */
 const ways = [
   {
-    title: "Schools, libraries & community organizations",
-    body: "Host a free SAIL workshop, bring our curriculum to your students, or partner with us on ongoing AI literacy programming. Our sessions are free and run by trained student leaders.",
+    title: "Schools & libraries",
+    body: "Host a free session, run by trained student leaders. You provide the room; we bring everything else.",
     label: "Request a workshop",
     href: `mailto:${site.contact.email}?subject=Request%20a%20SAIL%20workshop`,
     external: true,
   },
   {
     title: "High school students",
-    body: "Launch a chapter at your school, or join our marketing or finance team. Every role is student-run, and none of them require prior experience — just follow-through.",
+    body: "Launch a chapter, or join our marketing or finance team. No prior experience required — just follow-through.",
     label: "See open roles",
     href: "/join",
   },
   {
-    title: "Sponsors & community partners",
-    body: "Sponsor a chapter, donate workshop materials, or partner with us on programming. Roughly $400 covers a new chapter's first year — every session it runs, for every student it reaches.",
+    title: "Sponsors & partners",
+    body: "About $400 covers a new chapter's first year of programming.",
     label: "See how to help",
     href: "/donate",
   },

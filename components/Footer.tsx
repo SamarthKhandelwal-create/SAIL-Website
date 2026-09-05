@@ -62,16 +62,6 @@ export default function Footer() {
               Contact
             </p>
             <ul className="space-y-3 font-body text-body-md text-secondary">
-              <li>
-                <Link href="/contact" className="inline-block py-1 transition-colors hover:text-primary">
-                  Contact page
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="inline-block py-1 transition-colors hover:text-primary">
-                  About SAIL
-                </Link>
-              </li>
               <li>Founder: {site.contact.founder}</li>
               <li>
                 <a
@@ -98,31 +88,24 @@ export default function Footer() {
               Get Involved
             </p>
             <ul className="space-y-3 font-body text-body-md text-secondary">
-              <li>
-                <Link href="/chapters" className="inline-block py-1 transition-colors hover:text-primary">
-                  Start a Chapter
-                </Link>
-              </li>
-              <li>
-                <Link href="/join" className="inline-block py-1 transition-colors hover:text-primary">
-                  Join the Team
-                </Link>
-              </li>
-              <li>
-                <Link href="/donate" className="inline-block py-1 transition-colors hover:text-primary">
-                  Support Our Work
-                </Link>
-              </li>
-              <li>
-                <Link href="/leadership" className="inline-block py-1 transition-colors hover:text-primary">
-                  Leadership
-                </Link>
-              </li>
-              <li>
-                <Link href="/outreach" className="inline-block py-1 transition-colors hover:text-primary">
-                  Outreach
-                </Link>
-              </li>
+              {[
+                { href: "/about", label: "About SAIL" },
+                { href: "/chapters", label: "Start a Chapter" },
+                { href: "/join", label: "Join the Team" },
+                { href: "/donate", label: "Support Our Work" },
+                { href: "/sponsors", label: "Our Sponsors" },
+                { href: "/leadership", label: "Leadership" },
+                { href: "/outreach", label: "Outreach" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="inline-block py-1 transition-colors hover:text-primary"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
-import Sponsors from "@/components/Sponsors";
+import DonateButton from "@/components/DonateButton";
 import Footer from "@/components/Footer";
-import { sponsors } from "@/data/sponsors";
 import { site } from "@/lib/site";
 
 const description =
@@ -26,25 +26,25 @@ export const metadata: Metadata = {
 const ways = [
   {
     title: "Host a workshop",
-    body: "If you teach, run a library program, or lead a youth organization anywhere in the Cincinnati area, we will bring a session to your students at no cost. You provide the room and the students; we bring the curriculum, the activities, and the student instructors.",
+    body: "You provide the room and the students; we bring the curriculum and the student instructors. Free, anywhere in the Cincinnati area.",
     label: "Request a session",
     subject: "Hosting a SAIL workshop",
   },
   {
     title: "Donate materials",
-    body: "Our workshops run on physical supplies — notebooks, UV pens for the invisible-ink activity, printed handouts, and name tags. Donated materials go directly into a classroom, and in-kind gifts are tax-deductible the same as cash.",
+    body: "Notebooks, UV pens, printed handouts, name tags. In-kind gifts are tax-deductible the same as cash.",
     label: "Offer materials",
     subject: "Donating materials to SAIL",
   },
   {
     title: "Sponsor a chapter",
-    body: "Roughly $400 covers a new chapter's first year of programming — every workshop it runs, for every student it reaches. Local businesses and community foundations can sponsor a specific school and receive a short report on what that chapter did.",
+    body: "About $400 covers a new chapter's first year. Sponsor a specific school and we will report back on what it did.",
     label: "Talk about sponsorship",
     subject: "Sponsoring a SAIL chapter",
   },
   {
     title: "Partner with us",
-    body: "Schools, districts, and nonprofits working on digital literacy, workforce readiness, or youth programming often overlap with what we do. We are glad to co-design programming rather than drop in a one-off session.",
+    body: "Working on digital literacy or youth programming? We would rather co-design something than drop in a one-off session.",
     label: "Explore a partnership",
     subject: "Partnering with SAIL",
   },
@@ -85,32 +85,20 @@ export default function SupportPage() {
                 A student-run budget, spent on students
               </h2>
               <p className="mb-4 font-body text-body-lg text-on-surface">
-                SAIL is run entirely by high school students. We have no paid
-                staff, no office, and no overhead beyond the cost of the
-                materials we hand to students during a workshop and the filing
-                fees required to operate as a nonprofit.
+                No paid staff, no office. Last fiscal year we ran on $2,100+ in
+                grants — covering incorporation, our 501(c)(3) filing, a domain,
+                and supplies for every workshop we taught.
               </p>
               <p className="mb-4 font-body text-body-md text-on-surface-variant">
-                In our last fiscal year we operated on $2,100+ in grants and
-                contributions — money that covered our Ohio incorporation, our
-                federal 501(c)(3) application, a domain name, and the supplies
-                for every workshop we ran. Our sessions are free to every school
-                and community organization that hosts one, and they will stay
-                that way.
-              </p>
-              <p className="mb-4 font-body text-body-md text-on-surface-variant">
-                Because there is no staff to pay, the marginal cost of reaching
-                another classroom is close to the cost of its supplies. That is
-                unusual, and it is the main argument for supporting us: a small
-                contribution moves directly into a room full of students rather
-                than into keeping an organization running.
+                With no staff to pay, reaching another classroom costs about
+                what its supplies cost. That is the case for funding us: a small
+                contribution lands in a room full of students rather than in
+                keeping an organization running.
               </p>
               <p className="font-body text-body-md text-on-surface-variant">
-                {site.name} is a federally recognized 501(c)(3) nonprofit
-                organization, EIN {site.ein}. Contributions are tax-deductible
-                to the extent allowed by law. We are glad to share our ledger
-                and a summary of what a specific contribution funded with any
-                donor or grantmaker who asks.
+                {site.name} is a registered 501(c)(3), EIN {site.ein}.
+                Contributions are tax-deductible to the extent allowed by law,
+                and we will show any donor what theirs paid for.
               </p>
             </Reveal>
           </div>
@@ -127,9 +115,8 @@ export default function SupportPage() {
                 Four Things That Help Most
               </h2>
               <p className="mb-16 max-w-3xl font-body text-body-lg text-on-surface-variant">
-                We are a small organization, so specific offers are far more
-                useful to us than general ones. Any of these can be arranged by
-                email, usually within a week.
+                Specific offers help us more than general ones. Any of these can
+                be arranged by email, usually within a week.
               </p>
             </Reveal>
 
@@ -159,9 +146,34 @@ export default function SupportPage() {
           </div>
         </section>
 
-        {/* Sponsors — sits after the asks so a reader arrives at it already
-            knowing what a contribution funds. */}
-        <Sponsors sponsors={sponsors} background="lowest" />
+        {/* The wall itself lives on /sponsors. Repeating it here and on /about
+            was the same six cards three times over. */}
+        <section className="bg-surface-container-lowest px-margin-mobile py-section-gap md:px-gutter">
+          <div className="mx-auto max-w-[820px]">
+            <Reveal>
+              <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
+                Our supporters
+              </p>
+              <h2 className="mb-6 font-display text-headline-lg text-primary">
+                Who already funds this
+              </h2>
+              <p className="mb-8 font-body text-body-lg text-on-surface-variant">
+                Google for Nonprofits, the Engineers and Scientists Foundation
+                of Cincinnati, The Pollination Project, the Karma for Cara
+                Foundation, and others.
+              </p>
+              <Link
+                href="/sponsors"
+                className="group inline-flex items-center gap-2 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary transition-colors hover:text-surface-tint"
+              >
+                Meet our sponsors
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </Reveal>
+          </div>
+        </section>
 
         {/* Contact band */}
         <section className="bg-primary px-margin-mobile py-section-gap md:px-gutter">
@@ -171,21 +183,25 @@ export default function SupportPage() {
             </h2>
             <p className="mb-10 font-body text-body-lg text-on-primary/80">
               {canDonate
-                ? "Prefer to give directly? Donations are processed securely by our giving partner — SAIL never sees or stores your card details."
-                : "Email us about any of the above and a student on our team will reply. Tell us what you have in mind and we will work out the details with you."}
+                ? "Give directly, or email us about any of the above — a student on our team will reply."
+                : "Email us about any of the above and a student on our team will reply."}
             </p>
-            <a
-              href={canDonate ? site.donateUrl : mailto("Supporting SAIL")}
-              {...(canDonate
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-              className="group inline-flex items-center gap-3 rounded bg-on-primary px-8 py-4 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary shadow-sm transition-colors hover:bg-white"
-            >
-              {canDonate ? "Donate securely" : "Email our team"}
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </a>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <DonateButton variant="inverse" />
+              <a
+                href={mailto("Supporting SAIL")}
+                className={`group inline-flex items-center gap-3 rounded px-8 py-4 font-body text-label-caps font-bold uppercase tracking-[0.1em] transition-colors ${
+                  canDonate
+                    ? "border border-on-primary/60 text-on-primary hover:border-on-primary hover:bg-on-primary/10"
+                    : "bg-on-primary text-primary shadow-sm hover:bg-white"
+                }`}
+              >
+                Email our team
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            </div>
             {/* /85: at 16px on the primary band /70 measures 4.19:1, under AA. */}
             <p className="mt-8 font-body text-body-md text-on-primary/85">
               {site.contact.email} · {site.contact.phone}

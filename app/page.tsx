@@ -6,7 +6,6 @@ import Pillars from "@/components/Pillars";
 import Origin from "@/components/Origin";
 import ImpactTicker from "@/components/ImpactTicker";
 import WaysToHelp from "@/components/WaysToHelp";
-import SectionCTA from "@/components/SectionCTA";
 import Footer from "@/components/Footer";
 import FloatingApply from "@/components/FloatingApply";
 
@@ -23,21 +22,17 @@ export default function Home() {
             { label: "See our workshops", href: "/outreach" },
           ]}
         />
-        {/* Order is deliberate: what SAIL is, proof it is running, what it
-            actually teaches, then the ask. The founding story and the
-            supporting research are context and sit below all of that. */}
+        {/* Order is deliberate: what SAIL is, proof it is running, the problem
+            it addresses, what it teaches, where it came from — then the ask. */}
         <Mission />
         <ImpactTicker stats={stats} />
-        <Pillars />
         <Challenge />
-        <WaysToHelp />
+        <Pillars />
         <Origin />
-        <SectionCTA
-          eyebrow="Ready to start?"
-          title="Bring AI literacy to your school."
-          href="/chapters"
-          label="Start a chapter"
-        />
+        {/* The ask is last. WaysToHelp already carries a "start a chapter"
+            card, so the trailing SectionCTA that used to follow it was the
+            same button twice in one scroll. */}
+        <WaysToHelp />
       </main>
       <Footer />
       <FloatingApply />
