@@ -11,14 +11,14 @@ import { chapters } from "./chapters";
  */
 
 const manual = {
-  studentsTaught: 600,
+  studentsTaught: 800,
   statesReached: 1,
   /**
    * Volunteer and participant hours across every session we have run, chapter
    * workshops included. Reported instead of a session count because the count
    * understates the work: sessions vary from a single period to a full day.
    */
-  engagementHours: 1100,
+  engagementHours: 1300,
 };
 
 const uniqueStates = new Set(
