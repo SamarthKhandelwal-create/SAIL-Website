@@ -9,14 +9,19 @@ import type { Sponsor } from "./types";
  * Logos live in /public/sponsors as <id>.png or <id>.svg. `logo` is
  * deliberately optional: a sponsor with no artwork yet renders as a
  * typographic wordmark card instead of a broken image, so the section is never
- * blocked on chasing a logo file. Google is intentionally left as a wordmark —
- * their brand assets carry usage restrictions we would rather not test.
+ * blocked on chasing a logo file.
+ *
+ * google.svg is Google's official full-color mark, served from their own
+ * branding CDN. Use it only for factual attribution of the Workspace and Ad
+ * Grants support we actually receive — never recolored, restretched, or in a
+ * way that implies Google endorses SAIL.
  */
 export const sponsors: Sponsor[] = [
   {
     id: "google",
     name: "Google for Nonprofits",
     note: "Google Workspace for our team's email and files, and an Ad Grant that puts SAIL in front of teachers searching for AI literacy resources.",
+    logo: "/sponsors/google.svg",
     url: "https://www.google.com/nonprofits/",
   },
   {

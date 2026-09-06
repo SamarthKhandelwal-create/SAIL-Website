@@ -17,7 +17,16 @@ function Wordmark({ name }: { name: string }) {
 
 const isSvg = (path: string) => path.toLowerCase().endsWith(".svg");
 
+/**
+ * A wide wordmark fills the plate edge to edge and reads as louder than the
+ * squarer marks beside it. Capping its height evens them out by eye.
+ */
+const WIDE_MARKS = new Set(["google"]);
+
 function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
+  const fit = WIDE_MARKS.has(sponsor.id)
+    ? "max-h-9 w-auto max-w-[75%] object-contain"
+    : "max-h-full w-auto max-w-full object-contain";
   const plate = (
     <div className="flex h-28 w-full items-center justify-center rounded-lg bg-white p-5">
       {sponsor.logo ? (
@@ -35,7 +44,7 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
             alt={`${sponsor.name} logo`}
             loading="lazy"
             decoding="async"
-            className="max-h-full w-auto max-w-full object-contain"
+            className={fit}
           />
         ) : (
           <Image
@@ -43,7 +52,7 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
             alt={`${sponsor.name} logo`}
             width={320}
             height={160}
-            className="max-h-full w-auto max-w-full object-contain"
+            className={fit}
           />
         )
       ) : (
@@ -85,8 +94,9 @@ const BACKGROUNDS = {
 } as const;
 
 /**
- * Sponsor wall. Rendered on /donate and /about from the single list in
- * data/sponsors.ts — add a sponsor there and it appears in both places.
+ * Sponsor wall, rendered on /sponsors from the single list in
+ * data/sponsors.ts. The home page shows a compact logo row instead — see
+ * SponsorStrip — and /about and /donate link here rather than repeating it.
  */
 export default function Sponsors({
   sponsors,

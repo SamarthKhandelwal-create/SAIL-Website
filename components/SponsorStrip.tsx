@@ -6,6 +6,19 @@ import Reveal from "./Reveal";
 const isSvg = (path: string) => path.toLowerCase().endsWith(".svg");
 
 /**
+ * Optical sizing. These marks range from a 1:1 emblem (ESFC) to a 3:1
+ * wordmark (Google), and a single height makes the wide ones look tiny while
+ * the square ones dominate. Wordmarks therefore get a shorter box: matched by
+ * eye, not by bounding box.
+ */
+const HEIGHTS: Record<string, string> = {
+  google: "h-7 sm:h-8",
+  "pollination-project": "h-10 sm:h-12",
+  "texas-roadhouse": "h-10 sm:h-12",
+};
+const DEFAULT_HEIGHT = "h-14 sm:h-16";
+
+/**
  * Compact logo row for the home page, linking through to the full /sponsors
  * wall. The homepage previously reached /sponsors only from the footer, which
  * put our funders three scrolls down a page they help pay for.
@@ -29,7 +42,7 @@ export default function SponsorStrip({ sponsors }: { sponsors: Sponsor[] }) {
             {withLogos.map((s) => (
               <li
                 key={s.id}
-                className="flex h-14 items-center justify-center sm:h-16"
+                className={`flex items-center justify-center ${HEIGHTS[s.id] ?? DEFAULT_HEIGHT}`}
               >
                 {isSvg(s.logo!) ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -38,7 +51,7 @@ export default function SponsorStrip({ sponsors }: { sponsors: Sponsor[] }) {
                     alt={s.name}
                     loading="lazy"
                     decoding="async"
-                    className="max-h-full w-auto max-w-[150px] object-contain sm:max-w-[170px]"
+                    className="max-h-full w-auto max-w-[170px] object-contain sm:max-w-[190px]"
                   />
                 ) : (
                   <Image
@@ -46,7 +59,7 @@ export default function SponsorStrip({ sponsors }: { sponsors: Sponsor[] }) {
                     alt={s.name}
                     width={340}
                     height={170}
-                    className="max-h-full w-auto max-w-[150px] object-contain sm:max-w-[170px]"
+                    className="max-h-full w-auto max-w-[170px] object-contain sm:max-w-[190px]"
                   />
                 )}
               </li>
