@@ -63,16 +63,78 @@ export default function SupportPage() {
           id="support"
           size="page"
           words={["SUPPORT", "OUR WORK"]}
-          subtitle="SAIL runs on volunteered time and donated materials. Here is what actually helps."
-          ctas={[
-            {
-              label: "Host a workshop",
-              href: mailto("Hosting a SAIL workshop"),
-              external: true,
-            },
-            { label: "Start a chapter", href: "/chapters" },
-          ]}
+          subtitle="Every workshop we teach is free. Donations pay for the supplies students take home — and for the next chapter we open."
+          ctas={
+            canDonate
+              ? [
+                  { label: "Donate online", href: site.donateUrl, external: true },
+                  {
+                    label: "Host a workshop",
+                    href: mailto("Hosting a SAIL workshop"),
+                    external: true,
+                  },
+                ]
+              : [
+                  {
+                    label: "Host a workshop",
+                    href: mailto("Hosting a SAIL workshop"),
+                    external: true,
+                  },
+                  { label: "Start a chapter", href: "/chapters" },
+                ]
+          }
         />
+
+        {/* Give online. Ad Grants review requires a direct, functional
+            transaction CTA on the page the "Support" nav item leads to, above
+            the fold rather than at the foot of the page. Amounts are tied to
+            what they actually buy so the ask is concrete. */}
+        {canDonate && (
+          <section className="border-b border-outline/10 bg-primary px-margin-mobile py-section-gap md:px-gutter">
+            <div className="mx-auto max-w-[820px] text-center">
+              <Reveal>
+                <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-primary-fixed-dim">
+                  Donate online
+                </p>
+                <h2 className="mb-6 font-display text-display-xl leading-[0.95] text-on-primary">
+                  Put AI literacy in another classroom
+                </h2>
+                <p className="mb-10 font-body text-body-lg text-on-primary/85">
+                  Processed securely by Zeffy. SAIL never sees or stores your
+                  card details, and Zeffy takes no cut — every dollar reaches
+                  us.
+                </p>
+
+                <ul className="mb-10 grid grid-cols-1 gap-4 text-left sm:grid-cols-3">
+                  {[
+                    { amount: "$25", buys: "Smart notebooks for five students." },
+                    { amount: "$100", buys: "Materials for a full workshop." },
+                    { amount: "$400", buys: "A new chapter's first year." },
+                  ].map((tier) => (
+                    <li
+                      key={tier.amount}
+                      className="rounded-xl border border-on-primary/25 bg-on-primary/5 p-5"
+                    >
+                      <p className="font-display text-3xl text-on-primary">
+                        {tier.amount}
+                      </p>
+                      <p className="mt-2 font-body text-body-md text-on-primary/85">
+                        {tier.buys}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+
+                <DonateButton variant="inverse" className="px-10 py-5" />
+
+                <p className="mt-6 font-body text-body-md text-on-primary/85">
+                  {site.name} is a registered 501(c)(3), EIN {site.ein}.
+                  Donations are tax-deductible to the extent allowed by law.
+                </p>
+              </Reveal>
+            </div>
+          </section>
+        )}
 
         {/* Transparency */}
         <section className="bg-surface-container-lowest px-margin-mobile py-section-gap md:px-gutter">
@@ -96,9 +158,8 @@ export default function SupportPage() {
                 keeping an organization running.
               </p>
               <p className="font-body text-body-md text-on-surface-variant">
-                {site.name} is a registered 501(c)(3), EIN {site.ein}.
-                Contributions are tax-deductible to the extent allowed by law,
-                and we will show any donor what theirs paid for.
+                We will show any donor or grantmaker exactly what their
+                contribution paid for — just ask.
               </p>
             </Reveal>
           </div>

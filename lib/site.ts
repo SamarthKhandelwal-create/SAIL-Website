@@ -69,21 +69,17 @@ export const site = {
   /** Chapter Lead application — the site's default "Apply" destination. */
   applyUrl: "https://form.jotform.com/261485414985064",
   /**
-   * Hosted donation page. Every.org and PayPal Giving Fund are both free for
-   * 501(c)(3)s and keep card data off this site entirely.
+   * Hosted donation form (Zeffy). Zeffy charges the organization nothing —
+   * donors are asked to tip Zeffy instead — and card data never touches this
+   * site, so SAIL carries no PCI burden.
    *
-   * While this is empty, /donate is a "Support Our Work" page describing
-   * non-cash ways to help, and every <DonateButton /> renders nothing. Ad
-   * Grants policy treats a donate link that cannot take a donation as a broken
-   * donation link, so we show one only once it works.
-   *
-   * TO TURN GIVING ON: set this URL. Nothing else to change — the nav button,
-   * the /donate band, and the /sponsors ask all read from here.
-   *
-   * every.org is the usual pick: free for 501(c)(3)s, verifies off the EIN,
-   * and keeps card data off this site entirely.
+   * Every <DonateButton /> and the nav Donate button read from here; emptying
+   * this string hides all of them, which is deliberate. Ad Grants treats a
+   * donate link that cannot take a donation as a broken one, so the button
+   * exists only while this URL works.
    */
-  donateUrl: "" as string,
+  donateUrl:
+    "https://www.zeffy.com/en-US/donation-form/donate-to-support-students-for-ai-literacy" as string,
   /**
    * Hosted contact / workshop-request form, embedded on /contact.
    *

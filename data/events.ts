@@ -16,6 +16,34 @@ import type { OutreachEvent } from "./types";
  */
 export const events: OutreachEvent[] = [
   {
+    /**
+     * UPCOMING. Written in the future tense on purpose — it has not happened
+     * yet. After the session, rewrite `article` in the past tense and swap in
+     * real photos; the calendar and the "Next session" banner move on by
+     * themselves once the date passes.
+     */
+    id: "sycamore-fall-workshop",
+    title: "Fall AI Literacy Workshop at Sycamore High School",
+    date: "2026-09-25",
+    location: "Sycamore High School · Cincinnati, OH",
+    summary:
+      "Our fall term opens at Sycamore High School with a hands-on session on how AI works, where it fails, and how to use it honestly in schoolwork.",
+    cover: "/outreach/img-8493.jpg",
+    article: [
+      "SAIL opens its fall programming at Sycamore High School on September 25, 2026. The session follows the format our student instructors have refined over a year of workshops: no lecture, no jargon, and no assumption that anyone in the room has a technical background.",
+      "Students will start with the drawing game — a neural network guessing doodles in real time, getting a bicycle instantly and then insisting a perfectly good cat is a lion. That gap between confident and correct is the lesson, and students reach it themselves before anyone defines a term.",
+      "From there the group works through how a language model actually produces text: not by looking things up, but by predicting which word tends to come next. We run the human-or-AI exercise, where students read short passages and vote on which were machine-written. Most groups are confident, and most groups are wrong.",
+      "The last stretch is about judgment rather than mechanics — where AI genuinely helps with schoolwork, where it crosses into doing the work for you, and how to check a claim from a tool that has no way of knowing whether it is true.",
+      "Teachers and administrators at Sycamore who would like to send a class, and students interested in starting a chapter of their own, can reach us through the contact page.",
+    ],
+    photos: [
+      {
+        src: "/outreach/img-8493.jpg",
+        alt: "Students gathered in front of a screen displaying the SAIL logo at an earlier workshop",
+      },
+    ],
+  },
+  {
     id: "hands-on-ai-workshop",
     title: "A Hands-On Day of AI Literacy",
     date: "2026-06-22",

@@ -114,14 +114,15 @@ export default function OutreachPage() {
             ) : (
               <p className="max-w-2xl font-body text-body-lg text-on-surface">
                 <span className="font-bold text-primary">
-                  No public sessions are on the calendar right now.
+                  Our chapters run workshops throughout the school year.
                 </span>{" "}
-                We book them term by term as schools and community partners
-                reach out
+                Public dates are booked term by term as schools and community
+                partners reach out
                 {mostRecent
-                  ? `, most recently ${monthsSince(mostRecent.date) < 1 ? "this month" : `${longDate(mostRecent.date)}`}`
+                  ? `, most recently ${monthsSince(mostRecent.date) < 1 ? "this month" : longDate(mostRecent.date)}`
                   : ""}
-                . Tell us a date range and we will bring one to your students.
+                . Tell us a date range and we will bring a session to your
+                students.
               </p>
             )}
             <a

@@ -81,6 +81,21 @@ export default function Nav({ solid = false }: { solid?: boolean }) {
         </ul>
 
         <div className="hidden items-center gap-3 md:flex">
+          {/* Apply steps back to an outline so Donate can be the one filled
+              button in the bar: Ad Grants review asks for a prominent,
+              dedicated giving CTA in the main navigation. */}
+          <a
+            href={site.applyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center justify-center whitespace-nowrap rounded border px-5 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] transition-colors lg:px-6 ${
+              scrolled
+                ? "border-primary/40 text-primary hover:border-primary hover:bg-primary/5"
+                : "border-white/60 text-white hover:border-white hover:bg-white/10"
+            }`}
+          >
+            Apply
+          </a>
           {/* Renders only once site.donateUrl is set — see DonateButton. */}
           {site.donateUrl && (
             <a
@@ -88,23 +103,11 @@ export default function Nav({ solid = false }: { solid?: boolean }) {
               target="_blank"
               rel="noopener noreferrer"
               data-donate
-              className={`inline-flex items-center justify-center whitespace-nowrap rounded border px-5 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] transition-colors lg:px-6 ${
-                scrolled
-                  ? "border-primary/40 text-primary hover:border-primary hover:bg-primary/5"
-                  : "border-white/60 text-white hover:border-white hover:bg-white/10"
-              }`}
+              className="inline-flex items-center justify-center whitespace-nowrap rounded bg-primary px-5 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary shadow-sm transition-colors hover:bg-surface-tint lg:px-6"
             >
               Donate
             </a>
           )}
-          <a
-            href={site.applyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center whitespace-nowrap rounded bg-primary px-5 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-surface-tint lg:px-6"
-          >
-            Apply
-          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -168,7 +171,7 @@ export default function Nav({ solid = false }: { solid?: boolean }) {
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 data-donate
-                className="mt-2 inline-flex w-full items-center justify-center rounded border border-primary/40 px-6 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary"
+                className="mt-2 inline-flex w-full items-center justify-center rounded bg-primary px-6 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary"
               >
                 Donate
               </a>
@@ -180,7 +183,7 @@ export default function Nav({ solid = false }: { solid?: boolean }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex w-full items-center justify-center rounded bg-primary px-6 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-on-primary"
+              className="mt-2 inline-flex w-full items-center justify-center rounded border border-primary/40 px-6 py-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-primary"
             >
               Apply Now
             </a>
