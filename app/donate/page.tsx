@@ -18,10 +18,10 @@ export const metadata: Metadata = {
 };
 
 /**
- * Concrete, non-cash ways to help. These are real asks a school, library, or
- * local business can act on today — deliberately not a giving form, because
- * SAIL has no payment processor yet and Ad Grants treats a donate link that
- * cannot take a donation as a broken one.
+ * Concrete, non-cash ways to help — real asks a school, library, or local
+ * business can act on today. These sit below the giving band rather than
+ * replacing it: money is the direct ask, but a room to teach in and a box of
+ * supplies are worth as much to a volunteer-run org.
  */
 const ways = [
   {
@@ -38,7 +38,7 @@ const ways = [
   },
   {
     title: "Sponsor a chapter",
-    body: "About $400 covers a new chapter's first year. Sponsor a specific school and we will report back on what it did.",
+    body: "About $250 covers a new chapter's first year. Sponsor a specific school and we will report back on what it did.",
     label: "Talk about sponsorship",
     subject: "Sponsoring a SAIL chapter",
   },
@@ -107,9 +107,9 @@ export default function SupportPage() {
 
                 <ul className="mb-10 grid grid-cols-1 gap-4 text-left sm:grid-cols-3">
                   {[
-                    { amount: "$25", buys: "Smart notebooks for five students." },
-                    { amount: "$100", buys: "Materials for a full workshop." },
-                    { amount: "$400", buys: "A new chapter's first year." },
+                    { amount: "$10", buys: "Smart notebooks for two students." },
+                    { amount: "$30", buys: "Materials for a full workshop." },
+                    { amount: "$250", buys: "A new chapter's first year." },
                   ].map((tier) => (
                     <li
                       key={tier.amount}

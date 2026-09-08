@@ -19,7 +19,7 @@ const ways = [
   },
   {
     title: "Sponsors & partners",
-    body: "About $400 covers a new chapter's first year of programming.",
+    body: "About $250 covers a new chapter's first year of programming.",
     label: "See how to help",
     href: "/donate",
   },

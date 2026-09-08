@@ -38,7 +38,7 @@ const reasons = [
   },
   {
     title: "Sponsor or donate materials",
-    body: "For businesses, foundations, and community partners. Roughly $400 covers a new chapter's first year of programming, and in-kind gifts of workshop supplies are tax-deductible the same as cash.",
+    body: "For businesses, foundations, and community partners. Roughly $250 covers a new chapter's first year of programming, and in-kind gifts of workshop supplies are tax-deductible the same as cash.",
     label: "Talk about giving",
     subject: "Supporting SAIL",
   },

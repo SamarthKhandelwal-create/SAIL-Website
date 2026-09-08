@@ -57,7 +57,7 @@ export default function SponsorsPage() {
               Fund a chapter
             </h2>
             <p className="mb-10 font-body text-body-lg text-on-primary/80">
-              About $400 covers a new chapter&rsquo;s first year — every
+              About $250 covers a new chapter&rsquo;s first year — every
               workshop it runs, for every student it reaches.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
