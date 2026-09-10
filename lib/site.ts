@@ -99,6 +99,22 @@ export const site = {
     email: "samarth.khandelwal@studentsforailiteracy.org",
     phone: "+1 (513) 953-6153",
     phoneHref: "tel:+15139536153",
+    /**
+     * Mailing address. Google for Nonprofits and Ad Grants review both look
+     * for a verifiable street address alongside the EIN — a city-only line is
+     * a common rejection cause, and it is what SAIL was rejected on.
+     *
+     * This is the founding chapter's school, where SAIL receives mail. If that
+     * ever stops being true, change it here: the contact page, the footer, and
+     * the Organization JSON-LD all read from this one place.
+     */
+    address: {
+      line1: "3250 Victory Parkway",
+      city: "Cincinnati",
+      region: "OH",
+      postalCode: "45207",
+      country: "US",
+    },
   },
   socials: {
     instagram: "https://www.instagram.com/students.for.ai.literacy/",

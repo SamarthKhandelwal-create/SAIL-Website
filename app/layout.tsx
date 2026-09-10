@@ -84,6 +84,17 @@ const organizationSchema = {
   telephone: site.contact.phone,
   description:
     "A student-led 501(c)(3) nonprofit teaching young people to understand, question, and responsibly use artificial intelligence through free, hands-on workshops.",
+  /* Top-level `address`, not just `foundingLocation` — this is the property
+     Google reads for a verifiable organization address, and its absence was
+     cited in the Google for Nonprofits rejection. */
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.contact.address.line1,
+    addressLocality: site.contact.address.city,
+    addressRegion: site.contact.address.region,
+    postalCode: site.contact.address.postalCode,
+    addressCountry: site.contact.address.country,
+  },
   foundingLocation: {
     "@type": "Place",
     address: {

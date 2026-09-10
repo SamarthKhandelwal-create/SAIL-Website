@@ -63,6 +63,16 @@ export default function Footer() {
             </p>
             <ul className="space-y-3 font-body text-body-md text-secondary">
               <li>Founder: {site.contact.founder}</li>
+              {/* Verifiable mailing address on every page: Google for
+                  Nonprofits requires one next to the EIN. */}
+              <li>
+                <address className="not-italic">
+                  {site.contact.address.line1}
+                  <br />
+                  {site.contact.address.city}, {site.contact.address.region}{" "}
+                  {site.contact.address.postalCode}
+                </address>
+              </li>
               <li>
                 <a
                   href={`mailto:${site.contact.email}`}

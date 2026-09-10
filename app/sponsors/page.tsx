@@ -40,9 +40,27 @@ export default function SponsorsPage() {
                 into programming — the supplies handed to students in a
                 workshop, and the fees that keep us a nonprofit.
               </p>
-              <p className="mt-6 font-body text-body-md text-on-surface-variant">
-                {site.name} is a registered 501(c)(3), EIN {site.ein}. We are
-                glad to show any funder exactly what a contribution paid for.
+              <p className="mt-6 font-body text-body-lg text-on-surface">
+                In our last fiscal year SAIL operated on $2,100+ in grants and
+                contributions. That covered our Ohio incorporation, our federal
+                501(c)(3) application, a domain name, and the workshop supplies
+                handed to every student we taught — notebooks, UV pens for the
+                invisible-ink activity, printed handouts, and name tags.
+              </p>
+              <p className="mt-4 font-body text-body-md text-on-surface-variant">
+                Because there is no staff to pay, the cost of reaching another
+                classroom is close to the cost of its supplies. Roughly $250
+                funds a new chapter&rsquo;s entire first year of programming.
+                That ratio is unusual, and it is the main argument our funders
+                have made for backing a student-run organization.
+              </p>
+              <p className="mt-4 font-body text-body-md text-on-surface-variant">
+                {site.name} is a registered 501(c)(3), EIN {site.ein}, based at{" "}
+                {site.contact.address.line1}, {site.contact.address.city},{" "}
+                {site.contact.address.region}{" "}
+                {site.contact.address.postalCode}. We are glad to share our
+                ledger and a summary of what a specific contribution funded
+                with any donor or grantmaker who asks.
               </p>
             </Reveal>
           </div>

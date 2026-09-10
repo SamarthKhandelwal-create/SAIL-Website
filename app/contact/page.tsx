@@ -180,8 +180,18 @@ export default function ContactPage() {
                   <dd className="text-on-surface">{site.contact.founder}</dd>
                 </div>
                 <div>
-                  <dt className="text-secondary">Based in</dt>
-                  <dd className="text-on-surface">Cincinnati, Ohio</dd>
+                  <dt className="text-secondary">Mailing address</dt>
+                  <dd className="text-on-surface">
+                    <address className="not-italic">
+                      {site.name}
+                      <br />
+                      {site.contact.address.line1}
+                      <br />
+                      {site.contact.address.city},{" "}
+                      {site.contact.address.region}{" "}
+                      {site.contact.address.postalCode}
+                    </address>
+                  </dd>
                 </div>
               </dl>
               <p className="mt-6 font-body text-body-md text-on-surface-variant">
