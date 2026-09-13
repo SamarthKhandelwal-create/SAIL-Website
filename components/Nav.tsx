@@ -50,7 +50,10 @@ export default function Nav({ solid = false }: { solid?: boolean }) {
           SAIL
         </Link>
 
-        <ul className="hidden items-center gap-5 md:flex lg:gap-8">
+        {/* gap-3 at md, not gap-5: with five items the bar had exactly zero
+            slack at 768px (iPad portrait, the width where this list replaces
+            the hamburger) and a label wrapped to a second line. */}
+        <ul className="hidden items-center gap-3 md:flex lg:gap-8">
           {site.nav.map((item) => {
             const active = isActive(pathname, item.href);
             return (
@@ -58,7 +61,7 @@ export default function Nav({ solid = false }: { solid?: boolean }) {
                 <Link
                   href={item.href}
                   aria-current={active ? "page" : undefined}
-                  className={`font-body text-label-caps font-bold uppercase tracking-[0.1em] transition-colors ${
+                  className={`whitespace-nowrap font-body text-label-caps font-bold uppercase tracking-[0.1em] transition-colors ${
                     scrolled
                       ? active
                         ? "text-primary"

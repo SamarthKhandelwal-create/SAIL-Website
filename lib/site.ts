@@ -1,4 +1,24 @@
 /**
+ * Default social share image, for spreading into a page's `openGraph.images`.
+ *
+ * Next replaces a parent `openGraph` object wholesale rather than merging it,
+ * so a page that sets `openGraph` for its own title drops the site-wide image
+ * and shares as a bare link. Every such page spreads this in; only
+ * /outreach/[slug] overrides it, with the event photo.
+ *
+ * Points at the app/opengraph-image.tsx route, which renders the card at build
+ * time — there is no PNG to keep in sync.
+ */
+export const ogImages = [
+  {
+    url: "/opengraph-image",
+    width: 1200,
+    height: 630,
+    alt: "Students For AI Literacy — free, student-led AI literacy workshops",
+  },
+];
+
+/**
  * Central place for outward-facing links and contact details.
  * Update here and it changes everywhere on the site.
  */
@@ -123,17 +143,23 @@ export const site = {
   /** Nav labels stay short — the bar also carries a wordmark and an Apply
    *  button, and long labels overflow at the md breakpoint.
    *
-   *  Deliberately four items. "Get Involved" covers both ways in: /join lists
-   *  the open roles and closes with a link to /chapters. Both pages stay live
-   *  at their own URLs — they are linked from across the site — so this is a
-   *  navigation choice, not a merge.
+   *  Five items, which is the practical ceiling. Measured at 768px — the
+   *  iPad-portrait width where this list replaces the hamburger — the bar has
+   *  about 24px of slack, and that only after tightening the md gap in
+   *  Nav.tsx. A sixth label does not fit; put it in the footer instead.
    *
-   *  /leadership, /advisors, /chapters and /sponsors are all reachable from
-   *  the footer and from the pages they belong to; promoting them here makes
-   *  the bar overflow and buries the routes that actually convert. */
+   *  "Get Involved" covers both ways in: /join lists the open roles and closes
+   *  with a link to /chapters. Both pages stay live at their own URLs — they
+   *  are linked from across the site — so that is a navigation choice, not a
+   *  merge.
+   *
+   *  /advisors, /chapters and /sponsors stay out: they are reachable from the
+   *  footer and from the pages they belong to (/advisors from /leadership and
+   *  /about), and promoting them here overflows the bar. */
   nav: [
     { label: "About", href: "/about" },
     { label: "Outreach", href: "/outreach" },
+    { label: "Leadership", href: "/leadership" },
     { label: "Get Involved", href: "/join" },
     { label: "Support", href: "/donate" },
   ],
