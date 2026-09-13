@@ -16,6 +16,15 @@ export type Chapter = {
   lng: number;
   /** Contact email for the chapter (optional). */
   email?: string;
+  /**
+   * Chapter lead's name, for display only.
+   *
+   * Chapter leads are minors. Never add their personal email, phone number, or
+   * any other contact detail to this type — everything here is published on the
+   * public map and served by /api/chapters. Route all chapter inquiries to the
+   * organization address instead.
+   */
+  lead?: string;
   /** Year the chapter was founded (optional). */
   founded?: number;
   /** Marks the founding / flagship chapter. */
@@ -37,6 +46,28 @@ export type BoardMember = {
   email?: string;
   /** Layout weight on the board grid: feature spans wider. */
   feature?: boolean;
+};
+
+/**
+ * An adult advisor to the student board. Distinct from BoardMember: advisors
+ * counsel the organization but do not govern it.
+ */
+export type Advisor = {
+  /** Stable slug, used as a React key. */
+  id: string;
+  name: string;
+  /** Advisory role at SAIL, e.g. "Education Advisor". */
+  role: string;
+  /** Professional title and employer, as the advisor states it publicly. */
+  affiliation: string;
+  /** What they advise SAIL on. */
+  bio?: string;
+  /**
+   * Headshot under /public/board. Optional: the card falls back to the
+   * advisor's initials, so someone can be listed before (or without) supplying
+   * a picture of themselves.
+   */
+  photo?: string;
 };
 
 export type Sponsor = {
@@ -84,8 +115,20 @@ export type OutreachEvent = {
   summary: string;
   /** Card / hero image path under /public. */
   cover: string;
-  /** Full write-up: each string is a paragraph. */
+  /** Full write-up: each string is a paragraph. Empty for a calendar-only entry. */
   article: string[];
   /** Photo gallery for the article + home page. */
   photos: OutreachPhoto[];
+  /**
+   * A scheduled session with no write-up yet: it appears on the calendar and in
+   * the "Next session" banner, but gets no article page and no recap card.
+   *
+   * This is the right shape for an upcoming date. A recap written in the future
+   * tense is a page that describes things that have not happened, which reads
+   * as padding to a reader and as thin content to a crawler.
+   *
+   * After the session runs, write `article`, add real photos, and delete this
+   * flag — the article page and recap card then appear on their own.
+   */
+  calendarOnly?: boolean;
 };

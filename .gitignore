@@ -34,6 +34,15 @@ yarn-error.log*
 # raw source material (headshots already copied into public/board; xlsx has PII)
 /drive-download-*/
 
+# raw photos — originals live here, web-ready copies are committed under /public
+/photos/
+
+# chapter/role application exports. These are minors' names, personal emails and
+# phone numbers; no code imports them. Chapter leads appear on the site by name
+# only — see the privacy note in data/chapters.ts.
+*Application_Form*.csv
+*Application_Form*.xlsx
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -103,12 +103,17 @@ export default function OutreachPage() {
             {next ? (
               <p className="font-body text-body-lg text-on-surface">
                 <span className="font-bold text-primary">Next session:</span>{" "}
-                <Link
-                  href={`/outreach/${next.id}`}
-                  className="underline underline-offset-4 transition-colors hover:text-primary"
-                >
-                  {next.title}
-                </Link>{" "}
+                {/* An upcoming session usually has no recap to link to yet. */}
+                {next.calendarOnly ? (
+                  next.title
+                ) : (
+                  <Link
+                    href={`/outreach/${next.id}`}
+                    className="underline underline-offset-4 transition-colors hover:text-primary"
+                  >
+                    {next.title}
+                  </Link>
+                )}{" "}
                 — {longDate(next.date)}, {next.location}.
               </p>
             ) : (

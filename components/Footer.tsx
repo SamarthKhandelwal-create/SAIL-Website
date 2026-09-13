@@ -105,6 +105,7 @@ export default function Footer() {
                 { href: "/donate", label: "Support Our Work" },
                 { href: "/sponsors", label: "Our Sponsors" },
                 { href: "/leadership", label: "Leadership" },
+                { href: "/advisors", label: "Board of Advisors" },
                 { href: "/outreach", label: "Outreach" },
               ].map((l) => (
                 <li key={l.href}>

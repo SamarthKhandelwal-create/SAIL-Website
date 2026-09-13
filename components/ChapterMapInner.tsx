@@ -92,6 +92,9 @@ export default function ChapterMapInner({
             <div className="font-body">
               <p className="text-sm font-bold text-[#25637a]">{c.name}</p>
               <p className="text-xs text-[#5c5f61]">{c.location}</p>
+              {c.lead && (
+                <p className="mt-1 text-xs text-[#5c5f61]">Led by {c.lead}</p>
+              )}
               {c.flagship && (
                 <p className="mt-1 text-[10px] font-bold uppercase tracking-wide text-[#49839b]">
                   Founding Chapter

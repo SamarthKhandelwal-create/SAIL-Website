@@ -161,7 +161,14 @@ export default function LeadershipPage() {
                 >
                   {site.contact.email}
                 </a>
-                . You can also read more{" "}
+                . You can also meet{" "}
+                <Link
+                  href="/advisors"
+                  className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
+                >
+                  our board of advisors
+                </Link>
+                , read more{" "}
                 <Link
                   href="/about"
                   className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"

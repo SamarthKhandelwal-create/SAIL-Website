@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/chapters",
       "/join",
       "/leadership",
+      "/advisors",
       "/donate",
       "/sponsors",
       "/contact",
@@ -33,7 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly" as const,
       priority: 0.3,
     },
-    ...events.map((e) => ({
+    /* Calendar-only entries have no article page to list. */
+    ...events.filter((e) => !e.calendarOnly).map((e) => ({
       url: `${BASE}/outreach/${e.id}`,
       lastModified: new Date(e.date),
       changeFrequency: "yearly" as const,

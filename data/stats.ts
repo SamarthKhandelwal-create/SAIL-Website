@@ -11,14 +11,16 @@ import { chapters } from "./chapters";
  */
 
 const manual = {
-  studentsTaught: 800,
+  /** 800 through summer 2026, plus ~200 across the Hyde Park School sessions
+   *  on 2026-09-04. */
+  studentsTaught: 1000,
   statesReached: 1,
   /**
    * Volunteer and participant hours across every session we have run, chapter
    * workshops included. Reported instead of a session count because the count
    * understates the work: sessions vary from a single period to a full day.
    */
-  engagementHours: 1300,
+  engagementHours: 1500,
 };
 
 const uniqueStates = new Set(

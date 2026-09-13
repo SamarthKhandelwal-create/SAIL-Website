@@ -24,7 +24,11 @@ export default function Outreach({
   events: OutreachEvent[];
   showHeading?: boolean;
 }) {
-  const sorted = [...events].sort((a, b) => b.date.localeCompare(a.date));
+  // Recap cards are written-up sessions only. An upcoming date still belongs on
+  // the calendar below, but it has no recap to link to.
+  const sorted = [...events]
+    .filter((e) => !e.calendarOnly)
+    .sort((a, b) => b.date.localeCompare(a.date));
   // A photo strip drawn from across the recent sessions. Kept short — this
   // page is the heaviest on the site and every extra photo is a real download.
   const gallery = sorted.flatMap((e) => e.photos).slice(0, 6);

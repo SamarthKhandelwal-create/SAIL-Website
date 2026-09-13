@@ -17,10 +17,9 @@ import type { OutreachEvent } from "./types";
 export const events: OutreachEvent[] = [
   {
     /**
-     * UPCOMING. Written in the future tense on purpose — it has not happened
-     * yet. After the session, rewrite `article` in the past tense and swap in
-     * real photos; the calendar and the "Next session" banner move on by
-     * themselves once the date passes.
+     * UPCOMING — calendar only. No `article`, so there is no page to read yet;
+     * see `calendarOnly` in data/types.ts. After the session, write the recap,
+     * add real photos, and remove the flag.
      */
     id: "sycamore-fall-workshop",
     title: "Fall AI Literacy Workshop at Sycamore High School",
@@ -29,17 +28,91 @@ export const events: OutreachEvent[] = [
     summary:
       "Our fall term opens at Sycamore High School with a hands-on session on how AI works, where it fails, and how to use it honestly in schoolwork.",
     cover: "/outreach/img-8493.jpg",
+    calendarOnly: true,
+    article: [],
+    photos: [],
+  },
+  {
+    /**
+     * Not a workshop — a partnership write-up. It sits in this file because
+     * /outreach is the only place the site tells stories, and the museum
+     * relationship is the same kind of news. The $500 grant is also listed in
+     * data/sponsors.ts; update both if the amount or status changes.
+     */
+    id: "voa-museum-partnership",
+    title: "SAIL Joins the National Voice of America Museum of Broadcasting",
+    date: "2026-09-04",
+    location: "National Voice of America Museum of Broadcasting · West Chester, OH",
+    summary:
+      "A $500 grant, a permanent display in the museum, and a forthcoming press release — SAIL's first partnership with a museum dedicated to the history of how information travels.",
+    cover: "/outreach/voa-poster.jpg",
     article: [
-      "SAIL opens its fall programming at Sycamore High School on September 25, 2026. The session follows the format our student instructors have refined over a year of workshops: no lecture, no jargon, and no assumption that anyone in the room has a technical background.",
-      "Students will start with the drawing game — a neural network guessing doodles in real time, getting a bicycle instantly and then insisting a perfectly good cat is a lion. That gap between confident and correct is the lesson, and students reach it themselves before anyone defines a term.",
-      "From there the group works through how a language model actually produces text: not by looking things up, but by predicting which word tends to come next. We run the human-or-AI exercise, where students read short passages and vote on which were machine-written. Most groups are confident, and most groups are wrong.",
-      "The last stretch is about judgment rather than mechanics — where AI genuinely helps with schoolwork, where it crosses into doing the work for you, and how to check a claim from a tool that has no way of knowing whether it is true.",
-      "Teachers and administrators at Sycamore who would like to send a class, and students interested in starting a chapter of their own, can reach us through the contact page.",
+      "SAIL has partnered with the National Voice of America Museum of Broadcasting in West Chester, Ohio, which has awarded us a $500 grant and given our work a permanent spot on its floor. Our display — a poster on the museum's three pillars of our work, alongside a stand of brochures visitors can take with them — now greets people as they move through the galleries.",
+      "The fit is better than it might first appear. The museum exists to tell the story of how information reaches people: the transmitters that carried news across oceans, the decisions about what got broadcast, and the question of who gets to be believed. That is not a different subject from ours. AI literacy is the current chapter of the same story — a new set of systems producing information at scale, and a new generation trying to work out what to trust.",
+      "The display lays out what SAIL is and how to reach us: our mission and vision, the case for AI literacy, and the survey findings we keep returning to — that 72% of students say guidance on how to use generative AI responsibly would be helpful, and 79% of teachers say their district has no clear policy on AI in education. Between those two numbers is the gap our volunteers step into every time they teach a session.",
+      "The brochures carry our tagline — AI literacy for students, by students — and the three ways into the organization: apply to lead a chapter, get the curriculum guide, or bring a workshop to your own students. Every role is open to high schoolers, and the guide is free.",
+      "The museum plans to publish a press release about the partnership. We will link it here once it is out.",
+      "For SAIL, the value is reach of a kind we cannot manufacture ourselves. Our workshops put us in front of a classroom at a time. A display in a museum puts us in front of families, teachers, and students who came for something else entirely and leave having encountered the idea that AI literacy is something a young person can learn — and teach.",
     ],
     photos: [
       {
-        src: "/outreach/img-8493.jpg",
-        alt: "Students gathered in front of a screen displaying the SAIL logo at an earlier workshop",
+        src: "/outreach/voa-poster.jpg",
+        alt: "SAIL's display board at the VOA Museum, headed 'Our 3 Pillars' and 'SAIL AI Literacy', with mission, statistics, and program panels",
+      },
+      {
+        src: "/outreach/voa-display.jpg",
+        alt: "The SAIL display in a museum gallery, with the poster board mounted above a plinth of brochures",
+      },
+      {
+        src: "/outreach/voa-flyers.jpg",
+        alt: "SAIL brochures and a flyer dispenser arranged on the display plinth, reading 'AI literacy for students, by students'",
+      },
+    ],
+  },
+  {
+    id: "hyde-park-school-assembly",
+    title: "200 Students in a Day at Hyde Park School",
+    date: "2026-09-04",
+    location: "Hyde Park School · Cincinnati, OH",
+    summary:
+      "Our largest single day yet — back-to-back sessions that brought AI literacy to roughly 200 elementary students, one classroom at a time.",
+    cover: "/outreach/hyde-park-class.jpg",
+    article: [
+      "On September 4, SAIL volunteers spent the day at Hyde Park School in Cincinnati, running back-to-back sessions that reached roughly 200 students — the most we have taught in a single day. Rather than gather everyone into one hall, we worked class by class, which kept every session small enough for students to actually talk.",
+      "This was also our youngest audience to date. Most of our curriculum was built for middle and high schoolers, and teaching elementary students meant finding out quickly which parts survive the change and which do not. The mechanics of a language model predicting the next word can be explained to a fifth grader. The vocabulary we normally use to explain it cannot.",
+      "So we leaned on the demonstrations. The drawing game does the same work in any room: a neural network guesses a bicycle instantly, then insists a perfectly good cat is a lion. Younger students find that funnier than older ones do, and they arrive at the same conclusion faster — the computer is sure, and the computer is wrong, and those two things can be true at once.",
+      "What changed was the discussion. With older students we spend the last stretch on academic honesty and where AI crosses from helping into doing the work for you. With this group the more useful question was simpler and, we think, more fundamental: how would you check? Students traded answers — ask a teacher, look it up somewhere else, see if it sounds right — and built a rough version of source-checking out of their own instincts.",
+      "Teaching the same material eight or nine times in a day is its own education for our volunteers. The explanations that work get sharper with each repetition, and the ones that do not get quietly abandoned by the third session. Several of the simplifications our instructors invented on the fly at Hyde Park are going straight into the curriculum.",
+      "Our thanks to the teachers and administrators at Hyde Park School, who organized the schedule that made a day like this possible. Schools interested in hosting a session, at any grade level, can reach us through the contact page — there is no cost.",
+    ],
+    photos: [
+      {
+        src: "/outreach/hyde-park-class.jpg",
+        alt: "A class of Hyde Park School students gathered for a group photo with SAIL volunteers at the end of their session",
+      },
+    ],
+  },
+  {
+    id: "termcon-privacy-article",
+    title: "Before You Prompt: A Co-Authored Article with TermCon",
+    date: "2026-09-07",
+    location: "Published online · termcon.app",
+    summary:
+      "SAIL and TermCon co-authored an article on why privacy belongs in AI literacy — and built a joint workshop around reading the terms of service students agree to without reading.",
+    cover: "/outreach/img-8479.jpg",
+    article: [
+      "SAIL has co-authored an article with TermCon, published September 7 under the title \"Before You Prompt: Why Privacy Belongs in AI Literacy.\" It argues for something our own curriculum had been treating as a footnote: that what happens to what you type into a chatbot is part of AI literacy, not a separate subject.",
+      "The case is straightforward once stated. Students talk to chatbots the way they would talk to a search bar or a friend, and the feeling of privacy is strong — it is a text box, the reply comes back only to you, nothing seems to be recorded. But every one of those tools operates under terms that spell out what is collected, how long it is kept, and what it may be used for. A 2026 Pew survey found 64% of American teens use AI chatbots, for everything from homework to conversations they would not have out loud. Almost none of them have read a word of those terms.",
+      "This is recognized ground, not a fringe worry. UNESCO's 2024 AI Competency Framework for students names privacy as part of AI ethics, and the FTC has opened an inquiry into seven chatbot companies over how they handle personal data and what safeguards exist for minors. The gap is not that the issue is unacknowledged; it is that almost nobody is teaching it to the students actually using these tools.",
+      "The article's practical half is where our two organizations meet. TermCon builds tools for analyzing policy documents — the dense, deliberately unreadable text that nobody gets through. SAIL runs discussion-based workshops for students. Together we built sessions where students use TermCon's tools to actually read what a chatbot's terms say, then decide as a group whether that tool belongs anywhere near a particular assignment.",
+      "The technique we keep coming back to is data minimization, and it teaches well because it is concrete. Before sending a prompt, take out what the model does not need: your full name, your school, the name of the friend the situation is actually about. Students grasp it immediately, and it is a habit rather than a rule — it survives contact with whatever tool replaces the current one.",
+      "A school can do a version of this in one class period. Take a chatbot's privacy policy, put students in groups, and have them find one thing that surprises them. Then run a redaction exercise: here is a prompt a student might really send, cross out everything that does not need to be there. That is the whole lesson, and it changes how students type for a long time afterward.",
+      "The full article is available at termcon.app/before-you-prompt.",
+    ],
+    photos: [
+      {
+        src: "/outreach/img-8479.jpg",
+        alt: "A SAIL student lead presenting from a podium beside a screen during a workshop",
       },
     ],
   },

@@ -141,16 +141,26 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
             const ev = byDate.get(iso(d));
             if (ev) {
               const upcoming = isUpcoming(ev.date);
+              const marker = `flex aspect-square items-center justify-center rounded-full font-body text-body-md font-bold shadow-sm ${
+                upcoming
+                  ? "border-2 border-primary bg-primary-container/20 text-primary"
+                  : "bg-primary text-on-primary"
+              }`;
+              /* A scheduled session with no recap yet is marked but not
+                 clickable — there is no page behind it. */
+              if (ev.calendarOnly) {
+                return (
+                  <div key={i} title={`${ev.title} (upcoming)`} className={marker}>
+                    {d}
+                  </div>
+                );
+              }
               return (
                 <Link
                   key={i}
                   href={`/outreach/${ev.id}`}
                   title={`${ev.title}${upcoming ? " (upcoming)" : ""}`}
-                  className={`flex aspect-square items-center justify-center rounded-full font-body text-body-md font-bold shadow-sm transition-transform hover:scale-105 ${
-                    upcoming
-                      ? "border-2 border-primary bg-primary-container/20 text-primary"
-                      : "bg-primary text-on-primary"
-                  }`}
+                  className={`${marker} transition-transform hover:scale-105`}
                 >
                   {d}
                 </Link>
@@ -174,12 +184,9 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
           {monthEvents.length ? `In ${MONTHS[view.month]}` : "All sessions"}
         </p>
         <ul className="flex flex-col gap-3">
-          {listed.map((e) => (
-            <li key={e.id}>
-              <Link
-                href={`/outreach/${e.id}`}
-                className="group flex items-center gap-4 rounded-lg border border-outline-variant/40 p-4 transition-colors hover:border-primary/50 hover:bg-surface-container-low"
-              >
+          {listed.map((e) => {
+            const row = (
+              <>
                 <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md">
                   <Image
                     src={e.cover}
@@ -201,9 +208,30 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
                     {e.title}
                   </span>
                 </span>
-              </Link>
-            </li>
-          ))}
+              </>
+            );
+            const base =
+              "flex items-center gap-4 rounded-lg border border-outline-variant/40 p-4";
+            /* No recap yet: show the session, but do not offer a link to a
+               page that does not exist. */
+            if (e.calendarOnly) {
+              return (
+                <li key={e.id}>
+                  <div className={base}>{row}</div>
+                </li>
+              );
+            }
+            return (
+              <li key={e.id}>
+                <Link
+                  href={`/outreach/${e.id}`}
+                  className={`group ${base} transition-colors hover:border-primary/50 hover:bg-surface-container-low`}
+                >
+                  {row}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

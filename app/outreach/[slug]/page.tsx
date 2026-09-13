@@ -17,8 +17,11 @@ function longDate(d: string) {
   return `${MONTHS[m - 1]} ${day}, ${y}`;
 }
 
+/** Calendar-only entries have no write-up, so they get no page. */
+const articles = events.filter((e) => !e.calendarOnly);
+
 export function generateStaticParams() {
-  return events.map((e) => ({ slug: e.id }));
+  return articles.map((e) => ({ slug: e.id }));
 }
 
 export async function generateMetadata({
@@ -27,7 +30,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const event = events.find((e) => e.id === slug);
+  const event = articles.find((e) => e.id === slug);
   if (!event) return {};
   // Event summaries run short on their own; the date and venue carry the recap
   // up to a full-length description without padding it.
@@ -51,10 +54,10 @@ export default async function EventArticle({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const event = events.find((e) => e.id === slug);
+  const event = articles.find((e) => e.id === slug);
   if (!event) notFound();
 
-  const others = events.filter((e) => e.id !== event.id);
+  const others = articles.filter((e) => e.id !== event.id);
 
   /* Reported as a Report rather than an Event: these are write-ups of sessions
      that already happened, and Event markup on a past date earns a stale-event

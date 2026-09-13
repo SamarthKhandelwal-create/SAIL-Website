@@ -51,6 +51,12 @@ export const sponsors: Sponsor[] = [
     url: "https://contributionproject.org/",
   },
   {
+    id: "voa-museum",
+    name: "National Voice of America Museum of Broadcasting",
+    note: "A grant toward our workshop materials, and a permanent display introducing SAIL to the museum's visitors.",
+    url: "https://www.voamuseum.org/",
+  },
+  {
     id: "texas-roadhouse",
     name: "Texas Roadhouse",
     note: "Materials our student instructors hand out at every workshop.",
