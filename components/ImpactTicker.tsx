@@ -90,7 +90,7 @@ export default function ImpactTicker({ stats }: { stats: Stats }) {
       // number. Padding an exact figure is the kind of small overclaim that
       // undermines the honest ones next to it.
       value: stats.activeChapters,
-      detail: "Ohio high schools running their own programming.",
+      detail: "Schools running their own student-led programming.",
     },
     {
       label: "Engagement Hours",
