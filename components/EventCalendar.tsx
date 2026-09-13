@@ -110,8 +110,12 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
 
   return (
     <div className="grid gap-8 rounded-xl border border-outline-variant/40 bg-surface-container-lowest p-6 md:grid-cols-2 md:p-8">
-      {/* Month grid */}
-      <div>
+      {/* Month grid.
+          `min-w-0`: a grid item defaults to min-width:auto, so this column
+          refused to shrink below the natural width of the seven day cells and
+          pushed the whole page to 609px on a 390px phone — which scrolled every
+          page sideways, the fixed nav included. */}
+      <div className="min-w-0">
         <div className="mb-6 flex items-center justify-between">
           <button type="button" onClick={() => go(-1)} aria-label="Previous month" className={navBtn}>
             ‹
@@ -178,8 +182,10 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
         </div>
       </div>
 
-      {/* Events for the shown month (or all events if none this month) */}
-      <div className="flex flex-col">
+      {/* Events for the shown month (or all events if none this month).
+          `min-w-0` for the same reason as the month grid: without it the
+          event titles set this column's floor and it would not shrink. */}
+      <div className="flex min-w-0 flex-col">
         <p className="mb-4 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-secondary">
           {monthEvents.length ? `In ${MONTHS[view.month]}` : "All sessions"}
         </p>

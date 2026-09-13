@@ -77,6 +77,29 @@ export default async function EventArticle({
     isAccessibleForFree: true,
   };
 
+  /* These are the only pages nested a level deep. The trail is what Google
+     renders in place of the raw URL in a result, and it gives /outreach a
+     path to the article that does not depend on the sitemap alone. */
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Outreach",
+        item: `${site.url}/outreach`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: event.title,
+        item: `${site.url}/outreach/${event.id}`,
+      },
+    ],
+  };
+
   return (
     <>
       <script
@@ -84,28 +107,47 @@ export default async function EventArticle({
         // eslint-disable-next-line react/no-danger -- static, server-built object
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger -- static, server-built object
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Nav />
       <main id="main">
         {/* Hero */}
-        <header className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
+        {/* `h-auto` with a minimum rather than a fixed 52vh: a long headline at
+            display size used to overflow its fixed-height box upward and run
+            into the fixed nav. The hero now grows to fit its own text, and the
+            pt-32 below reserves the nav's band so a title can never reach it. */}
+        <header className="relative flex min-h-[62vh] w-full flex-col justify-end overflow-hidden pt-32 md:min-h-[58vh]">
           <Image
             src={event.cover}
-            alt=""
+            /* Not decorative: this is the article's main image, and an empty
+               alt kept it out of image search entirely. The title already
+               names the session and venue, which is what a caption would say. */
+            alt={event.title}
             fill
             priority
             sizes="100vw"
             className="object-cover"
           />
+          {/* Two overlays, not one. The bottom-up gradient makes the title
+              legible; on its own it faded to near-nothing at the top of the
+              image, which is exactly where the fixed nav sits — so the white
+              wordmark and links landed on whatever the photo happened to be
+              and disappeared over a light one. The second gradient darkens
+              just the top strip behind the nav. */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
-          <div className="absolute inset-x-0 bottom-0">
-            <div className="mx-auto max-w-content px-margin-mobile pb-10 md:px-gutter">
-              <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-white/85">
-                {longDate(event.date)} · {event.location}
-              </p>
-              <h1 className="max-w-3xl font-display text-display-xl leading-[0.95] text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.3)]">
-                {event.title}
-              </h1>
-            </div>
+          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent" />
+          {/* In the flex flow, not absolutely positioned: the header now sizes
+              itself around this block instead of letting it escape. */}
+          <div className="relative mx-auto w-full max-w-content px-margin-mobile pb-12 md:px-gutter">
+            <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.1em] text-white/85">
+              {longDate(event.date)} · {event.location}
+            </p>
+            <h1 className="max-w-3xl font-display text-display-xl leading-[0.95] text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.3)]">
+              {event.title}
+            </h1>
           </div>
         </header>
 

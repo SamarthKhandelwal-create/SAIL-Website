@@ -94,12 +94,16 @@ export const events: OutreachEvent[] = [
   },
   {
     id: "termcon-privacy-article",
-    title: "Before You Prompt: A Co-Authored Article with TermCon",
+    title: "Before You Prompt",
     date: "2026-09-07",
     location: "Published online · termcon.app",
     summary:
       "SAIL and TermCon co-authored an article on why privacy belongs in AI literacy — and built a joint workshop around reading the terms of service students agree to without reading.",
-    cover: "/outreach/img-8479.jpg",
+    /* TermCon's own mark on their brand background, composed to a 16:9 banner
+       so the hero crop does not slice the logo. This article is about a
+       published piece, not a session — a workshop photo here was decorative
+       and misleading. */
+    cover: "/outreach/termcon-logo.jpg",
     article: [
       "SAIL has co-authored an article with TermCon, published September 7 under the title \"Before You Prompt: Why Privacy Belongs in AI Literacy.\" It argues for something our own curriculum had been treating as a footnote: that what happens to what you type into a chatbot is part of AI literacy, not a separate subject.",
       "The case is straightforward once stated. Students talk to chatbots the way they would talk to a search bar or a friend, and the feeling of privacy is strong — it is a text box, the reply comes back only to you, nothing seems to be recorded. But every one of those tools operates under terms that spell out what is collected, how long it is kept, and what it may be used for. A 2026 Pew survey found 64% of American teens use AI chatbots, for everything from homework to conversations they would not have out loud. Almost none of them have read a word of those terms.",
@@ -109,12 +113,9 @@ export const events: OutreachEvent[] = [
       "A school can do a version of this in one class period. Take a chatbot's privacy policy, put students in groups, and have them find one thing that surprises them. Then run a redaction exercise: here is a prompt a student might really send, cross out everything that does not need to be there. That is the whole lesson, and it changes how students type for a long time afterward.",
       "The full article is available at termcon.app/before-you-prompt.",
     ],
-    photos: [
-      {
-        src: "/outreach/img-8479.jpg",
-        alt: "A SAIL student lead presenting from a podium beside a screen during a workshop",
-      },
-    ],
+    /* No gallery: this is a co-authored article, not a session we photographed.
+       The workshop photo that was here showed an unrelated event. */
+    photos: [],
   },
   {
     id: "hands-on-ai-workshop",

@@ -77,7 +77,12 @@ const config: Config = {
         body: ["var(--font-jakarta)", "Plus Jakarta Sans", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "display-xl": ["clamp(64px, 11vw, 120px)", { lineHeight: "0.92", letterSpacing: "-0.02em", fontWeight: "700" }],
+        /* The 40px floor is deliberate. At 64px a long headline could not fit a
+           390px phone (11vw is only 43px there, so the floor won), and the text
+           ran off the right edge and scrolled the whole page sideways. Desktop
+           is unchanged: 11vw passes 64px at ~580px wide and still caps at
+           120px. */
+        "display-xl": ["clamp(40px, 11vw, 120px)", { lineHeight: "0.92", letterSpacing: "-0.02em", fontWeight: "700" }],
         "headline-lg": ["clamp(32px, 5vw, 48px)", { lineHeight: "1.1", letterSpacing: "0.01em", fontWeight: "500" }],
         "body-lg": ["20px", { lineHeight: "32px", fontWeight: "400" }],
         "body-md": ["16px", { lineHeight: "26px", fontWeight: "400" }],
