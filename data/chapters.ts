@@ -76,8 +76,8 @@ export const chapters: Chapter[] = [
     founded: 2026,
   },
   {
-    /* Our first chapter outside Ohio — this is what moves `statesReached`
-       from 1 to 2, since that stat is derived from these locations. */
+    /* Our first chapter outside Ohio. `statesReached` is derived from these
+       locations, so adding an out-of-state chapter raises it on its own. */
     id: "wellesley",
     name: "Wellesley High School",
     location: "Wellesley, MA",
@@ -88,6 +88,16 @@ export const chapters: Chapter[] = [
     // Ahmed, Theo Miles, Andrew Shirley); Rodean's application described the
     // group. Confirm who is the named lead before this is quoted anywhere.
     lead: "Rodean Ardakani",
+    founded: 2026,
+  },
+  {
+    id: "plano-west",
+    name: "Plano West Senior High School",
+    location: "Plano, TX",
+    // 5601 W Parker Rd, Plano, TX 75093.
+    lat: 33.0468,
+    lng: -96.8141,
+    lead: "Aarav Bansal",
     founded: 2026,
   },
 ];
