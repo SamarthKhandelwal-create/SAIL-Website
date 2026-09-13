@@ -26,9 +26,12 @@ export default function JoinPage() {
           size="page"
           words={["JOIN", "THE TEAM"]}
           subtitle="SAIL is built and run entirely by high school students. Here is where we need people."
+          /* "Start a chapter" sits here rather than only in the closing CTA:
+             /chapters is no longer its own nav item, so this hero is the main
+             way a visitor finds it above the fold. */
           ctas={[
             { label: "See open roles", href: "#roles" },
-            { label: "Meet the team", href: "/leadership" },
+            { label: "Start a chapter", href: "/chapters" },
           ]}
         />
 

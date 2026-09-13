@@ -325,12 +325,19 @@ export default function AboutPage() {
               </dl>
               <p className="mt-6 font-body text-body-md text-on-surface-variant">
                 Questions about our programs or partnering with us? Email us —
-                a student on our team will reply. You can also{" "}
+                a student on our team will reply. You can also meet{" "}
                 <Link
                   href="/leadership"
                   className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
                 >
-                  meet the team
+                  the student board that runs SAIL
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="/advisors"
+                  className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
+                >
+                  our board of advisors
                 </Link>
                 .
               </p>

@@ -68,6 +68,13 @@ export type Advisor = {
    * a picture of themselves.
    */
   photo?: string;
+  /**
+   * Contact address, shown on the card as a mailto: link.
+   *
+   * Institutional addresses only — an @studentsforailiteracy.org alias or the
+   * advisor's work address. Never a personal one: this is published.
+   */
+  email?: string;
 };
 
 export type Sponsor = {

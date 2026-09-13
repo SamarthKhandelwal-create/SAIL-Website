@@ -123,14 +123,18 @@ export const site = {
   /** Nav labels stay short — the bar also carries a wordmark and an Apply
    *  button, and long labels overflow at the md breakpoint.
    *
-   *  Deliberately five items. /leadership and /sponsors are reachable from
-   *  /about and /donate respectively, and from the footer; promoting them here
-   *  makes the bar overflow and buries the two routes that actually convert. */
+   *  Deliberately four items. "Get Involved" covers both ways in: /join lists
+   *  the open roles and closes with a link to /chapters. Both pages stay live
+   *  at their own URLs — they are linked from across the site — so this is a
+   *  navigation choice, not a merge.
+   *
+   *  /leadership, /advisors, /chapters and /sponsors are all reachable from
+   *  the footer and from the pages they belong to; promoting them here makes
+   *  the bar overflow and buries the routes that actually convert. */
   nav: [
     { label: "About", href: "/about" },
     { label: "Outreach", href: "/outreach" },
-    { label: "Chapters", href: "/chapters" },
-    { label: "Join", href: "/join" },
+    { label: "Get Involved", href: "/join" },
     { label: "Support", href: "/donate" },
   ],
 } as const;

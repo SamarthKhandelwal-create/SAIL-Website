@@ -22,6 +22,8 @@ export const advisors: Advisor[] = [
     role: "Education Advisor",
     affiliation: "Librarian, Walnut Hills High School",
     photo: "/board/margo.jpeg",
+    // Her Cincinnati Public Schools work address, not a personal one.
+    email: "bellmam@cpsboe.k12.oh.us",
     bio: "A 25-year veteran teacher and National Board Certified ELA 7–12 librarian at Walnut Hills High School, where SAIL's founding chapter is based. In 2026 she was selected as one of eight educators nationally for the Pulitzer Center's Information & Artificial Intelligence Teacher Advisory Council, and led students in drafting an AI policy for their school rooted in transparency and ethical use. She advises SAIL on what actually works in a classroom — and what a district will approve.",
   },
   {
@@ -30,6 +32,7 @@ export const advisors: Advisor[] = [
     role: "Technical Advisor",
     affiliation: "GE90 Systems Leader, Service Engineering at GE Aerospace",
     photo: "/board/manish.jpeg",
+    email: "manish.khandelwal@studentsforailiteracy.org",
     bio: "A systems engineering leader at GE Aerospace, where he leads service engineering for the GE90 engine program. He advises SAIL on the technical accuracy of what we teach, and on how complex engineered systems are actually built, tested, and held accountable in industry.",
   },
 ];

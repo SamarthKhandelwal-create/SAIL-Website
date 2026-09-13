@@ -126,6 +126,14 @@ export default function AdvisorsPage() {
                         {a.bio}
                       </p>
                     )}
+                    {a.email && (
+                      <a
+                        href={`mailto:${a.email}`}
+                        className="mt-4 inline-flex break-all font-body text-body-md text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
+                      >
+                        {a.email}
+                      </a>
+                    )}
                   </div>
                 </Reveal>
               ))}
