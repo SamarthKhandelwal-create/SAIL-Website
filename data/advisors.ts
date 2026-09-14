@@ -29,7 +29,7 @@ export const advisors: Advisor[] = [
   {
     id: "manish-khandelwal",
     name: "Manish Khandelwal",
-    role: "Technical Advisor",
+    role: "President of the Board of Advisors",
     affiliation: "GE90 Systems Leader, Service Engineering at GE Aerospace",
     photo: "/board/manish.jpeg",
     email: "manish.khandelwal@studentsforailiteracy.org",
