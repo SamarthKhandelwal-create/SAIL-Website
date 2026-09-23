@@ -9,7 +9,7 @@ import FloatingApply from "@/components/FloatingApply";
 import Reveal from "@/components/Reveal";
 
 import { advisors } from "@/data/advisors";
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 
 const description =
   "The educators and industry professionals who advise Students For AI Literacy — a National Board Certified school librarian and a GE Aerospace systems engineering leader, bringing classroom and industry experience to a student-run nonprofit.";
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     title: "Board of Advisors · SAIL",
     description,
     type: "website",
+    images: ogImages,
   },
 };
 

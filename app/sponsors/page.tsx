@@ -6,7 +6,7 @@ import Sponsors from "@/components/Sponsors";
 import DonateButton from "@/components/DonateButton";
 import Footer from "@/components/Footer";
 import { sponsors } from "@/data/sponsors";
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 
 const description =
   "The foundations, grant programs, and businesses that fund Students For AI Literacy — including Google for Nonprofits, the Engineers and Scientists Foundation of Cincinnati, The Pollination Project, and the Karma for Cara Foundation.";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: "Our Sponsors",
   description,
   alternates: { canonical: "/sponsors" },
-  openGraph: { title: "Our Sponsors · SAIL", description, type: "website" },
+  openGraph: { title: "Our Sponsors · SAIL", description, type: "website", images: ogImages },
 };
 
 export default function SponsorsPage() {

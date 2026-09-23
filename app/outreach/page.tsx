@@ -9,7 +9,7 @@ import FloatingApply from "@/components/FloatingApply";
 import Reveal from "@/components/Reveal";
 
 import { events } from "@/data/events";
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 
 const description =
   "Free, hands-on AI literacy workshops taught by high school students in schools, libraries, and community programs. Read recaps of every session we have run, see what we teach, and request a workshop for your own students at no cost.";
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     title: "Outreach · SAIL",
     description,
     type: "website",
+    images: ogImages,
   },
 };
 

@@ -16,6 +16,14 @@ export const EVENTS = {
   applyStart: "apply_start",
   /** Clicked a mailto: link — workshop requests, partnerships, general contact. */
   contactEmail: "contact_email",
+  /**
+   * Submitted the /contact form and the server confirmed delivery.
+   *
+   * The strongest conversion the site has: unlike the click events around it,
+   * this fires on a completed action rather than an intent to leave, so it is
+   * the one to mark as the primary key event in GA4.
+   */
+  contactSubmit: "contact_submit",
   /** Clicked the phone number. */
   contactPhone: "contact_phone",
   /** Clicked through to the hosted donation page, once one exists. */

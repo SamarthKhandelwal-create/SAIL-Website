@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 import { chapters } from "@/data/chapters";
 import ConversionTracking from "@/components/ConversionTracking";
 
@@ -49,12 +49,14 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Students For AI Literacy",
     type: "website",
+    images: ogImages,
   },
   twitter: {
     card: "summary_large_image",
     title: "SAIL — Students For AI Literacy",
     description:
       "A non-profit created and led by students to promote AI literacy skills within youth.",
+    images: ogImages,
   },
   icons: {
     icon: "/favicon.svg",

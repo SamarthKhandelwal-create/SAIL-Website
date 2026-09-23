@@ -4,7 +4,8 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import { site } from "@/lib/site";
+import ContactForm from "@/components/ContactForm";
+import { site, ogImages } from "@/lib/site";
 
 const description =
   "Contact Students For AI Literacy — request a free AI literacy workshop for your school, library, or youth program, ask about starting a chapter, offer materials or sponsorship, or reach our student team directly by email or phone.";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description,
   alternates: { canonical: "/contact" },
-  openGraph: { title: "Contact Us · SAIL", description, type: "website" },
+  openGraph: { title: "Contact Us · SAIL", description, type: "website", images: ogImages },
 };
 
 const mailto = (subject: string) =>
@@ -51,8 +52,6 @@ const reasons = [
 ];
 
 export default function ContactPage() {
-  const hasForm = Boolean(site.contactFormUrl);
-
   return (
     <>
       <Nav />
@@ -63,45 +62,42 @@ export default function ContactPage() {
           words={["CONTACT", "US"]}
           subtitle="Request a free workshop, ask about starting a chapter, or reach our student team directly. We reply to everything within a week."
           ctas={[
-            {
-              label: "Request a workshop",
-              href: mailto("Request a SAIL workshop"),
-              external: true,
-            },
+            { label: "Send us a message", href: "#message" },
             { label: "Start a chapter", href: "/chapters" },
           ]}
         />
 
-        {/* Embedded form, when one is configured. */}
-        {hasForm && (
-          <section className="bg-surface-container-lowest px-margin-mobile py-section-gap md:px-gutter">
-            <div className="mx-auto max-w-[820px]">
-              <Reveal>
-                <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
-                  Send a message
-                </p>
-                <h2 className="mb-6 font-display text-headline-lg text-primary">
-                  Tell us what you need
-                </h2>
-                <p className="mb-10 font-body text-body-lg text-on-surface-variant">
-                  Fill this in and it reaches our student team directly. If you
-                  would rather email or call, everything below works too.
-                </p>
-                <iframe
-                  src={site.contactFormUrl}
-                  title="Contact Students For AI Literacy"
-                  loading="lazy"
-                  className="h-[900px] w-full rounded-xl border border-outline-variant/40 bg-surface"
-                />
-              </Reveal>
-            </div>
-          </section>
-        )}
+        {/* The form is the page's primary action, so it leads. It posts to
+            /api/contact on this origin rather than embedding a third-party
+            iframe: the submission is measurable as a conversion, it needs no
+            mail client, and it does not hand the visitor to another domain
+            mid-task. */}
+        <section
+          id="message"
+          className="scroll-mt-24 bg-surface-container-lowest px-margin-mobile py-section-gap md:px-gutter"
+        >
+          <div className="mx-auto max-w-[820px]">
+            <Reveal>
+              <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
+                Send a message
+              </p>
+              <h2 className="mb-6 font-display text-display-xl leading-[0.95] text-primary">
+                Tell Us What You Need
+              </h2>
+              <p className="mb-10 max-w-2xl font-body text-body-lg text-on-surface-variant">
+                This goes straight to our student team at{" "}
+                <span className="text-on-surface">{site.contact.inbox}</span>.
+                If you would rather email or call, everything below works too.
+              </p>
+            </Reveal>
+            <Reveal delay={1}>
+              <ContactForm />
+            </Reveal>
+          </div>
+        </section>
 
         {/* Direct routes */}
-        <section
-          className={`${hasForm ? "bg-surface" : "bg-surface-container-lowest"} px-margin-mobile py-section-gap md:px-gutter`}
-        >
+        <section className="bg-surface px-margin-mobile py-section-gap md:px-gutter">
           <div className="mx-auto max-w-content">
             <Reveal>
               <p className="mb-3 font-body text-label-caps font-bold uppercase tracking-[0.2em] text-secondary">
@@ -145,7 +141,7 @@ export default function ContactPage() {
 
         {/* Organization details */}
         <section
-          className={`${hasForm ? "bg-surface-container-lowest" : "bg-surface"} px-margin-mobile py-section-gap md:px-gutter`}
+          className="bg-surface-container-lowest px-margin-mobile py-section-gap md:px-gutter"
         >
           <div className="mx-auto grid max-w-content gap-stack-lg md:grid-cols-2">
             <Reveal>
@@ -154,7 +150,18 @@ export default function ContactPage() {
               </h2>
               <dl className="space-y-4 font-body text-body-md">
                 <div>
-                  <dt className="text-secondary">Email</dt>
+                  <dt className="text-secondary">General enquiries</dt>
+                  <dd>
+                    <a
+                      href={`mailto:${site.contact.inbox}`}
+                      className="text-primary underline underline-offset-4 transition-colors hover:text-surface-tint"
+                    >
+                      {site.contact.inbox}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-secondary">Founder, direct</dt>
                   <dd>
                     <a
                       href={`mailto:${site.contact.email}`}

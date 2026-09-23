@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 import SectionCTA from "@/components/SectionCTA";
 import Footer from "@/components/Footer";
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 
 const description =
   "Join Students For AI Literacy. Open roles for high school students: chapter leads, marketing team, and finance team. All positions are student-run and remote-friendly.";
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Join the Team",
   description,
   alternates: { canonical: "/join" },
-  openGraph: { title: "Join the Team · SAIL", description, type: "website" },
+  openGraph: { title: "Join the Team · SAIL", description, type: "website", images: ogImages },
 };
 
 export default function JoinPage() {

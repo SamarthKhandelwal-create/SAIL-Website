@@ -101,22 +101,29 @@ export const site = {
   donateUrl:
     "https://www.zeffy.com/en-US/donation-form/donate-to-support-students-for-ai-literacy" as string,
   /**
-   * Hosted contact / workshop-request form, embedded on /contact.
+   * The contact form is first-party now: components/ContactForm.tsx posts to
+   * app/api/contact/route.ts, which mails `contact.inbox`. It replaced an
+   * empty `contactFormUrl` that had left /contact offering nothing but
+   * `mailto:` links — which Ad Grants review treats as a weak call to action,
+   * since they need a configured mail client, cannot confirm receipt, and
+   * produce no measurable conversion.
    *
-   * Ad Grants review treats a `mailto:` as a weak call to action: it depends on
-   * the visitor having a mail client configured, it cannot confirm receipt, and
-   * it produces no measurable conversion. While this is empty, /contact renders
-   * the direct contact routes instead — which is honest, but a real form
-   * converts far better and is what review expects to find.
-   *
-   * TO TURN THE FORM ON: create a JotForm (the same account already hosts the
-   * three role applications), set its URL here, and /contact embeds it. Set a
-   * thank-you page on the form itself so submissions get a confirmation.
+   * The route needs RESEND_API_KEY set in the deployment environment; see the
+   * setup notes at the top of app/api/contact/route.ts.
    */
-  contactFormUrl: "" as string,
   contact: {
     founder: "Samarth Khandelwal",
     email: "samarth.khandelwal@studentsforailiteracy.org",
+    /**
+     * Where the /contact form delivers. A shared org address rather than a
+     * personal one: Ad Grants review looks for contact details that belong to
+     * the organization and outlive any one student, and a founder's mailbox
+     * stops being reachable the year they graduate.
+     *
+     * The API route reads CONTACT_TO from the environment and falls back to
+     * this, so the destination can be changed in Vercel without a deploy.
+     */
+    inbox: "national@studentsforailiteracy.org",
     phone: "+1 (513) 953-6153",
     phoneHref: "tel:+15139536153",
     /**
@@ -124,15 +131,27 @@ export const site = {
      * for a verifiable street address alongside the EIN — a city-only line is
      * a common rejection cause, and it is what SAIL was rejected on.
      *
-     * This is the founding chapter's school, where SAIL receives mail. If that
-     * ever stops being true, change it here: the contact page, the footer, and
-     * the Organization JSON-LD all read from this one place.
+     * THIS MUST MATCH THE ADDRESS ON SAIL'S IRS RECORD FOR EIN 42-3520807.
+     * Google verifies the organization against the IRS Business Master File,
+     * so an address here that the BMF does not carry reads as an unverifiable
+     * organization no matter how correct it looks.
+     *
+     * It previously read "3250 Victory Parkway, Cincinnati, OH 45207" — the
+     * founding chapter's school. That address is not on SAIL's IRS record, so
+     * it failed that check; worse, publishing a high school as the registered
+     * address invites Google to classify SAIL as a school, and schools are
+     * explicitly ineligible for Ad Grants.
+     *
+     * TO CHANGE IT: file IRS Form 8822-B first, wait for the BMF extract to
+     * refresh, then update here — in that order. The contact page, the
+     * sponsors page, the about page, the footer and the Organization JSON-LD
+     * all read from this one place.
      */
     address: {
-      line1: "3250 Victory Parkway",
-      city: "Cincinnati",
+      line1: "7726 Tylers Meadow Dr",
+      city: "West Chester",
       region: "OH",
-      postalCode: "45207",
+      postalCode: "45069",
       country: "US",
     },
   },
