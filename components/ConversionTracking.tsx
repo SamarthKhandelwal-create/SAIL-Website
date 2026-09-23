@@ -22,7 +22,17 @@ function classify(href: string): { event: ConversionEvent; method: string } | nu
   }
   if (href.startsWith("tel:")) return { event: EVENTS.contactPhone, method: "phone" };
   if (href.includes("jotform.com")) return { event: EVENTS.applyStart, method: "jotform" };
-  if (href.includes("every.org") || href.includes("paypal.com"))
+  /* zeffy.com is the live donation host. This list previously named only
+     every.org and paypal.com — neither of which the site has ever linked to —
+     so every donation click went uncounted. Ad Grants suspends accounts that
+     report no conversions, which made this a silent compliance failure rather
+     than just a missing metric. Keep the host list in step with
+     site.donateUrl. */
+  if (
+    href.includes("zeffy.com") ||
+    href.includes("every.org") ||
+    href.includes("paypal.com")
+  )
     return { event: EVENTS.donateStart, method: "hosted_donation" };
   return null;
 }
