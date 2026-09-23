@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 import DonateButton from "@/components/DonateButton";
 import Footer from "@/components/Footer";
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 
 const description =
   "Support Students For AI Literacy — host a free workshop, donate materials, partner with us, or sponsor a chapter. A student-run 501(c)(3) bringing AI literacy to Ohio schools.";
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Support Our Work",
   description,
   alternates: { canonical: "/donate" },
-  openGraph: { title: "Support Our Work · SAIL", description, type: "website" },
+  openGraph: { title: "Support Our Work · SAIL", description, type: "website", images: ogImages },
 };
 
 /**

@@ -12,15 +12,23 @@ import type { Sponsor } from "./types";
  * blocked on chasing a logo file.
  *
  * google.svg is Google's official full-color mark, served from their own
- * branding CDN. Use it only for factual attribution of the Workspace and Ad
- * Grants support we actually receive — never recolored, restretched, or in a
- * way that implies Google endorses SAIL.
+ * branding CDN. Use it only for factual attribution of support we actually
+ * receive — never recolored, restretched, or in a way that implies Google
+ * endorses SAIL.
+ *
+ * KEEP THE GOOGLE NOTE STRICTLY TRUE. It previously claimed "an Ad Grant that
+ * puts SAIL in front of teachers searching for AI literacy resources" while
+ * SAIL's Ad Grants application was still being rejected. A reviewer assessing
+ * that application lands on this page and reads the applicant claiming the
+ * grant it is asking for, beside Google's own trademark. Workspace for
+ * Nonprofits is real and verifiable (the domain's MX records point at Google);
+ * the Ad Grant is not, and must not be listed until it is approved.
  */
 export const sponsors: Sponsor[] = [
   {
     id: "google",
     name: "Google for Nonprofits",
-    note: "Google Workspace for our team's email and files, and an Ad Grant that puts SAIL in front of teachers searching for AI literacy resources.",
+    note: "Google Workspace for Nonprofits, which runs our team's email, shared files, and the calendars our chapters schedule workshops on.",
     logo: "/sponsors/google.svg",
     url: "https://www.google.com/nonprofits/",
   },

@@ -10,7 +10,7 @@ import FloatingApply from "@/components/FloatingApply";
 import Reveal from "@/components/Reveal";
 
 import { chapters } from "@/data/chapters";
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 
 const description =
   "Start a Students For AI Literacy chapter at your high school. Chapter-in-a-Box gives you a tested AI literacy curriculum, editable slide decks, hands-on activities, and operational guides for booking rooms and recruiting a team — free, with no prior teaching or computer science experience required.";
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     title: "Start a Chapter · SAIL",
     description,
     type: "website",
+    images: ogImages,
   },
 };
 

@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 
 const description =
   "Contact Students For AI Literacy — request a free AI literacy workshop for your school, library, or youth program, ask about starting a chapter, offer materials or sponsorship, or reach our student team directly by email or phone.";
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description,
   alternates: { canonical: "/contact" },
-  openGraph: { title: "Contact Us · SAIL", description, type: "website" },
+  openGraph: { title: "Contact Us · SAIL", description, type: "website", images: ogImages },
 };
 
 const mailto = (subject: string) =>

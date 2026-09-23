@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 
 const description =
   "How Students For AI Literacy collects, uses, and protects information on this website — the analytics we run, the cookies we set, what happens to chapter applications, and how to opt out or have your data deleted.";
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description,
   alternates: { canonical: "/privacy" },
-  openGraph: { title: "Privacy Policy · SAIL", description, type: "website" },
+  openGraph: { title: "Privacy Policy · SAIL", description, type: "website", images: ogImages },
 };
 
 /** Update when the substance of the policy changes, not on every deploy. */

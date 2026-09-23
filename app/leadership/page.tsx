@@ -9,7 +9,7 @@ import FloatingApply from "@/components/FloatingApply";
 import Reveal from "@/components/Reveal";
 
 import { board } from "@/data/board";
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 
 const description =
   "Meet the high school students who run Students For AI Literacy — the volunteer board that writes our curriculum, books our workshops, keeps our books, and teaches every session. No paid staff, no adult executive director.";
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     title: "Leadership · SAIL",
     description,
     type: "website",
+    images: ogImages,
   },
 };
 

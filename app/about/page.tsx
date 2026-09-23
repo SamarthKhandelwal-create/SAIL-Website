@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import FloatingApply from "@/components/FloatingApply";
 import Reveal from "@/components/Reveal";
 
-import { site } from "@/lib/site";
+import { site, ogImages } from "@/lib/site";
 import { stats } from "@/data/stats";
 import { chapters } from "@/data/chapters";
 
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     title: "About · SAIL",
     description,
     type: "website",
+    images: ogImages,
   },
 };
 

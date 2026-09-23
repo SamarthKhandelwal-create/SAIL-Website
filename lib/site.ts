@@ -124,15 +124,27 @@ export const site = {
      * for a verifiable street address alongside the EIN — a city-only line is
      * a common rejection cause, and it is what SAIL was rejected on.
      *
-     * This is the founding chapter's school, where SAIL receives mail. If that
-     * ever stops being true, change it here: the contact page, the footer, and
-     * the Organization JSON-LD all read from this one place.
+     * THIS MUST MATCH THE ADDRESS ON SAIL'S IRS RECORD FOR EIN 42-3520807.
+     * Google verifies the organization against the IRS Business Master File,
+     * so an address here that the BMF does not carry reads as an unverifiable
+     * organization no matter how correct it looks.
+     *
+     * It previously read "3250 Victory Parkway, Cincinnati, OH 45207" — the
+     * founding chapter's school. That address is not on SAIL's IRS record, so
+     * it failed that check; worse, publishing a high school as the registered
+     * address invites Google to classify SAIL as a school, and schools are
+     * explicitly ineligible for Ad Grants.
+     *
+     * TO CHANGE IT: file IRS Form 8822-B first, wait for the BMF extract to
+     * refresh, then update here — in that order. The contact page, the
+     * sponsors page, the about page, the footer and the Organization JSON-LD
+     * all read from this one place.
      */
     address: {
-      line1: "3250 Victory Parkway",
-      city: "Cincinnati",
+      line1: "7726 Tylers Meadow Dr",
+      city: "West Chester",
       region: "OH",
-      postalCode: "45207",
+      postalCode: "45069",
       country: "US",
     },
   },
