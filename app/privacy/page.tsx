@@ -120,13 +120,16 @@ export default function PrivacyPage() {
 
             <section>
               <h2>Advertising</h2>
+              {/* This paragraph claimed SAIL "participates in the Google Ad
+                  Grants program" while the Ad Grants application was still
+                  being rejected. It was the same false claim corrected in
+                  data/sponsors.ts, in a second place the first pass missed.
+                  Say nothing here about advertising SAIL does not run; if the
+                  grant is approved, describe it then. */}
               <p>
-                SAIL participates in the Google Ad Grants program, which
-                provides nonprofits with free search advertising. If you reached
-                this site from one of our ads, Google may record that visit so
-                we can measure whether our ads are reaching people who care
-                about AI literacy. We do not run third-party advertising on this
-                website, and we do not use affiliate links.
+                We do not run advertising on this website, we do not use
+                affiliate links, and we do not sell ad space. If that ever
+                changes, we will say so here before it does.
               </p>
             </section>
 
