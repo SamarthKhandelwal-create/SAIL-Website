@@ -12,10 +12,10 @@ import { stats } from "@/data/stats";
 import { chapters } from "@/data/chapters";
 
 const description =
-  "Students For AI Literacy (SAIL) is a student-led nonprofit teaching young people to understand, question, and responsibly use artificial intelligence. Learn about our mission, programs, and organization.";
+  "Students For AI Literacy is a student-led 501(c)(3) nonprofit teaching young people to understand, question, and responsibly use artificial intelligence.";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About — Student-Led AI Literacy Nonprofit",
   description,
   alternates: { canonical: "/about" },
   openGraph: {
@@ -173,9 +173,10 @@ export default function AboutPage() {
                 Where SAIL Operates
               </h2>
               <p className="mb-10 max-w-3xl font-body text-body-lg text-on-surface-variant">
-                We serve middle and high school students in Greater Cincinnati,
-                through chapters based in public high schools and through
-                community sessions open to any young person who turns up. Every
+                We serve middle and high school students, through chapters based
+                in high schools in Ohio, Massachusetts, and Texas and through
+                community sessions in Greater Cincinnati open to any young
+                person who turns up. Every
                 program is free, and no student, school, or family is ever
                 charged.
               </p>

@@ -8,10 +8,10 @@ import ContactForm from "@/components/ContactForm";
 import { site, ogImages } from "@/lib/site";
 
 const description =
-  "Contact Students For AI Literacy — request a free AI literacy workshop for your school, library, or youth program, ask about starting a chapter, offer materials or sponsorship, or reach our student team directly by email or phone.";
+  "Request a free AI literacy workshop for your school, library, or youth program — or ask about starting a chapter. Reach our student team by email or phone.";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact — Book a Free AI Workshop",
   description,
   alternates: { canonical: "/contact" },
   openGraph: { title: "Contact Us · SAIL", description, type: "website", images: ogImages },

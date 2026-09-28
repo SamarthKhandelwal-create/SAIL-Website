@@ -12,10 +12,10 @@ import { events } from "@/data/events";
 import { site, ogImages } from "@/lib/site";
 
 const description =
-  "Free, hands-on AI literacy workshops taught by high school students in schools, libraries, and community programs. Read recaps of every session we have run, see what we teach, and request a workshop for your own students at no cost.";
+  "Free, hands-on AI literacy workshops taught by high school students in schools, libraries, and community programs. Read session recaps and request a workshop.";
 
 export const metadata: Metadata = {
-  title: "Outreach",
+  title: "AI Literacy Workshops in Schools and Libraries",
   description,
   alternates: { canonical: "/outreach" },
   openGraph: {

@@ -7,10 +7,10 @@ import Footer from "@/components/Footer";
 import { site, ogImages } from "@/lib/site";
 
 const description =
-  "Join Students For AI Literacy. Open roles for high school students: chapter leads, marketing team, and finance team. All positions are student-run and remote-friendly.";
+  "Join Students For AI Literacy. Open roles for high school students: chapter lead, marketing, and finance. Student-run and remote-friendly.";
 
 export const metadata: Metadata = {
-  title: "Join the Team",
+  title: "Join the Team — Student Volunteer Roles",
   description,
   alternates: { canonical: "/join" },
   openGraph: { title: "Join the Team · SAIL", description, type: "website", images: ogImages },

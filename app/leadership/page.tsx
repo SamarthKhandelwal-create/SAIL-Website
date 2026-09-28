@@ -12,10 +12,10 @@ import { board } from "@/data/board";
 import { site, ogImages } from "@/lib/site";
 
 const description =
-  "Meet the high school students who run Students For AI Literacy — the volunteer board that writes our curriculum, books our workshops, keeps our books, and teaches every session. No paid staff, no adult executive director.";
+  "Meet the high school students who run Students For AI Literacy — the volunteer board that writes our curriculum, books workshops, and teaches every session.";
 
 export const metadata: Metadata = {
-  title: "Leadership",
+  title: "Leadership — Our Student Board",
   description,
   alternates: { canonical: "/leadership" },
   openGraph: {

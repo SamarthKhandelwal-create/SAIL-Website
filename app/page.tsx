@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Mission from "@/components/Mission";
+import WhatWeDo from "@/components/WhatWeDo";
 import Challenge from "@/components/Challenge";
 import Pillars from "@/components/Pillars";
 import Origin from "@/components/Origin";
@@ -13,6 +15,30 @@ import FloatingApply from "@/components/FloatingApply";
 import { stats } from "@/data/stats";
 import { sponsors } from "@/data/sponsors";
 
+/**
+ * The homepage previously inherited the root metadata, which meant its title
+ * was the bare brand name — no indication of what SAIL does, and nothing to
+ * match a query like "AI literacy program for high school students". `absolute`
+ * is required here: the root `template` appends "· SAIL", which would duplicate
+ * the brand name already in this title.
+ */
+export const metadata: Metadata = {
+  title: {
+    absolute:
+      "Students For AI Literacy — Free AI Workshops Taught by Students",
+  },
+  description:
+    "A student-led 501(c)(3) nonprofit bringing free, hands-on AI literacy workshops to schools and libraries. Start a chapter or book a workshop.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Students For AI Literacy — Free AI Workshops Taught by Students",
+    description:
+      "A student-led 501(c)(3) nonprofit bringing free, hands-on AI literacy workshops to schools, libraries, and community groups.",
+    url: "/",
+    type: "website",
+  },
+};
+
 export default function Home() {
   return (
     <>
@@ -24,9 +50,11 @@ export default function Home() {
             { label: "See our workshops", href: "/outreach" },
           ]}
         />
-        {/* Order is deliberate: what SAIL is, proof it is running, the problem
-            it addresses, what it teaches, where it came from — then the ask. */}
+        {/* Order is deliberate: what SAIL is, the programs it runs, proof it
+            is running, the problem it addresses, what it teaches, where it
+            came from — then the ask. */}
         <Mission />
+        <WhatWeDo />
         <ImpactTicker stats={stats} />
         <Challenge />
         <Pillars />

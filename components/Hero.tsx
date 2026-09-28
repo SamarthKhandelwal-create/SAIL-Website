@@ -3,7 +3,7 @@ import ShaderBackground from "./ShaderBackground";
 
 const DEFAULT_WORDS = ["STUDENTS", "FOR AI", "LITERACY"];
 const DEFAULT_SUBTITLE =
-  "AI literacy, taught by students — for students. We train high school students to lead free, hands-on AI workshops in schools, libraries, and community organizations.";
+  "A student-led nonprofit that teaches young people how AI works, when it is wrong, and how to use it responsibly — through free workshops in schools, libraries, and youth programs.";
 
 export type HeroCta = {
   label: string;

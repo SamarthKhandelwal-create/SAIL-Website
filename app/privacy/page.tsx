@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { site, ogImages } from "@/lib/site";
 
 const description =
-  "How Students For AI Literacy collects, uses, and protects information on this website — the analytics we run, the cookies we set, what happens to chapter applications, and how to opt out or have your data deleted.";
+  "How Students For AI Literacy collects, uses, and protects information on this website — analytics, cookies, chapter applications, and how to opt out.";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",

@@ -21,7 +21,7 @@ const isSvg = (path: string) => path.toLowerCase().endsWith(".svg");
  * A wide wordmark fills the plate edge to edge and reads as louder than the
  * squarer marks beside it. Capping its height evens them out by eye.
  */
-const WIDE_MARKS = new Set(["google"]);
+const WIDE_MARKS = new Set(["google", "contribution-project", "voa-museum"]);
 
 function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
   const fit = WIDE_MARKS.has(sponsor.id)

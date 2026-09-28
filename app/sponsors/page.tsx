@@ -9,10 +9,10 @@ import { sponsors } from "@/data/sponsors";
 import { site, ogImages } from "@/lib/site";
 
 const description =
-  "The foundations, grant programs, and businesses that fund Students For AI Literacy — including Google for Nonprofits, the Engineers and Scientists Foundation of Cincinnati, The Pollination Project, and the Karma for Cara Foundation.";
+  "The foundations, grant programs, and businesses funding Students For AI Literacy — including Google for Nonprofits and The Pollination Project.";
 
 export const metadata: Metadata = {
-  title: "Our Sponsors",
+  title: "Our Sponsors and Funders",
   description,
   alternates: { canonical: "/sponsors" },
   openGraph: { title: "Our Sponsors · SAIL", description, type: "website", images: ogImages },

@@ -13,10 +13,10 @@ import { chapters } from "@/data/chapters";
 import { site, ogImages } from "@/lib/site";
 
 const description =
-  "Start a Students For AI Literacy chapter at your high school. Chapter-in-a-Box gives you a tested AI literacy curriculum, editable slide decks, hands-on activities, and operational guides for booking rooms and recruiting a team — free, with no prior teaching or computer science experience required.";
+  "Start a SAIL chapter at your high school. Chapter-in-a-Box gives you a tested AI literacy curriculum, slide decks, and setup guides — free, no experience needed.";
 
 export const metadata: Metadata = {
-  title: "Start a Chapter",
+  title: "Start an AI Literacy Chapter at Your School",
   description,
   alternates: { canonical: "/chapters" },
   openGraph: {

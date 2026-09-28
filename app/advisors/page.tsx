@@ -12,7 +12,7 @@ import { advisors } from "@/data/advisors";
 import { site, ogImages } from "@/lib/site";
 
 const description =
-  "The educators and industry professionals who advise Students For AI Literacy — a National Board Certified school librarian and a GE Aerospace systems engineering leader, bringing classroom and industry experience to a student-run nonprofit.";
+  "The educators and industry professionals who advise Students For AI Literacy, bringing classroom and engineering experience to a student-run nonprofit.";
 
 export const metadata: Metadata = {
   title: "Board of Advisors",
@@ -99,7 +99,7 @@ export default function AdvisorsPage() {
                       {a.photo ? (
                         <Image
                           src={a.photo}
-                          alt=""
+                          alt={`${a.name}, SAIL board advisor`}
                           width={72}
                           height={72}
                           className="h-[72px] w-[72px] shrink-0 rounded-full object-cover"

@@ -30,8 +30,9 @@ export default function Mission() {
               detail about what the organization does. */}
           <p className="mb-4 font-body text-body-lg text-on-surface">
             We train high school students to run free, hands-on AI literacy
-            workshops in classrooms, libraries, and youth programs across
-            Greater Cincinnati. Sessions cover how AI systems actually work,
+            workshops in classrooms, libraries, and youth programs, starting
+            in Cincinnati and now through student chapters in Ohio,
+            Massachusetts, and Texas. Sessions cover how AI systems actually work,
             where they fail, how bias enters them, and how to use them honestly
             in schoolwork — taught through activities rather than lectures.
           </p>

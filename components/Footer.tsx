@@ -28,8 +28,9 @@ export default function Footer() {
           <div className="md:col-span-5">
             <p className="font-display text-headline-lg text-primary">SAIL</p>
             <p className="mt-4 max-w-sm font-body text-body-md text-secondary">
-              A non-profit created and led by students to promote AI literacy
-              skills within youth.
+              A student-led nonprofit running free workshops that teach middle
+              and high school students how AI works and how to use it
+              responsibly.
             </p>
             <p className="mt-4 font-body text-body-md text-on-surface-variant">
               Founded in Cincinnati, Ohio. Every workshop we teach is free.

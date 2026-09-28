@@ -8,10 +8,10 @@ import Footer from "@/components/Footer";
 import { site, ogImages } from "@/lib/site";
 
 const description =
-  "Support Students For AI Literacy — host a free workshop, donate materials, partner with us, or sponsor a chapter. A student-run 501(c)(3) bringing AI literacy to Ohio schools.";
+  "Support Students For AI Literacy — host a workshop, donate materials, or sponsor a chapter. A student-run 501(c)(3) bringing AI literacy to schools.";
 
 export const metadata: Metadata = {
-  title: "Support Our Work",
+  title: "Donate — Support Free AI Literacy Workshops",
   description,
   alternates: { canonical: "/donate" },
   openGraph: { title: "Support Our Work · SAIL", description, type: "website", images: ogImages },

@@ -6,7 +6,7 @@ import type { Sponsor } from "./types";
  * TO ADD A SPONSOR: append an entry here — every page that renders <Sponsors />
  * picks it up with no other change.
  *
- * Logos live in /public/sponsors as <id>.png or <id>.svg. `logo` is
+ * Logos live in /public/sponsors as <id>.png, <id>.jpg or <id>.svg. `logo` is
  * deliberately optional: a sponsor with no artwork yet renders as a
  * typographic wordmark card instead of a broken image, so the section is never
  * blocked on chasing a logo file.
@@ -56,12 +56,14 @@ export const sponsors: Sponsor[] = [
     id: "contribution-project",
     name: "The Contribution Project",
     note: "The seed grant SAIL started on — our first classroom session was funded here.",
+    logo: "/sponsors/contribution-project.png",
     url: "https://contributionproject.org/",
   },
   {
     id: "voa-museum",
     name: "National Voice of America Museum of Broadcasting",
     note: "A grant toward our workshop materials, and a permanent display introducing SAIL to the museum's visitors.",
+    logo: "/sponsors/voa-museum.jpg",
     url: "https://www.voamuseum.org/",
   },
   {

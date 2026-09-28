@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s · SAIL",
   },
   description:
-    "Students For AI Literacy (SAIL) is a non-profit created and led by students to promote AI literacy skills within youth. Empowering youth in AI.",
+    "Students For AI Literacy (SAIL) is a student-led 501(c)(3) nonprofit that runs free, hands-on workshops teaching middle and high school students how AI works, when it is wrong, and how to use it responsibly.",
   keywords: [
     "AI literacy",
     "Students For AI Literacy",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SAIL — Students For AI Literacy",
     description:
-      "A non-profit created and led by students to promote AI literacy skills within youth.",
+      "A student-led 501(c)(3) nonprofit running free workshops that teach middle and high school students how AI works and how to use it responsibly.",
     url: siteUrl,
     siteName: "Students For AI Literacy",
     type: "website",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SAIL — Students For AI Literacy",
     description:
-      "A non-profit created and led by students to promote AI literacy skills within youth.",
+      "A student-led 501(c)(3) nonprofit running free workshops that teach middle and high school students how AI works and how to use it responsibly.",
     images: ogImages,
   },
   icons: {
@@ -122,6 +122,25 @@ const organizationSchema = {
   },
 };
 
+/**
+ * WebSite schema, paired with the Organization block above. Organization
+ * describes the nonprofit; this describes the site itself, which is what
+ * Google reads to associate the domain with the "Students For AI Literacy"
+ * entity and to render a site name rather than a bare domain in results.
+ *
+ * Deliberately no `potentialAction`/SearchAction — the site has no search
+ * endpoint, and declaring one that 404s is worse than declaring none.
+ */
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.name,
+  alternateName: site.short,
+  url: site.url,
+  publisher: { "@type": "NGO", name: site.name, url: site.url },
+  inLanguage: "en-US",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -138,6 +157,11 @@ export default function RootLayout({
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger -- static, server-built object
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger -- static, server-built object
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body className="font-body antialiased">

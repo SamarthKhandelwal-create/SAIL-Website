@@ -13,6 +13,8 @@ const isSvg = (path: string) => path.toLowerCase().endsWith(".svg");
  */
 const HEIGHTS: Record<string, string> = {
   google: "h-7 sm:h-8",
+  "contribution-project": "h-8 sm:h-9",
+  "voa-museum": "h-10 sm:h-11",
   "pollination-project": "h-10 sm:h-12",
   "texas-roadhouse": "h-10 sm:h-12",
 };
