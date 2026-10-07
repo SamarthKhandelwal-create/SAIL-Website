@@ -27,7 +27,6 @@ export const events: OutreachEvent[] = [
     location: "Sycamore High School · Cincinnati, OH",
     summary:
       "Our fall term opens at Sycamore High School with a hands-on session on how AI works, where it fails, and how to use it honestly in schoolwork.",
-    cover: "/outreach/img-8493.jpg",
     calendarOnly: true,
     article: [],
     photos: [],
@@ -124,7 +123,6 @@ export const events: OutreachEvent[] = [
     location: "Boys & Girls Club Summer Camp · Cincinnati, OH",
     summary:
       "Students explored how AI really works — then put it to the test with a hands-on session and take-home smart notebooks.",
-    cover: "/outreach/img-8493.jpg",
     article: [
       "For our second summer session, SAIL volunteers returned to lead a full afternoon of hands-on AI literacy. Under the SAIL banner on the big screen, students dug into how everyday AI tools actually make decisions — and why understanding those tools matters more than ever.",
       "We opened the way we usually do: with a game. Students played a drawing game where a neural network tries to guess their doodles in real time. It gets a bicycle right immediately, then insists a perfectly good drawing of a cat is a lion. That gap — confident and wrong — is the whole lesson, and students find it themselves before anyone defines a single term.",
@@ -133,24 +131,10 @@ export const events: OutreachEvent[] = [
       "We spent the last stretch on judgment rather than mechanics — where AI helps with schoolwork and where it crosses into doing the work for you, why a model can sound authoritative about something it has invented, and what it means that these systems are trained on text written by people with their own blind spots.",
       "Every participant went home with a reusable smart notebook to keep experimenting on their own. We closed the day with a group photo — a room full of young people who now think a little more critically about the technology shaping their world.",
     ],
-    photos: [
-      {
-        src: "/outreach/img-8493.jpg",
-        alt: "Students gathered in front of a screen displaying the SAIL logo at the Boys & Girls Club",
-      },
-      {
-        src: "/outreach/img-8479.jpg",
-        alt: "A SAIL student lead presenting from a podium beside a screen during the workshop",
-      },
-      {
-        src: "/outreach/img-8490.jpg",
-        alt: "Participants smiling together beneath the SAIL Students For AI Literacy screen",
-      },
-      {
-        src: "/outreach/img-8496.jpg",
-        alt: "A young participant holding the reusable smart notebook she received at the session",
-      },
-    ],
+    /* No photos: the Boys & Girls Club of West Chester/Liberty asked us to take
+       down every image from its sessions, because some members are in foster
+       care. Do not add photos from this host back. */
+    photos: [],
   },
   {
     id: "summer-ai-literacy-session",
@@ -159,7 +143,6 @@ export const events: OutreachEvent[] = [
     location: "Boys & Girls Club Summer Camp · Cincinnati, OH",
     summary:
       "An interactive workshop where students learned to question, understand, and responsibly use the AI tools they meet every day.",
-    cover: "/outreach/img-8340.jpg",
     article: [
       "SAIL kicked off its summer programming with an interactive workshop for local students. Rather than a lecture, the session was built around discussion and note-taking — students sketched out what they already believed about AI, then tested those ideas against how the technology actually behaves.",
       "We started by asking the room what artificial intelligence is. The answers ranged from robots to ChatGPT to a general sense of something watching. All of those are reasonable starting points, and none of them are quite it, so we worked from there toward something more useful: systems that recognize patterns, make predictions, and generate content — tasks that used to require a person.",
@@ -168,24 +151,10 @@ export const events: OutreachEvent[] = [
       "We closed on the part that matters most: what to do when you cannot tell whether an answer is right. Check it against a source you trust. Notice when a tool is confident about something it has no way to know. Treat the output as a draft rather than an answer.",
       "The afternoon wrapped with a group photo and a lot of new questions — exactly the goal. AI literacy isn't about memorizing answers; it's about learning to ask better questions of the tools around us.",
     ],
-    photos: [
-      {
-        src: "/outreach/img-8340.jpg",
-        alt: "Group photo of students at the summer AI literacy session",
-      },
-      {
-        src: "/outreach/img-8330.jpg",
-        alt: "A SAIL volunteer leading a discussion with students seated in a semicircle",
-      },
-      {
-        src: "/outreach/img-8335.jpg",
-        alt: "Students taking notes on clipboards, one raising a hand to answer",
-      },
-      {
-        src: "/outreach/img-8339.jpg",
-        alt: "Participants gathered together at the end of the workshop",
-      },
-    ],
+    /* No photos: the Boys & Girls Club of West Chester/Liberty asked us to take
+       down every image from its sessions, because some members are in foster
+       care. Do not add photos from this host back. */
+    photos: [],
   },
   {
     id: "teen-center-first-session",
@@ -194,7 +163,6 @@ export const events: OutreachEvent[] = [
     location: "Boys & Girls Club Summer Camp · Cincinnati, OH",
     summary:
       "Our first community session — small-group conversations that met students where they are and made AI approachable.",
-    cover: "/outreach/img-7552.jpg",
     article: [
       "SAIL's outreach began with a simple idea: meet students where they already gather. At the Boys & Girls Club, our volunteers set up around the tables and started a conversation about artificial intelligence — no jargon, no pressure, just questions.",
       "This was our first session, and we had planned it as a presentation. That lasted about five minutes. The students had more to say than we expected, so we abandoned the slides and moved to the tables, and the session became a set of small-group conversations instead. Nearly every workshop we have run since is built that way, because of what happened in that room.",
@@ -202,15 +170,9 @@ export const events: OutreachEvent[] = [
       "The relaxed setting made it easy to ask the honest questions that a formal classroom sometimes discourages — including the ones students are reluctant to raise in front of a teacher who might be grading them on it. Being high school students ourselves is most of why those questions got asked at all.",
       "That first afternoon set the tone for everything since — approachable, student-led, and rooted in real conversation. It is also where our curriculum started: nearly every activity we now use came out of noticing what actually held a room's attention here, and what did not.",
     ],
-    photos: [
-      {
-        src: "/outreach/img-7552.jpg",
-        alt: "SAIL volunteers leading a discussion around tables at the Boys & Girls Club",
-      },
-      {
-        src: "/outreach/img-7553.jpg",
-        alt: "Students working through an activity in small groups at the Boys & Girls Club",
-      },
-    ],
+    /* No photos: the Boys & Girls Club of West Chester/Liberty asked us to take
+       down every image from its sessions, because some members are in foster
+       care. Do not add photos from this host back. */
+    photos: [],
   },
 ];

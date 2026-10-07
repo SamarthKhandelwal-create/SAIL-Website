@@ -5,7 +5,8 @@ import { notFound } from "next/navigation";
 import { events } from "@/data/events";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { site } from "@/lib/site";
+import EventCover from "@/components/EventCover";
+import { site, ogImages } from "@/lib/site";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -42,7 +43,7 @@ export async function generateMetadata({
     openGraph: {
       title: event.title,
       description,
-      images: [event.cover],
+      images: event.cover ? [event.cover] : ogImages,
       type: "article",
     },
   };
@@ -68,7 +69,7 @@ export default async function EventArticle({
     headline: event.title,
     description: event.summary,
     datePublished: event.date,
-    image: `${site.url}${event.cover}`,
+    image: `${site.url}${event.cover ?? "/opengraph-image"}`,
     articleBody: event.article.join("\n\n"),
     contentLocation: { "@type": "Place", name: event.location },
     author: { "@type": "NGO", name: site.name, url: site.url },
@@ -120,16 +121,14 @@ export default async function EventArticle({
             into the fixed nav. The hero now grows to fit its own text, and the
             pt-32 below reserves the nav's band so a title can never reach it. */}
         <header className="relative flex min-h-[62vh] w-full flex-col justify-end overflow-hidden pt-32 md:min-h-[58vh]">
-          <Image
+          <EventCover
             src={event.cover}
             /* Not decorative: this is the article's main image, and an empty
                alt kept it out of image search entirely. The title already
                names the session and venue, which is what a caption would say. */
             alt={event.title}
-            fill
             priority
             sizes="100vw"
-            className="object-cover"
           />
           {/* Two overlays, not one. The bottom-up gradient makes the title
               legible; on its own it faded to near-nothing at the top of the
@@ -212,10 +211,9 @@ export default async function EventArticle({
                     className="group flex flex-col overflow-hidden rounded-xl border border-outline/15 bg-surface-container-lowest transition-colors duration-500 hover:border-primary/40"
                   >
                     <div className="relative aspect-[4/3] w-full overflow-hidden">
-                      <Image
+                      <EventCover
                         src={e.cover}
                         alt={e.title}
-                        fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />

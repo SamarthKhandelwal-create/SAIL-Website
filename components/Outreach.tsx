@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import EventCover from "./EventCover";
 import type { OutreachEvent } from "@/data/types";
 import EventCalendar from "./EventCalendar";
 import Reveal from "./Reveal";
@@ -97,10 +98,9 @@ export default function Outreach({
                 className="group flex h-full flex-col overflow-hidden rounded-xl border border-outline/15 bg-surface-container-lowest transition-colors duration-500 hover:border-primary/40"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  <Image
+                  <EventCover
                     src={e.cover}
                     alt={e.title}
-                    fill
                     quality={68}
                     sizes="(max-width: 768px) 92vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"

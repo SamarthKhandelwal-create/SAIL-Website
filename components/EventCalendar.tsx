@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import EventCover from "./EventCover";
 import type { OutreachEvent } from "@/data/types";
 
 const WEEKDAYS = ["S", "M", "T", "W", "T", "F", "S"];
@@ -194,13 +194,12 @@ export default function EventCalendar({ events }: { events: OutreachEvent[] }) {
             const row = (
               <>
                 <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md">
-                  <Image
+                  <EventCover
                     src={e.cover}
                     alt=""
-                    fill
                     quality={60}
                     sizes="56px"
-                    className="object-cover"
+                    small
                   />
                 </span>
                 <span className="min-w-0">

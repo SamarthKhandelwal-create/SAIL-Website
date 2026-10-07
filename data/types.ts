@@ -120,8 +120,12 @@ export type OutreachEvent = {
   location: string;
   /** One-sentence teaser shown on the home-page card. */
   summary: string;
-  /** Card / hero image path under /public. */
-  cover: string;
+  /**
+   * Card / hero image path under /public. Omit when the host has not cleared
+   * photos for publication (e.g. sessions with youth in foster care) — the
+   * site then shows a plain branded panel. Never borrow another event's photo.
+   */
+  cover?: string;
   /** Full write-up: each string is a paragraph. Empty for a calendar-only entry. */
   article: string[];
   /** Photo gallery for the article + home page. */
