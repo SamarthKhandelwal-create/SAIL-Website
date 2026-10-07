@@ -33,10 +33,25 @@ export const EVENTS = {
 export type ConversionEvent = (typeof EVENTS)[keyof typeof EVENTS];
 
 type Gtag = (
-  command: "event",
-  eventName: string,
+  command: "event" | "config",
+  target: string,
   params?: Record<string, unknown>
 ) => void;
+
+/**
+ * Google Ads tag for the Ad Grants account (customer 665-272-0688).
+ *
+ * GA4 imports already bring contact_email and donate_start into Ads. These two
+ * are the site's main conversions, so they are also reported to Ads directly
+ * with their own conversion actions, and keep counting even if the GA4 import
+ * or key-event setup changes.
+ */
+const GOOGLE_ADS_ID = "AW-18483727833";
+const ADS_CONVERSIONS: Partial<Record<string, string>> = {
+  apply_start: "AW-18483727833/-_-BCNC08ZMdENmb3e1E",
+  contact_submit: "AW-18483727833/3V6ICNO08ZMdENmb3e1E",
+};
+let adsConfigured = false;
 
 declare global {
   interface Window {
@@ -51,4 +66,14 @@ declare global {
 export function track(event: ConversionEvent, params?: Record<string, unknown>) {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
   window.gtag("event", event, params);
+
+  const sendTo = ADS_CONVERSIONS[event];
+  if (!sendTo) return;
+  if (!adsConfigured) {
+    // Configured on first use rather than in the layout: gtag queues commands
+    // in order, so this always runs before the conversion below.
+    window.gtag("config", GOOGLE_ADS_ID);
+    adsConfigured = true;
+  }
+  window.gtag("event", "conversion", { send_to: sendTo });
 }
