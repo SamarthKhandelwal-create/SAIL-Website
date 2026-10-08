@@ -45,14 +45,17 @@ type Gtag = (
  * are the site's main conversions, so they are also reported to Ads directly
  * with their own conversion actions, and keep counting even if the GA4 import
  * or key-event setup changes.
+ *
+ * The tag itself is configured on every page in app/layout.tsx. It used to be
+ * configured here, on the first conversion, which meant Google Ads never saw
+ * the tag on an ordinary page view, could not verify it, and marked every
+ * campaign "Conversion tracking setup is incomplete" (limited serving).
  */
-const GOOGLE_ADS_ID = "AW-18483727833";
+export const GOOGLE_ADS_ID = "AW-18483727833";
 const ADS_CONVERSIONS: Partial<Record<string, string>> = {
   apply_start: "AW-18483727833/-_-BCNC08ZMdENmb3e1E",
   contact_submit: "AW-18483727833/3V6ICNO08ZMdENmb3e1E",
 };
-let adsConfigured = false;
-
 declare global {
   interface Window {
     gtag?: Gtag;
@@ -69,11 +72,5 @@ export function track(event: ConversionEvent, params?: Record<string, unknown>) 
 
   const sendTo = ADS_CONVERSIONS[event];
   if (!sendTo) return;
-  if (!adsConfigured) {
-    // Configured on first use rather than in the layout: gtag queues commands
-    // in order, so this always runs before the conversion below.
-    window.gtag("config", GOOGLE_ADS_ID);
-    adsConfigured = true;
-  }
   window.gtag("event", "conversion", { send_to: sendTo });
 }
