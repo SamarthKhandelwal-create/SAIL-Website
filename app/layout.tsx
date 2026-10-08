@@ -5,6 +5,7 @@ import "./globals.css";
 import { site, ogImages } from "@/lib/site";
 import { chapters } from "@/data/chapters";
 import ConversionTracking from "@/components/ConversionTracking";
+import { GOOGLE_ADS_ID } from "@/lib/analytics";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -177,7 +178,9 @@ export default function RootLayout({
         {children}
         <ConversionTracking />
 
-        {/* Google tag (gtag.js) — Ad Grants conversion tracking. */}
+        {/* Google tag (gtag.js) — Ad Grants conversion tracking. Configures both
+            GA4 and the Google Ads tag on every page, so Google Ads can verify
+            the tag is installed and attribute conversions to ad clicks. */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${site.gaMeasurementId}`}
           strategy="afterInteractive"
@@ -186,7 +189,8 @@ export default function RootLayout({
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${site.gaMeasurementId}');`}
+gtag('config', '${site.gaMeasurementId}');
+gtag('config', '${GOOGLE_ADS_ID}');`}
         </Script>
       </body>
     </html>
